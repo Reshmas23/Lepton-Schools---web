@@ -9,6 +9,7 @@ import 'package:vidyaveechi_website/view/users/admin/screens/students/student_de
 import 'package:vidyaveechi_website/view/utils/firebase/firebase.dart';
 import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
 import 'package:vidyaveechi_website/view/widgets/loading_widget/loading_widget.dart';
+import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
 
 class AllTeachersAttendance extends StatelessWidget {
@@ -20,24 +21,27 @@ class AllTeachersAttendance extends StatelessWidget {
     return Obx(() => teacherController.teacherAttendeceOnTap.value == true
         ? TeacherAttendenceHistoryInfo()
         : SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
+            scrollDirection: ResponsiveWebSite.isMobile(context)
+                ? Axis.horizontal
+                : Axis.vertical,
             child: Container(
               color: screenContainerbackgroundColor,
-              height: 1000,
-              width: 1200,
+              height: 650,
+              width:
+                  ResponsiveWebSite.isDesktop(context) ? double.infinity : 1200,
               child: Padding(
-                padding: const EdgeInsets.only(top: 10, right: 20, left: 20),
+                padding: const EdgeInsets.only(top: 10, right: 15, left: 15),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                     const SizedBox(
+                    const SizedBox(
                       height: 60,
                       width: double.infinity,
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           TextFontWidget(
-                            text: 'All Teacher Attendence History List  📃',
+                            text: 'All Teachers Attendence History List  📃',
                             fontsize: 18,
                             fontWeight: FontWeight.bold,
                           ),
