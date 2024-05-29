@@ -160,14 +160,6 @@ class AllTeacherRegistrationList extends StatelessWidget {
                                   .collection('Teachers')
                                   .snapshots(),
                               builder: (context, snaPS) {
-                                 if (!snaPS.hasData || snaPS.data!.docs.isEmpty) {
-                                      return const Center(
-                                          child: Text(
-                                        'Add Teachers',
-                                        style: TextStyle(
-                                            fontSize: 15, fontWeight: FontWeight.w500),
-                                      ));
-                                    }
                                 if (snaPS.hasData) {
                                   return ListView.separated(
                                       itemBuilder: (context, index) {
@@ -228,10 +220,6 @@ class AllTeacherRegistrationList extends StatelessWidget {
                                   title: 'Create Teacher'),
                             ),
                           ),
-                             const Padding(
-                               padding: EdgeInsets.only(left: 10),
-                               child: TextFontWidget(text: "Excel formate should be in .xlsx,.csv", fontsize: 11),
-                             ),
                           const Spacer(),
                           Padding(
                             padding: const EdgeInsets.only(left: 10, right: 20),

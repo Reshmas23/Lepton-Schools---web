@@ -54,7 +54,7 @@ projectGmailSender(
 </head>
 
 <body>
-    <h1>Congratulations on successfully creating your account with Lepton School at Lepton School Tuition Center!</h1>
+    <h1>Congratulations on successfully creating your account with EXCELKAROOR at ExcelKaroor Tuition Center!</h1>
 
     <p>Here are your account details:</p>
 
@@ -65,7 +65,7 @@ projectGmailSender(
 
     <p>Thank you for joining us! If you have any questions or need assistance, feel free to reach out.</p>
 
-    <p class="signature">Best regards,<br>[Your Name]<br>Lepton School - Lepton School Tuition Center</p>
+    <p class="signature">Best regards,<br>[Your Name]<br>EXCELKAROOR - ExcelKaroor Tuition Center</p>
 </body>
 
 </html>

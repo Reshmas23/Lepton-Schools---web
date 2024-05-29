@@ -140,8 +140,7 @@ class TimeTableMainScreen extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           child: Container(
             color: screenContainerbackgroundColor,
-            height:// ResponsiveWebSite.isMobile(context) ? 890 :
-            650,
+            height: ResponsiveWebSite.isMobile(context) ? 890 : 820,
             width: 1200,
             padding: const EdgeInsets.only(top: 8),
             child: Column(
@@ -204,8 +203,7 @@ class TimeTableMainScreen extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
                       color: cWhite,
-                      height: //ResponsiveWebSite.isMobile(context) ? 750 :
-                       540,
+                      height: ResponsiveWebSite.isMobile(context) ? 750 : 680,
                       width: double.infinity,
                       child: StreamBuilder(
                           stream: server

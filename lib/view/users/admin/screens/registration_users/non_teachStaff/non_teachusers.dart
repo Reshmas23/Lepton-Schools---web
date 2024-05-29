@@ -159,14 +159,6 @@ class AllNonTeachStaffListContainer extends StatelessWidget {
                                   .collection('Staffs')
                                   .snapshots(),
                               builder: (context, snaPS) {
-                                 if (!snaPS.hasData || snaPS.data!.docs.isEmpty) {
-                                      return const Center(
-                                          child: Text(
-                                        'Add Non Teaching Staff ',
-                                        style: TextStyle(
-                                            fontSize: 15, fontWeight: FontWeight.w500),
-                                      ));
-                                    }
                                 if (snaPS.hasData) {
                                   return ListView.separated(
                                       itemBuilder: (context, index) {
@@ -214,7 +206,7 @@ class AllNonTeachStaffListContainer extends StatelessWidget {
                                     title: 'Upload Excel 📃'),
                               ),
                             ),
-                          ),   const TextFontWidget(text: "Excel formate should be in .xlsx,.csv", fontsize: 11),
+                          ),
                           // GestureDetector(
                           //   onTap: () {
                           //     createTeacherFunction(context,'Staff');

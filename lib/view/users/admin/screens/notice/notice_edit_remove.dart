@@ -29,7 +29,7 @@ class NoticeEditRemove extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       child: Container(
         color: screenContainerbackgroundColor,
-        height: 650,
+        height: 800,
         width: 1200,
         padding: const EdgeInsets.only(left: 25, right: 25, top: 20),
         child: Column(

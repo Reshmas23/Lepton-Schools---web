@@ -37,7 +37,7 @@ class AllStudentListContainer extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     child: Container(
                       color: screenContainerbackgroundColor,
-                      height: 650,
+                      height: 1000,
                       width: 1200,
                       child: Padding(
                         padding:
@@ -52,7 +52,7 @@ class AllStudentListContainer extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   const TextFontWidget(
-                                    text: 'All Students List',
+                                    text: 'All Student List',
                                     fontsize: 18,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -306,27 +306,8 @@ class AllStudentListContainer extends StatelessWidget {
                                               .orderBy('admissionNumber')
                                               .snapshots(),
                                       builder: (context, snaPS) {
-                                    //      if (!snaPS.hasData || snaPS.data!.docs.isEmpty) {
-                                    //   return const Center(
-                                    //       child: Text(
-                                    //     'No Sudents Created',
-                                    //     style: TextStyle(
-                                    //         fontSize: 15, fontWeight: FontWeight.w500),
-                                    //   ));
-                                    // }
                                         if (snaPS.hasData) {
-                                          return snaPS.data!.docs.isEmpty
-                                            ? const Center(
-                                              child: Padding(
-                                                padding: EdgeInsets.all(8.0),
-                                                child: Text(
-                                                  "Please create Students",
-                                                  style: TextStyle(fontWeight: FontWeight.w400),
-                                                ),
-                                              ),
-                                            )
-                                            : 
-                                          ListView.separated(
+                                          return ListView.separated(
                                               itemBuilder: (context, index) {
                                                 final data =
                                                     StudentModel.fromMap(snaPS

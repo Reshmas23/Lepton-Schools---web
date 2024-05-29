@@ -24,7 +24,7 @@ class AllEventsList extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       child: Container(
         color: screenContainerbackgroundColor,
-        height: 650,
+        height: 1000,
         width: 1200,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

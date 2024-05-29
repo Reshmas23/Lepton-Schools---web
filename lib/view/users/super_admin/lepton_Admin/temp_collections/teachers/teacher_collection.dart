@@ -5,7 +5,6 @@ import 'package:vidyaveechi_website/view/users/super_admin/widgets/buttonContain
 
 import '../../../controllers/temp_Collection_controller/temp_teacher_controller/temp_teacher_controller.dart';
 
-// ignore: must_be_immutable
 class TeacherTempCollection extends StatelessWidget {
   TempTeacherController tempTeacherController =
       Get.put(TempTeacherController());

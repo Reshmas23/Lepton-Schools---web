@@ -9,9 +9,9 @@ import '../../controllers/school_approve_controller/school_approve_controller.da
 import '../../widgets/buttonContainer.dart';
 
 class RequestedSchoolsListScreen extends StatelessWidget {
- final AddNewSchoolController addNewSchoolController =
+  AddNewSchoolController addNewSchoolController =
       Get.put(AddNewSchoolController());
- final SchoolApproveController schoolApproveController =
+  SchoolApproveController schoolApproveController =
       Get.put(SchoolApproveController());
         static const String route = '/requestedSchools';
 

@@ -195,6 +195,12 @@ class ExcelFileController extends GetxController {
               .doc(UserCredentialsController.schoolId)
               .collection('AllStudents')
               .doc(authvalue.user?.uid)
+              .set(excelStudentList[i].toMap());
+          await server
+              .collection('SchoolListCollection')
+              .doc(UserCredentialsController.schoolId)
+              .collection('CurrentStudentAttendance')
+              .doc(authvalue.user?.uid)
               .set(excelStudentList[i].toMap())
               .then((value) async {
             await server
@@ -240,6 +246,7 @@ class ExcelFileController extends GetxController {
                     .collection('AllParents')
                     .doc(parentAuthvalue.user!.uid)
                     .set(parentDetail.toMap());
+
                 await server
                     .collection('SchoolListCollection')
                     .doc(UserCredentialsController.schoolId)
@@ -288,28 +295,30 @@ class ExcelFileController extends GetxController {
                   firstRow[3]?.value != null) {
                 //creating objects and upload to firebase
                 final StudentModel studentModel = StudentModel(
-                    
-                    nameofClass: '',
-                    admissionNumber: firstRow[0]?.value.toString() ?? '',
-                    alPhoneNumber: '',
-                    bloodgroup: '',
-                    classId: Get.find<ClassController>().ontapClassDocID.value,
-                    createDate: '',
-                    dateofBirth: '',
-                    district: '',
-                    docid: '',
-                    gender: firstRow[2]?.value.toString() ?? '',
-                    guardianId: '',
-                    houseName: '',
-                    parentId: '',
-                    parentPhoneNumber: firstRow[3]?.value.toString() ?? '',
-                    place: '',
-                    profileImageId: '',
-                    profileImageUrl: '',
-                    studentName: firstRow[1]?.value.toString() ?? '',
-                    password: '',
-                    studentemail: '',
-                    userRole: 'student',);
+                  cardID: '',
+                  cardTaken: false,
+                  nameofClass: '',
+                  admissionNumber: firstRow[0]?.value.toString() ?? '',
+                  alPhoneNumber: '',
+                  bloodgroup: '',
+                  classId: Get.find<ClassController>().ontapClassDocID.value,
+                  createDate: '',
+                  dateofBirth: '',
+                  district: '',
+                  docid: '',
+                  gender: firstRow[2]?.value.toString() ?? '',
+                  guardianId: '',
+                  houseName: '',
+                  parentId: '',
+                  parentPhoneNumber: firstRow[3]?.value.toString() ?? '',
+                  place: '',
+                  profileImageId: '',
+                  profileImageUrl: '',
+                  studentName: firstRow[1]?.value.toString() ?? '',
+                  password: '',
+                  studentemail: '',
+                  userRole: 'student',
+                );
                 excelStudentList.add(studentModel);
               }
             }

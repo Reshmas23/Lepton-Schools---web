@@ -8,7 +8,7 @@ class FooterSectionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(color: Color.fromARGB(255, 115, 5, 117)),
+      decoration: BoxDecoration(color: Colors.lightBlue[700]),
       height: ResponsiveWebSite.isMobile(context)
           ? 920
           : ResponsiveWebSite.isTablet(context)
@@ -35,7 +35,7 @@ class FooterSectionScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         LegalWidget(),
-                   //     AddressWidget(),
+                        AddressWidget(),
                       ],
                     )
                   ],
@@ -69,13 +69,13 @@ class FooterSectionScreen extends StatelessWidget {
                           LegalWidget(),
                         ],
                       ),
-                      // Row(
-                      //   mainAxisAlignment: MainAxisAlignment.start,
-                      //   crossAxisAlignment: CrossAxisAlignment.start,
-                      //   children: [
-                      //     AddressWidget(),
-                      //   ],
-                      // )
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          AddressWidget(),
+                        ],
+                      )
                     ],
                   ),
                 )
@@ -90,7 +90,7 @@ class FooterSectionScreen extends StatelessWidget {
                           WhoWeAreWidget(),
                           ConnecWidget(),
                           LegalWidget(),
-                       //   AddressWidget(),
+                          AddressWidget(),
                         ],
                       ),
                     ],

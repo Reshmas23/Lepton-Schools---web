@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/google_monstre.dart';
 import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/home/screens/create_school/Registration/registrationpage.dart';
-import 'package:vidyaveechi_website/view/home/screens/create_school/create_school.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
 class ExcelKaroorHOmeScreen extends StatelessWidget {
@@ -18,16 +18,18 @@ class ExcelKaroorHOmeScreen extends StatelessWidget {
       width: double.infinity,
       decoration: const BoxDecoration(
         image: DecorationImage(
-            image: AssetImage('webassets/school_image/schl.jpg'), fit: BoxFit.cover),
+            image: AssetImage('webassets/excel_karror/tution_center3.jpg'),
+            fit: BoxFit.cover),
       ),
       child: Column(
         children: [
           SizedBox(
-              height: ResponsiveWebSite.isMobile(context) ? 402 : 602, //const Color(0xFF17BDB5),
+              height: ResponsiveWebSite.isMobile(context)
+                  ? 402
+                  : 602, //const Color(0xFF17BDB5),
               child: ResponsiveWebSite.isMobile(
                       context) //--------------------------------> M O B I L E  V I E W
                   ? Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(top: 100, right: 50),
@@ -36,7 +38,7 @@ class ExcelKaroorHOmeScreen extends StatelessWidget {
                             child: Column(
                               children: [
                                 const Text(
-                                  "LEPTON SCHOOL",
+                                  'EXCEL KAROOR',
                                   style: TextStyle(
                                       fontSize: 21,
                                       color: excelkaroorThemeColor,
@@ -45,7 +47,7 @@ class ExcelKaroorHOmeScreen extends StatelessWidget {
                                 const Padding(
                                   padding: EdgeInsets.only(top: 02),
                                   child: Text(
-                                      'One of the most reputable brands in experienced schooling',
+                                      'Most trusted brand for experienced tutoring',
                                       style: TextStyle(
                                         fontSize: 10,
                                         color: cBlack,
@@ -55,11 +57,9 @@ class ExcelKaroorHOmeScreen extends StatelessWidget {
                                   padding: const EdgeInsets.only(top: 30),
                                   child: GestureDetector(
                                     onTap: () {
-                                      Navigator.push(context, MaterialPageRoute(
-                                        builder: (context) {
-                                          return RegisrationPage();
-                                        },
-                                      ));
+                                      Navigator.push(context,MaterialPageRoute(builder: (context) {
+                                        return RegisrationPage();
+                                      },));
                                     },
                                     child: Container(
                                       width: 100,
@@ -67,9 +67,10 @@ class ExcelKaroorHOmeScreen extends StatelessWidget {
                                       decoration: BoxDecoration(
                                           color: excelkaroorThemeColor.withOpacity(0.2),
                                           border: Border.all(color: cBlack),
-                                          borderRadius: BorderRadius.circular(10)),
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
                                       alignment: Alignment.center,
-                                      child: const TextFontWidget(
+                                      child:  TextFontWidget(
                                         text: "REGISTER",
                                         fontsize: 13,
                                         fontWeight: FontWeight.bold,
@@ -89,7 +90,10 @@ class ExcelKaroorHOmeScreen extends StatelessWidget {
                       children: [
                         Padding(
                           padding: EdgeInsets.only(
-                              top: 190, right: ResponsiveWebSite.isTablet(context) ? 300 : 300),
+                              top: 190,
+                              right: ResponsiveWebSite.isTablet(context)
+                                  ? 300
+                                  : 300),
                           child: SizedBox(
                             height: 300,
 
@@ -98,20 +102,23 @@ class ExcelKaroorHOmeScreen extends StatelessWidget {
                             child: Column(
                               children: [
                                 Text(
-                                  "LEPTON SCHOOL",
+                                  'EXCEL KAROOR',
                                   style: TextStyle(
-                                      fontSize: ResponsiveWebSite.isTablet(context) ? 36 : 50,
-                                      color: Colors.black,
+                                      fontSize:
+                                          ResponsiveWebSite.isTablet(context)
+                                              ? 36
+                                              : 50,
+                                      color: excelkaroorThemeColor,
                                       fontWeight: FontWeight.bold),
                                 ),
                                 const Padding(
                                   padding: EdgeInsets.only(top: 02),
                                   child: Text(
-                                      'One of the most reputable brands in experienced schooling',
+                                      'Most trusted brand for experienced tutoring',
                                       style: TextStyle(
                                           fontSize: 13,
-                                          color: Color.fromARGB(255, 71, 3, 70),
-                                          fontWeight: FontWeight.w800)),
+                                          color: cBlack,
+                                          fontWeight: FontWeight.w600)),
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.only(top: 15),
@@ -124,13 +131,16 @@ class ExcelKaroorHOmeScreen extends StatelessWidget {
                                         child: ElevatedButton(
                                           style: ElevatedButton.styleFrom(
                                             shape: RoundedRectangleBorder(
-                                                borderRadius: BorderRadius.circular(20.0),
-                                                side: const BorderSide(color: cBlack)),
-                                            backgroundColor: const Color.fromARGB(255, 228, 225, 225),
+                                                borderRadius:
+                                                    BorderRadius.circular(20.0),
+                                                side: const BorderSide(
+                                                    color: cBlack)),
+                                            backgroundColor: Colors.transparent,
                                           ),
                                           onPressed: () {
                                             print("object");
-                                            Navigator.push(context, MaterialPageRoute(
+                                            Navigator.push(context,
+                                                MaterialPageRoute(
                                               builder: (context) {
                                                 return RegisrationPage();
                                               },
@@ -148,32 +158,36 @@ class ExcelKaroorHOmeScreen extends StatelessWidget {
                                       const SizedBox(
                                         width: 50,
                                       ),
-                                      SizedBox(
-                                        height: 40,
-                                        width: 130,
-                                        child: ElevatedButton(
-                                          style: ElevatedButton.styleFrom(
-                                            shape: RoundedRectangleBorder(
-                                                borderRadius: BorderRadius.circular(20.0),
-                                                side: const BorderSide(color: cBlack)),
-                                            backgroundColor: const Color.fromARGB(255, 228, 225, 225),
-                                          ),
-                                          onPressed: () {
-                                            Navigator.push(context, MaterialPageRoute(
-                                              builder: (context) {
-                                                return const SchoolProfile();
-                                              },
-                                            ));
-                                          },
-                                          child: Text(
-                                            'CREATE',
-                                            style: GoogleFonts.poppins(
-                                                fontSize: 13,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black),
-                                          ),
-                                        ),
-                                      ),
+                                      // SizedBox(
+                                      //   height: 40,
+                                      //   width: 130,
+                                      //   child: ElevatedButton(
+                                      //     style: ElevatedButton.styleFrom(
+                                      //         shape: RoundedRectangleBorder(
+                                      //             borderRadius:
+                                      //                 BorderRadius.circular(
+                                      //                     20.0),
+                                      //             side: const BorderSide(
+                                      //                 color: cBlack)),
+                                      //         backgroundColor:
+                                      //             Colors.transparent),
+                                      //     onPressed: () {
+                                      //       Navigator.push(context,
+                                      //           MaterialPageRoute(
+                                      //         builder: (context) {
+                                      //           return const SchoolProfile();
+                                      //         },
+                                      //       ));
+                                      //     },
+                                      //     child: Text(
+                                      //       'Create',
+                                      //       style: GoogleFonts.poppins(
+                                      //           fontSize: 13,
+                                      //           fontWeight: FontWeight.bold,
+                                      //           color: Colors.black),
+                                      //     ),
+                                      //   ),
+                                      // ),
                                     ],
                                   ),
                                 ),
@@ -206,7 +220,8 @@ class DujoHomeWebSiteDetails extends StatelessWidget {
                     : const Color.fromARGB(255, 235, 227, 227),
                 image: ResponsiveWebSite.isDesktop(context)
                     ? const DecorationImage(
-                        image: AssetImage('webassets/images/dujo_schools_image.png'),
+                        image: AssetImage(
+                            'webassets/excel_karror/dujo_schools_image.png'),
                         fit: BoxFit.fill)
                     : null),
             child: ResponsiveWebSite.isDesktop(context)
@@ -251,8 +266,9 @@ class WebSiteDiscriptionWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(right: 10),
       child: Column(
-        mainAxisAlignment:
-            ResponsiveWebSite.isDesktop(context) ? MainAxisAlignment.end : MainAxisAlignment.center,
+        mainAxisAlignment: ResponsiveWebSite.isDesktop(context)
+            ? MainAxisAlignment.end
+            : MainAxisAlignment.center,
         crossAxisAlignment: ResponsiveWebSite.isDesktop(context)
             ? CrossAxisAlignment.end
             : CrossAxisAlignment.center,
@@ -260,16 +276,17 @@ class WebSiteDiscriptionWidget extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(bottom: 20),
             child: SizedBox(
-              width: ResponsiveWebSite.isDesktop(context) ? 800 : double.infinity,
+              width:
+                  ResponsiveWebSite.isDesktop(context) ? 800 : double.infinity,
               height: ResponsiveWebSite.isDesktop(context) ? 200 : 300,
               child: Center(
                 child: GooglePoppinsWidgets(
                   text:
-                      "The 'Lepton Excel Karoor The School App' is a collaborative effort between Lepton Communications and \n"
+                      "The  Excel Karoor The Tution App' is a collaborative effort of ExcelKaroor \n"
                       "\n"
-                      "Lepton  Excel Karoor , designed to serve as a comprehensive mobile application for efficiently managing various \n"
+                      "  Excel Karoor , designed to serve as a comprehensive mobile application for efficiently managing various \n"
                       "\n"
-                      "aspects of school infrastructure in the state of Kerala, India. The app offers a range of features and \n"
+                      "aspects of Tution infrastructure in the state of Kerala, India. The app offers a range of features and \n"
                       "\n"
                       "functionalities catering to different stakeholders within the educational ecosystem.",
                   fontsize: 13,
@@ -292,8 +309,10 @@ class WebSiteDiscriptionWidget extends StatelessWidget {
                     child: ListView.separated(
                         itemBuilder: (context, index) {
                           return SizedBox(
-                            height: ResponsiveWebSite.isDesktop(context) ? 40 : 27,
-                            width: ResponsiveWebSite.isDesktop(context) ? 100 : 80,
+                            height:
+                                ResponsiveWebSite.isDesktop(context) ? 40 : 27,
+                            width:
+                                ResponsiveWebSite.isDesktop(context) ? 100 : 80,
                             child: Row(
                               children: [
                                 const CircleAvatar(
@@ -304,7 +323,10 @@ class WebSiteDiscriptionWidget extends StatelessWidget {
                                   padding: const EdgeInsets.only(left: 10),
                                   child: GoogleMonstserratWidgets(
                                     text: text1[index],
-                                    fontsize: ResponsiveWebSite.isDesktop(context) ? 13 : 11,
+                                    fontsize:
+                                        ResponsiveWebSite.isDesktop(context)
+                                            ? 13
+                                            : 11,
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
@@ -314,7 +336,8 @@ class WebSiteDiscriptionWidget extends StatelessWidget {
                         },
                         separatorBuilder: (context, index) {
                           return SizedBox(
-                            height: ResponsiveWebSite.isDesktop(context) ? 05 : 00,
+                            height:
+                                ResponsiveWebSite.isDesktop(context) ? 05 : 00,
                           );
                         },
                         itemCount: text1.length),
@@ -325,8 +348,10 @@ class WebSiteDiscriptionWidget extends StatelessWidget {
                     child: ListView.separated(
                         itemBuilder: (context, index) {
                           return SizedBox(
-                            height: ResponsiveWebSite.isDesktop(context) ? 40 : 27,
-                            width: ResponsiveWebSite.isDesktop(context) ? 100 : 80,
+                            height:
+                                ResponsiveWebSite.isDesktop(context) ? 40 : 27,
+                            width:
+                                ResponsiveWebSite.isDesktop(context) ? 100 : 80,
                             child: Row(
                               children: [
                                 const CircleAvatar(
@@ -337,7 +362,10 @@ class WebSiteDiscriptionWidget extends StatelessWidget {
                                   padding: const EdgeInsets.only(left: 10),
                                   child: GoogleMonstserratWidgets(
                                     text: text2[index],
-                                    fontsize: ResponsiveWebSite.isDesktop(context) ? 13 : 11,
+                                    fontsize:
+                                        ResponsiveWebSite.isDesktop(context)
+                                            ? 13
+                                            : 11,
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
@@ -347,7 +375,8 @@ class WebSiteDiscriptionWidget extends StatelessWidget {
                         },
                         separatorBuilder: (context, index) {
                           return SizedBox(
-                            height: ResponsiveWebSite.isDesktop(context) ? 05 : 00,
+                            height:
+                                ResponsiveWebSite.isDesktop(context) ? 05 : 00,
                           );
                         },
                         itemCount: text2.length),
@@ -364,7 +393,7 @@ class WebSiteDiscriptionWidget extends StatelessWidget {
               child: Center(
                 child: GooglePoppinsWidgets(
                     text:
-                        "'Lepton  Excel Karoor  The Tution App' aims to revolutionize the way schools in Kerala manage\n"
+                        "' Excel Karoor  The Tution App' aims to revolutionize the way schools in Kerala manage\n"
                         "\n"
                         "their infrastructure and interact with their stakeholders. By providing a centralized platform\n"
                         "\n"

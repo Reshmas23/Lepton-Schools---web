@@ -22,7 +22,7 @@ class BatchHistroyListPage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-         const TextFontWidget(
+         TextFontWidget(
           text: 'List Of Batch',
           fontsize: 18,
           fontWeight: FontWeight.bold,
@@ -31,7 +31,7 @@ class BatchHistroyListPage extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           child: SizedBox(
             width: 870,
-            height: 650,
+            height: 800,
             child: Column(
               children: [
                 const Row(

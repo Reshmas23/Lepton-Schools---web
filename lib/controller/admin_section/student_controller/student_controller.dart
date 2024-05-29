@@ -11,7 +11,6 @@ import 'package:vidyaveechi_website/controller/class_controller/class_controller
 import 'package:vidyaveechi_website/model/student_model/student_model.dart';
 import 'package:vidyaveechi_website/view/constant/const.dart';
 import 'package:vidyaveechi_website/view/constant/constant.validate.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/students/create_student/auto_createmail_function/auto_create_credentail.dart';
 import 'package:vidyaveechi_website/view/utils/firebase/firebase.dart';
 import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
 
@@ -56,6 +55,8 @@ class StudentController extends GetxController {
     buttonstate.value = ButtonState.loading;
     try {
       final studentDetail = StudentModel(
+        cardID: '',
+        cardTaken: false,
           admissionNumber: stAdNoController.text.trim(),
           alPhoneNumber: '',
           bloodgroup: '',
@@ -113,15 +114,15 @@ class StudentController extends GetxController {
         .update({'editoption': status});
   }
 
-  Future<void> manualCreateaNewStudent(BuildContext context) async {
+  Future<void> manualCreateaNewStudent() async {
     buttonstate.value = ButtonState.loading;
     final studentEmail =
         '${stNameController.text.trim() + _randomNum}@gmail.com';
     String camelCaseText = studentEmail.split(" ").join();
     try {
-      
-
       final StudentModel studentDetail = StudentModel(
+          cardID: '',
+        cardTaken: false,
           admissionNumber: stAdNoController.text.trim(),
           alPhoneNumber: '',
           bloodgroup: '',
@@ -161,6 +162,10 @@ class StudentController extends GetxController {
           await _fbServer
               .collection('AllStudents')
               .doc(stUID.value)
+              .set(studentDetail.toMap());
+               await _fbServer
+              .collection('CurrentStudentAttendance')
+              .doc(stUID.value)
               .set(studentDetail.toMap())
               .then((value) async {
             await _fbServer
@@ -190,6 +195,12 @@ class StudentController extends GetxController {
                     .update(
                   {'parentId': Get.find<ParentController>().stParentUID.value},
                 );
+                await _fbServer
+                    .collection('CurrentStudentAttendance')
+                    .doc(Get.find<StudentController>().stUID.value)
+                    .update(
+                  {'parentId': Get.find<ParentController>().stParentUID.value},
+                );
                 return null;
               }).then((value) async {
                 manuvalAfterStudentCreateGmailSender(
@@ -201,10 +212,7 @@ class StudentController extends GetxController {
                   schoolName: UserCredentialsController.schoolName ?? '',
                 );
               }).then((value) async {
-
-                if (automaticmail.value == true) {
-                autoCreateMailDetails(context,studentDetail.studentemail,
-                _randomstring,Get.find<ParentController>().stParnetEmail.value,'123456') ;
+                if (automaticmail.value = true) {
                   
                 }
                 buttonstate.value = ButtonState.success;

@@ -27,7 +27,7 @@ class LoginHistroyContainer extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         child: Container(
           color: screenContainerbackgroundColor,
-          height: 650,
+          height: 1000,
           width: 1150,
           child: Padding(
             padding: const EdgeInsets.only(

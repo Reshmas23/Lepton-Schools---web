@@ -12,15 +12,15 @@ import '../../controllers/temp_Collection_controller/temp_parent_controller/temp
 var classesListValue;
 
 class GetClassesListDropDownButton extends StatefulWidget {
- final TempStudentController tempStudentController =
+  TempStudentController tempStudentController =
       Get.put(TempStudentController());
- final TempGuardianController tempGuardianController =
+  TempGuardianController tempGuardianController =
       Get.put(TempGuardianController());
- final AddStudentToFirebaseController addStudentToFirebase =
+  AddStudentToFirebaseController addStudentToFirebase =
       Get.put(AddStudentToFirebaseController());
- final TempParentController tempParentController = Get.put(TempParentController());
- final String schoolID;
- final String batchyearID;
+  TempParentController tempParentController = Get.put(TempParentController());
+  String schoolID;
+  String batchyearID;
   GetClassesListDropDownButton(
       {Key? key, required this.schoolID, required this.batchyearID})
       : super(key: key);

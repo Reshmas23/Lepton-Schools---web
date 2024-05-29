@@ -25,7 +25,7 @@ class AllExamNotificationListView extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       child: Container(
         color: screenContainerbackgroundColor,
-        height: 650,
+        height: 1000,
         width: 1000,
         child: Padding(
           padding: const EdgeInsets.only(
@@ -34,7 +34,7 @@ class AllExamNotificationListView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-               const Padding(
+               Padding(
                 padding: EdgeInsets.only(left: 25, top: 25),
                 child: SizedBox(
                   height: 60,
@@ -76,12 +76,12 @@ class AllExamNotificationListView extends StatelessWidget {
                   ],
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(left: 10, right: 10),
-                child: SizedBox(
+              Padding(
+                padding: const EdgeInsets.only(left: 10, right: 10),
+                child: Container(
                   // color: cWhite,
                   width: 1200,
-                  child: Row(
+                  child: const Row(
                     children: [
                       Expanded(flex: 1, child: CatrgoryTableHeaderWidget(headerTitle: 'No')),
                       SizedBox(
@@ -124,7 +124,7 @@ class AllExamNotificationListView extends StatelessWidget {
                       builder: (context, snaps) {
                         if (snaps.hasData) {
                           if (snaps.data!.docs.isEmpty) {
-                            return  const Center(
+                            return  Center(
                               child: TextFontWidget(
                                   text: "No exam found, add new exams", fontsize: 12.5),
                             );
