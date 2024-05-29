@@ -63,7 +63,7 @@ class ResponsiveMobileAppBar extends StatelessWidget {
 
       maxWidthValue = constrain.maxWidth;
       return Container(
-        color: const Color.fromARGB(255, 3, 9, 75),
+        color: const Color.fromARGB(255, 70, 5, 63),
         height: 100,
         child: Padding(
           padding:  EdgeInsets.symmetric(vertical: 5, horizontal: ResponsiveWebSite.isMobile(context) ?0: 20),
@@ -72,9 +72,9 @@ class ResponsiveMobileAppBar extends StatelessWidget {
               SizedBox(
                 width: ResponsiveWebSite.isTablet(context) ? 110 : 130,
                 child: Image.asset(
-                  'webassets/excel_karror/excel_karoor_logo.png',
+                  'webassets/images/leptonlogo.png',
                   fit: BoxFit.cover,
-                  color: Colors.white,
+                //  color: Colors.white,
                 ),
               ),
               ResponsiveWebSite.isMobile(context)
@@ -86,7 +86,7 @@ class ResponsiveMobileAppBar extends StatelessWidget {
                       child: Column(
                         children: [
                           Text(
-                            'E X C E L  K A R O O R',
+                            'L E P T O N S C H O O L',
                             style: TextStyle(
                                 fontSize: ResponsiveWebSite.isDesktop(context)
                                     ? 21
@@ -98,7 +98,7 @@ class ResponsiveMobileAppBar extends StatelessWidget {
                               ? const Padding(
                                   padding: EdgeInsets.only(top: 02),
                                   child: Text(
-                                      'Most trusted brand\nfor experienced tutoring',
+                                      'One of the most reputable\nbrands in experienced schooling',
                                       style: TextStyle(
                                         fontSize: 11,
                                         color: cWhite,
@@ -107,7 +107,7 @@ class ResponsiveMobileAppBar extends StatelessWidget {
                               : const Padding(
                                   padding: EdgeInsets.only(top: 02),
                                   child: Text(
-                                      'Most trusted brand for experienced tutoring',
+                                      'One of the most reputable brands in experienced schooling',
                                       style: TextStyle(
                                         fontSize: 11,
                                         color: cWhite,
@@ -214,7 +214,7 @@ class MobNumber02 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      '✉️ pramodoasis1@gmail.com',
+      '✉️ info@leptoncommunications.com',
       style: GoogleFonts.poppins(
           color: cWhite, fontSize: 12, fontWeight: FontWeight.w400),
     );
@@ -229,7 +229,7 @@ class MobNumber01 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      '📞 +91 9846293314    ',
+      '📞 +91 8891436651    ',
       style: GoogleFonts.poppins(
           color: cWhite,
           //Color(0xFF17BDB5),

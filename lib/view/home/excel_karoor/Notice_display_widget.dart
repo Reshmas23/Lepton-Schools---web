@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/google_monstre.dart';
 import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
+import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 class ExcelKaroorNoticedisplay extends StatelessWidget {
   const ExcelKaroorNoticedisplay({super.key});
@@ -63,13 +63,11 @@ class ExcelKaroorNoticedisplay extends StatelessWidget {
                           : 400, // Adjust the width of each container as needed
                       child: Container(
                         color: Colors.white,
-                        child: Image.asset(
-                            'webassets/excel_karror/excel_karoor_logo.png'),
+                        child: Image.asset('webassets/images/leptonlogo.png'),
                       )),
                 ),
                 GoogleMonstserratWidgets(
-                  text: "EXCELKAROOR",
-                  //"snapshot.data!.docs[index]",
+                  text: "Lepton School ",
                   //['articleTitle'],
                   fontsize: 15,
                   fontWeight: FontWeight.w500,
@@ -137,7 +135,6 @@ class ArticleView extends StatelessWidget {
     // You can add any necessary initialization logic here
     // For example, loading necessary data or configurations.
     // This function should return a Future to indicate when it's done.
-    await Future.delayed(
-        const Duration(seconds: 2)); // Simulating some initialization delay.
+    await Future.delayed(const Duration(seconds: 2)); // Simulating some initialization delay.
   }
 }

@@ -1,8 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
-
 
 class OurTutionCenterContainer extends StatelessWidget {
   const OurTutionCenterContainer({
@@ -28,13 +26,12 @@ class OurTutionCenterContainer extends StatelessWidget {
                       children: [
                         SizedBox(
                             height: 50,
-                            width:
-                                ResponsiveWebSite.isTablet(context) ? 200 : 300,
+                            width: ResponsiveWebSite.isTablet(context) ? 200 : 300,
                             child: Column(
                               children: [
                                 Center(
                                   child: GooglePoppinsWidgets(
-                                    text: "OUR TUITION CENTER",
+                                    text: "For Best Education",
                                     fontsize: 20,
                                     color: const Color.fromARGB(255, 3, 9, 75),
                                   ),
@@ -63,15 +60,12 @@ class OurTutionCenterContainer extends StatelessWidget {
                       children: [
                         SizedBox(
                             height: 400,
-                            width:
-                                ResponsiveWebSite.isTablet(context) ? 200 : 300,
+                            width: ResponsiveWebSite.isTablet(context) ? 200 : 300,
                             child: Center(
                               child: GooglePoppinsWidgets(
-                                text: "OUR TUITION CENTER",
-                                fontsize: ResponsiveWebSite.isTablet(context)
-                                    ? 30
-                                    : 50,
-                                color:const Color.fromARGB(255, 3, 9, 75),
+                                text: "For Best Education",
+                                fontsize: ResponsiveWebSite.isTablet(context) ? 30 : 50,
+                                color: const Color.fromARGB(255, 243, 11, 11),
                               ),
                             )),
                         Container(
@@ -80,12 +74,10 @@ class OurTutionCenterContainer extends StatelessWidget {
                           width: 01,
                         ),
                         SizedBox(
-                            height:
-                                ResponsiveWebSite.isTablet(context) ? 280 : 600,
-                            width:
-                                ResponsiveWebSite.isTablet(context) ? 450 : 600,
+                            height: ResponsiveWebSite.isTablet(context) ? 280 : 600,
+                            width: ResponsiveWebSite.isTablet(context) ? 450 : 600,
                             child: Image.asset(
-                              'webassets/excel_karror/girl_with_book.jpg',
+                               'webassets/excel_karror/girl_with_book.jpg',
                               fit: BoxFit.fitHeight,
                             )),
                       ],
@@ -100,69 +92,104 @@ class OurTutionCenterContainer extends StatelessWidget {
           //         .snapshots(),
           //     builder: (context, snapshot) {
           //    if (snapshot.hasData) {
-          //        return 
-                 SizedBox(
-                    // color: Colors.black,
-                    height: ResponsiveWebSite.isMobile(context) ? 500 : 350,
-                    // width: 600,
-                    child: ResponsiveWebSite.isDesktop(context)
-                        ? ListView.separated(
-                            physics: const AlwaysScrollableScrollPhysics(),
-                            // shrinkWrap: true,
-                            scrollDirection: Axis.horizontal,
-                           // controller: sscrollcontroller,
-                            itemBuilder: (context, index) {
-                            //  final data = CreateEmployeeClassModel.fromMap(snapshot.data!.docs[index].data());
-                              return Padding(
-                                padding: const EdgeInsets.all(8.0),
+          //        return
+          SizedBox(
+              // color: Colors.black,
+              height: ResponsiveWebSite.isMobile(context) ? 500 : 350,
+              // width: 600,
+              child: ResponsiveWebSite.isDesktop(context)
+                  ? ListView.separated(
+                      physics: const AlwaysScrollableScrollPhysics(),
+                      // shrinkWrap: true,
+                      scrollDirection: Axis.horizontal,
+                      // controller: sscrollcontroller,
+                      itemBuilder: (context, index) {
+                        //  final data = CreateEmployeeClassModel.fromMap(snapshot.data!.docs[index].data());
+                        return SizedBox(
+                          height: 400,
+                          width: 400,
+                          child: Column(
+                            children: [
+                              Expanded(
+                                child: Image.network(
+                                  images[index],
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              // Padding(
+                              //   padding: const EdgeInsets.only(top: 05),
+                              //   child: Text(
+                              //    personNameList[index],
+                              //     style: const TextStyle(
+                              //         color: cWhite,
+                              //         fontWeight: FontWeight.w400),
+                              //   ),
+                              // ),
+                              // Padding(
+                              //   padding: const EdgeInsets.only(bottom: 20),
+                              //   child: GooglePoppinsWidgets(
+                              //     text: personOccu[index],
+                              //     fontsize: 10,
+                              //     color: cWhite,
+                              //     fontWeight: FontWeight.w200,
+                              //   ),
+                              // )
+                            ],
+                          ),
+                        );
+                      },
+                      separatorBuilder: (context, index) {
+                        return const SizedBox(
+                          width: 20,
+                        );
+                      },
+                      itemCount: 4)
+                  : GridView.count(
+                      crossAxisCount: 2,
+                      padding: const EdgeInsets.all(20),
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
+                      primary: false,
+                      children: List.generate(4, (index) {
+                        //    final data = CreateEmployeeClassModel.fromMap(snapshot.data!.docs[index].data());
+                        return SizedBox(
+                          // margin: ,
+                          height: 100,
+                          width: 100,
+                          // color: Colors.amber,
+                          child: Column(
+                            children: [
+                              Expanded(
                                 child: SizedBox(
-                                  height: 300,
+                                  width: double.infinity,
                                   child: Image.network(
                                     images[index],
                                     fit: BoxFit.cover,
                                   ),
                                 ),
-                              );
-                            },
-                            separatorBuilder: (context, index) {
-                              return const SizedBox(
-                                width: 20,
-                              );
-                            },
-                            itemCount: 4)
-                         : GridView.count(
-                            crossAxisCount: 2,
-                            padding: const EdgeInsets.all(20),
-                            crossAxisSpacing: 10,
-                            mainAxisSpacing: 10,
-                            primary: false,
-                            children: List.generate(
-                                4,
-                                (index) {
-                                    //    final data = CreateEmployeeClassModel.fromMap(snapshot.data!.docs[index].data());
-                                  return
-                                  SizedBox(
-                                      // margin: ,
-                                      height: 100,
-                                      width: 100,
-                                      // color: Colors.amber,
-                                      child: Expanded(flex: 1,
-                                        child: Image.network(
-                                          images[index],
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    );
-                                }
-                                    
-                                    ),
-                          )
-                          )
-               /////////////////////////////
-            //  }else{
-            //   return const Center();
-            //  }
-            //   }),
+                              ),
+                              // Text(
+                              //    personNameList[index],
+                              //   style: const TextStyle(
+                              //       color: cWhite,
+                              //       fontWeight: FontWeight.w400),
+                              // ),
+                              // GooglePoppinsWidgets(
+                              //   text: personOccu[index],
+                              //   fontsize: 10,
+                              //   color: cWhite,
+                              //   fontWeight: FontWeight.w200,
+                              // )
+                            ],
+                          ),
+                        );
+                      }),
+                    ))
+          /////////////////////////////
+          //  }else{
+          //   return const Center();
+          //  }
+          //   }),
         ],
       ),
     );
@@ -182,9 +209,10 @@ class OurTutionCenterContainer extends StatelessWidget {
 //   'Staff',
 // ];
 
-List<String> images =[
-  'webassets/excel_karror/exl (1).JPG',
-  'webassets/excel_karror/exl (2).JPG',
-  'webassets/excel_karror/exl (4).JPG',
-  'webassets/excel_karror/exl (3).JPG',
+List<String> images = [
+   'https://firebasestorage.googleapis.com/v0/b/lepton-school-28---may.appspot.com/o/lepton_school%2Fschool-desk.jpg?alt=media&token=f54e29d5-5d98-4f69-8b32-647a88cb1e63',
+ 'https://firebasestorage.googleapis.com/v0/b/lepton-school-28---may.appspot.com/o/lepton_school%2Fkids-classroom.jpg?alt=media&token=52888730-5bce-4a8b-a420-15610fcf0cda',
+  'https://firebasestorage.googleapis.com/v0/b/lepton-school-28---may.appspot.com/o/lepton_school%2Fnotebook.jpg?alt=media&token=a502dbc3-6216-41e8-b4b4-a0c8804cd720',
+  'https://firebasestorage.googleapis.com/v0/b/lepton-school-28---may.appspot.com/o/lepton_school%2Fbook-student.jpg?alt=media&token=37e106cc-4437-4e56-a713-c6fe5eca2601',
+  //'webassets/images/student4.img.jpg',
 ];

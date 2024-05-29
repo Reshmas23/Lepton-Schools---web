@@ -42,7 +42,7 @@ class TrademarkAndPolicy extends StatelessWidget {
               padding: const EdgeInsets.only(left: 50, right: 50, top: 80),
               child: GoogleMonstserratWidgets(
                   text: "Statement \n"
-                      "EXCELKAROOR acknowledges that trademarks are a valuable part of EXCELKAROOR’s intellectual property portfolio. They serve to signify that particular products and services originates from EXCELKAROOR. Trademarks also help to distinguish EXCELKAROOR’s products and services from competitors."
+                      "Lepton School acknowledges that trademarks are a valuable part of Lepton School’s intellectual property portfolio. They serve to signify that particular products and services originates from Lepton School. Trademarks also help to distinguish Lepton School’s products and services from competitors."
                       "Any improper use of our trademarks, whether by any member of staff or other third parties, could significantly diminish the value of such trademarks."
                       "As such, to ensure that the company can maintain, and continue to exploit its trademarks, the company expect all members of staff to act in compliance with this trademark policy.",
                   fontsize: 18,

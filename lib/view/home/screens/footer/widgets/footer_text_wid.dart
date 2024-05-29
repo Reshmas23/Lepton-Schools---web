@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:vidyaveechi_website/info/info.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
 import 'package:vidyaveechi_website/view/home/screens/footer/privacypolicy.dart';
@@ -190,7 +191,7 @@ class ConnecWidget extends StatelessWidget {
 }
 
 class WhoWeAreWidget extends StatelessWidget {
-  const WhoWeAreWidget({
+  const   WhoWeAreWidget({
     super.key,
   });
 
@@ -205,7 +206,7 @@ class WhoWeAreWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           GooglePoppinsWidgets(
-            text: 'EXCEL KAROOR',
+            text: name,
             fontsize: 18,
             fontWeight: FontWeight.bold,
             color: cWhite,
@@ -260,11 +261,12 @@ List<String> legal = [
   'Refund and\nCancellation Policy'
 ];
 List<String> address = [
-  '📌 Excel karoor Tution Centre, \n'
-      'Pothencode,Thiruvanathapuram  \n'
-      'PIN - 695001,Kerala,India,\n'
-  '📞 +91 9846293314'
-  '✉️ pramodoasis1@gmail.com'
+  '📌 Lepton Plus Communications (OPC) Pvt.Ltd'
+      '5 th Floor,Karimpanal Statue Avenue , G.H. Road '
+      'Statue,Thiruvanathapuram - 695001,Kerala,India',
+  '📞 +91 97469 66651 | +91 97463 66651 | +91 471 4053483',
+  '✉️ info@leptoncommunications.com',
+  '✉️ leptoncommunications@gmail.com'
 ];
 var costechdujonav = [
   const WhyChooseUs(),
@@ -273,12 +275,12 @@ var costechdujonav = [
 ];
 
 final Uri _faceBookUrl =
-    Uri.parse('https://www.facebook.com/groups/325622007563684/');
-//final Uri _twitterUrl = Uri.parse('https://twitter.com/LeptonDujo');
-final Uri _instaUrl = Uri.parse('https://www.instagram.com/excelkaroorxl/');
-final Uri _utubeUrl =
-    Uri.parse('https://www.youtube.com/channel/UCSDJa-gA4DYwXzaLxiAbaFw');
-    
+    Uri.parse('https://www.facebook.com/profile.php?id=100091062978371');
+final Uri _twitterUrl = Uri.parse('https://twitter.com/LeptonDujo');
+final Uri _instaUrl = Uri.parse('https://www.instagram.com/leptondujo/');
+final Uri _utubeUrl = Uri.parse('https://www.youtube.com/@LEPTONDUJO/featured');
+
+
 Future<void> _launchFacebookUrl() async {
   if (!await launchUrl(_faceBookUrl)) {
     throw 'Could not launch $_faceBookUrl';
