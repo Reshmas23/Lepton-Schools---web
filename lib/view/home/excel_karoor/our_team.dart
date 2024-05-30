@@ -210,9 +210,9 @@ class OurTutionCenterContainer extends StatelessWidget {
 // ];
 
 List<String> images = [
-   'https://firebasestorage.googleapis.com/v0/b/lepton-school-28---may.appspot.com/o/lepton_school%2Fschool-desk.jpg?alt=media&token=f54e29d5-5d98-4f69-8b32-647a88cb1e63',
- 'https://firebasestorage.googleapis.com/v0/b/lepton-school-28---may.appspot.com/o/lepton_school%2Fkids-classroom.jpg?alt=media&token=52888730-5bce-4a8b-a420-15610fcf0cda',
-  'https://firebasestorage.googleapis.com/v0/b/lepton-school-28---may.appspot.com/o/lepton_school%2Fnotebook.jpg?alt=media&token=a502dbc3-6216-41e8-b4b4-a0c8804cd720',
-  'https://firebasestorage.googleapis.com/v0/b/lepton-school-28---may.appspot.com/o/lepton_school%2Fbook-student.jpg?alt=media&token=37e106cc-4437-4e56-a713-c6fe5eca2601',
+   'https://firebasestorage.googleapis.com/v0/b/vidya-veechi-8-feb-2024.appspot.com/o/leptonschools%2Fbook-student.jpg?alt=media&token=7d5e189c-4769-469a-bb18-e66a863e4d88',
+ 'https://firebasestorage.googleapis.com/v0/b/vidya-veechi-8-feb-2024.appspot.com/o/leptonschools%2Fkids-classroom.jpg?alt=media&token=5627e357-b0d8-42aa-8c15-85000d543d81',
+  'https://firebasestorage.googleapis.com/v0/b/vidya-veechi-8-feb-2024.appspot.com/o/leptonschools%2Fnotebook.jpg?alt=media&token=ec58e518-4719-488d-9c44-a1aa8916c377',
+  'https://firebasestorage.googleapis.com/v0/b/vidya-veechi-8-feb-2024.appspot.com/o/leptonschools%2Fschool-desk.jpg?alt=media&token=8d070863-7311-4267-bfef-56d5ffb27ab6',
   //'webassets/images/student4.img.jpg',
 ];
