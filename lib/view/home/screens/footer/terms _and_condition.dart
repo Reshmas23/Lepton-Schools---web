@@ -45,12 +45,12 @@ class TermsAndConditions extends StatelessWidget {
       Terms & Conditions
      
       
-      1.Lepton School - The Tution App, all of its forms, whether it be featured on any of Lepton School
+      1.Lepton School - The Tution/School App, all of its forms, whether it be featured on any of Lepton School
       mobile application or on the www.Lepton School.com online website services (“App”), is
-      a product of Lepton School Tution Centre.
+      a product of Lepton School Tution/School Centre.
      
       
-      2.By using the Lepton School - The Tution App services, you are agreeing to be bound
+      2.By using the Lepton School - The Tution/School App services, you are agreeing to be bound
       by the following terms and conditions.
 
       
