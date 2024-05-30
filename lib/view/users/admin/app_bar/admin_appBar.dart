@@ -204,8 +204,8 @@ class AppBarAdminPanel extends StatelessWidget {
                 const SizedBox(width: 10,),
                 GestureDetector(
                   onTap: () {
-                          Get.to(()=>ClassWiseStudentListContainer());
-                    // adminProfileshowlist(context);
+                       //   Get.to(()=>ClassWiseStudentListContainer());
+                     adminProfileshowlist(context);
                   },
                   child: CircleAvatar(
                     backgroundColor: Colors.transparent,
@@ -269,7 +269,7 @@ class AppBarAdminPanel extends StatelessWidget {
                             child: IconButton(
                                 focusNode: textButtonFocusNode1,
                                 onPressed: () {
-                                  adminProfileshowlist(context);
+                                //  adminProfileshowlist(context);
                                  // notificationShowingFunctionOnAppBar(context);
                                 },
                                 icon: Tooltip(
