@@ -30,6 +30,7 @@ class ProgressDialog extends StatelessWidget {
               ),
               pointers: <GaugePointer>[
                 RangePointer(
+                  animationDuration: 100,
                   value: progressValue.value * 100,
                   width: 0.15,
                   color: Colors.white,
@@ -40,6 +41,7 @@ class ProgressDialog extends StatelessWidget {
               ],
               annotations: <GaugeAnnotation>[
                 GaugeAnnotation(
+                  
                   angle: 90,
                   positionFactor: 0.5,
                   widget: Text(

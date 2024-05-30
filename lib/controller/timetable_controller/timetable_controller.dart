@@ -22,7 +22,7 @@ class TimeTableController extends GetxController {
     'Saturday',
     'Sunday',
   ];
-  RxString dayName = 'Select Day'.obs;
+  RxString dayName = ''.obs;
   RxString subjectName = 'Select Subject'.obs;
   RxString teacherName = 'Select Teacher'.obs;
 
