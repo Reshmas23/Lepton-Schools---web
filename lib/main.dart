@@ -15,24 +15,13 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  // await FirebaseAppCheck.instance
-  //     // Your personal reCaptcha public key goes here:
-  //     .activate(
-  //   androidProvider: AndroidProvider.debug,
-  //   appleProvider: AppleProvider.debug,
-  //   webProvider: ReCaptchaV3Provider('6LdNY9UpAAAAAC3s1DHsQOLtJddlpw0lBHCeo5JENRr'),
-  // );
   await SharedPreferencesHelper.initPrefs();
 
   runApp(const MyApp());
 
   Get.put(UserLoginController());
 
-  // html.window.onBeforeUnload.listen((html.Event e) {
-  //   // Perform logout operation here
-  //   // For example, you might want to make an API call to log out the user
-  //   userLoginController.logoutSaveData();
-  // });
+
 }
 
 class MyApp extends StatelessWidget {

@@ -53,12 +53,13 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDVbHvKnJSHBAMbq_t0KMjNU8h0am6Z2Iw',
-    appId: '1:223500738355:web:dc9d614dbf184b10bc6846',
-    messagingSenderId: '223500738355',
-    projectId: 'lepton-school',
-    authDomain: 'lepton-school.firebaseapp.com',
-    storageBucket: 'lepton-school.appspot.com',
-    measurementId: 'G-JR8RTDVYZK',
+    apiKey: 'AIzaSyC4LhxvtLT4WITZgvA9AFma1GmWYeSN7Rk',
+    appId: '1:341868646352:web:45da8ba8e5f0968c9a33d5',
+    messagingSenderId: '341868646352',
+    projectId: 'vidya-veechi-8-feb-2024',
+    authDomain: 'vidya-veechi-8-feb-2024.firebaseapp.com',
+    databaseURL: 'https://vidya-veechi-8-feb-2024-default-rtdb.firebaseio.com',
+    storageBucket: 'vidya-veechi-8-feb-2024.appspot.com',
+    measurementId: 'G-RTZZ5QKRRG',
   );
 }

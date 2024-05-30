@@ -194,7 +194,7 @@ class RegistrationController extends GetxController {
         stPhoneController.clear();
         stEmailController.clear();
         buttonstate.value = ButtonState.success;
-        showToast(msg: "Account requested to Tuition Center");
+        showToast(msg: "Account requested is successfully send");
         await Future.delayed(const Duration(seconds: 2)).then((vazlue) {
           buttonstate.value = ButtonState.idle;
         });

@@ -33,7 +33,7 @@ class CreatedFeesStatus extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             child: Container(
               color: screenContainerbackgroundColor,
-              height: 1000,
+              height: 650,
               width: 1200,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

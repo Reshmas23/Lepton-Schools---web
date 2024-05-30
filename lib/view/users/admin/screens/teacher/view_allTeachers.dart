@@ -27,7 +27,7 @@ class AllTeacherListContainer extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Container(
                 color: screenContainerbackgroundColor,
-                height: 700,
+                height: 650,
                 width: 1200,
                 child: Padding(
                   padding: const EdgeInsets.only(top: 20, right: 20, left: 20),
