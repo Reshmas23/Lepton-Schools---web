@@ -4,7 +4,6 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:syncfusion_flutter_xlsio/xlsio.dart' hide Column;
-import 'package:vidyaveechi_website/view/drop_down/select_class.dart';
 
 import '../../../../../controller/registration_controller/registation_controller.dart';
 import '../../../../../model/student_model/student_model.dart';
