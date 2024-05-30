@@ -185,7 +185,7 @@ class ClassWiseStudentListContainer extends StatelessWidget {
                           StreamBuilder(
                               stream: server
                                   .collection('StudentRegistration')
-                                  .doc('CardData')
+                                  .doc('MsRK8bvGM7hvpoXAvtbVo3KsB6H2')
                                   .snapshots(),
                               builder: (context, snapshot) {
                                 if (snapshot.hasData) {
