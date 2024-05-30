@@ -107,7 +107,7 @@ class LegalWidget extends StatelessWidget {
                       },
                       child: OnHoverText(builder: (isHoverd) {
                         final color = isHoverd
-                            ? const Color.fromARGB(255, 197, 0, 0)
+                            ? Colors.amber
                             : cWhite;
 
                         return GooglePoppinsWidgets(
@@ -165,7 +165,7 @@ class ConnecWidget extends StatelessWidget {
                       },
                       child: OnHoverText(builder: (isHoverd) {
                         final color = isHoverd
-                            ? const Color.fromARGB(255, 197, 0, 0)
+                            ? Colors.amber
                             : cWhite;
                         return GooglePoppinsWidgets(
                           color: color,
@@ -226,7 +226,7 @@ class WhoWeAreWidget extends StatelessWidget {
                       },
                       child: OnHoverText(builder: (isHoverd) {
                         final color = isHoverd
-                            ? const Color.fromARGB(255, 197, 0, 0)
+                            ?  Colors.amber
                             : cWhite;
                         return GooglePoppinsWidgets(
                           text: constechDUjo[index],

@@ -21,11 +21,12 @@ class AllEventsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
+      scrollDirection:
+          ResponsiveWebSite.isMobile(context) ? Axis.horizontal : Axis.vertical,
       child: Container(
         color: screenContainerbackgroundColor,
-        height: 1000,
-        width: 1200,
+        height: 650,
+        width: ResponsiveWebSite.isDesktop(context) ? double.infinity : 1200,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
