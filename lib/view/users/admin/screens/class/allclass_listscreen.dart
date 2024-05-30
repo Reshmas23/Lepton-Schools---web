@@ -29,7 +29,7 @@ class AllClassListView extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Container(
                 color: screenContainerbackgroundColor,
-                height: 1000,
+                height: 650,
                 width: 1200,
                 child: Padding(
                   padding: const EdgeInsets.only(left: 20, right: 20, top: 25),

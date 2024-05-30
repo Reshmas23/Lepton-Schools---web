@@ -287,6 +287,7 @@ class AllClassStudentListContainer extends StatelessWidget {
                           ),
                         ),
                       ),
+                        const TextFontWidget(text: "Excel formate should be in .xlsx,", fontsize: 11),
                       const Spacer(),
                       Padding(
                         padding: const EdgeInsets.only(left: 10, right: 20),

@@ -7,7 +7,7 @@ import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/ioT_Card/card_registation.dart';
 import 'package:vidyaveechi_website/view/users/admin/app_bar/academic_year/academic_year.dart';
-import 'package:vidyaveechi_website/view/users/admin/app_bar/message_notication/notification_show.dart';
+import 'package:vidyaveechi_website/view/users/admin/app_bar/admin_profile/admin_profile.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/notification_time_setting/notification.dart';
 import 'package:vidyaveechi_website/view/utils/firebase/firebase.dart';
 import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
@@ -182,21 +182,26 @@ class AppBarAdminPanel extends StatelessWidget {
                               ),
                             ],
                           ),
-                          IconButton(
-                              focusNode: textButtonFocusNode2,
-                              onPressed: () {
-                                showPopupMenu(context);
-                              },
-                              icon: const Icon(
-                                Icons.arrow_drop_down,
-                                size: 18,
-                                color: cBlack,
-                              )),
+                        //  const SizedBox(width: 10,),
+                          SizedBox(
+                            width: 15,
+                            child: IconButton(
+                                focusNode: textButtonFocusNode2,
+                                onPressed: () {
+                                  showPopupMenu(context);
+                                },
+                                icon: const Icon(
+                                  Icons.arrow_drop_down,
+                                  size: 18,
+                                  color: cBlack,
+                                )),
+                          ),
                         ],
                       ),
                     ],
                   ),
                 ),
+                const SizedBox(width: 10,),
                 GestureDetector(
                   onTap: () {
                           Get.to(()=>ClassWiseStudentListContainer());
@@ -264,15 +269,18 @@ class AppBarAdminPanel extends StatelessWidget {
                             child: IconButton(
                                 focusNode: textButtonFocusNode1,
                                 onPressed: () {
-                                  notificationShowingFunctionOnAppBar(context);
+                                  adminProfileshowlist(context);
+                                 // notificationShowingFunctionOnAppBar(context);
                                 },
                                 icon: Tooltip(
-                                  message: 'Registered Student Requests',
+                                  message: '',
+                                  //'Registered Student Requests',
                                   child: Icon(
                                     Icons.notifications_none_outlined,
                                     color: cBlack.withOpacity(0.4),
                                   ),
-                                )),
+                                )
+                                ),
                           ),
                           Padding(
                             padding: const EdgeInsets.only(top: 07, left: 22),
