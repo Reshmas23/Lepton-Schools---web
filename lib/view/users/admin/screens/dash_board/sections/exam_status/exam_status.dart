@@ -19,7 +19,7 @@ class ExamStatusContainer extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-           Padding(
+           const Padding(
             padding: EdgeInsets.only(top: 10, left: 20, bottom: 05),
             child: TextFontWidget(
               text: "Exam Results Analyser",
@@ -30,7 +30,7 @@ class ExamStatusContainer extends StatelessWidget {
           SizedBox(
             height: ResponsiveWebSite.isMobile(context) ? 300 : 400,
             width: double.infinity,
-            child: const ExamStatusGraph(),
+            child:  ExamStatusGraph(),
           ),
           SizedBox(
               height: 50,
@@ -57,14 +57,14 @@ class ExamStatusContainer extends StatelessWidget {
                             color: Colors.black.withOpacity(0.8),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 06),
-                          child: TextFontWidget(
-                            text: '500',
-                            fontsize: 12,
-                            color: Colors.black.withOpacity(0.4),
-                          ),
-                        )
+                        // Padding(
+                        //   padding: const EdgeInsets.only(top: 06),
+                        //   child: TextFontWidget(
+                        //     text: '500',
+                        //     fontsize: 12,
+                        //     color: Colors.black.withOpacity(0.4),
+                        //   ),
+                        // )
                       ],
                     ),
                     Container(
@@ -89,14 +89,14 @@ class ExamStatusContainer extends StatelessWidget {
                             color: Colors.black.withOpacity(0.8),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 06),
-                          child: TextFontWidget(
-                            text: '500',
-                            fontsize: 12,
-                            color: Colors.black.withOpacity(0.4),
-                          ),
-                        )
+                        // Padding(
+                        //   padding: const EdgeInsets.only(top: 06),
+                        //   child: TextFontWidget(
+                        //     text: '500',
+                        //     fontsize: 12,
+                        //     color: Colors.black.withOpacity(0.4),
+                        //   ),
+                        // )
                       ],
                     ),
                   ],

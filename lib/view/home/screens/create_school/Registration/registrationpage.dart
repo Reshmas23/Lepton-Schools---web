@@ -87,22 +87,11 @@ class RegisrationPage extends StatelessWidget {
                                   left: 10, right: 10, top: 10),
                               child: TextFormFiledBlueContainerWidget1(
                                   validator: checkFieldEmpty,
-                                  controller: regirationCrtl.stadNoController,
-                                  hintText: 'Student Ad.No',
-                                  title: 'Admission No',
-                                  labelText: 'Student Admission no'),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 10, right: 10, top: 10),
-                              child: TextFormFiledBlueContainerWidget1(
-                                  validator: checkFieldEmpty,
                                   controller: regirationCrtl.stNameController,
                                   hintText: 'Student name',
                                   title: 'Student name',
-                                  labelText: 'Student name'),
-                            ),
-                            Padding(
+                                  labelText: 'Student Student name'),
+                            )  ,Padding(
                               padding:
                                   const EdgeInsets.only(left: 10, right: 10),
                               child: TextFormFiledBlueContainerWidget1(
@@ -147,6 +136,36 @@ class RegisrationPage extends StatelessWidget {
         ),
       ),
       ),
+                          Obx(() => regirationCrtl.showTextField.value
+                              ? Padding(
+                                  padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
+                                  child: TextFormFiledBlueContainerWidget1(
+                                      validator: checkFieldEmpty,
+                                      controller: regirationCrtl.stadNoController,
+                                      hintText: 'Admission number',
+                                      title: 'Admission number',
+                                      labelText: 'Admission number'),
+                                )
+                              : Padding(
+                                  padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
+                                  child: GooglePoppinsWidgets(
+                                      text: regirationCrtl.generatedAdmissionNumber.toString(),
+                                      fontsize: 14),
+                                )),
+                              Row(
+                            children: [
+                              GooglePoppinsWidgets(
+                                  text: 'You have no admission number',
+                                  fontsize: 14),
+                              TextButton(
+                                  onPressed: () {
+                                    regirationCrtl.generateCustomText();
+                                    regirationCrtl.showTextField.value = false;
+                                  },
+                                  child: GooglePoppinsWidgets(
+                                      text: ' Click here', fontsize: 14))
+                            ],
+                          ),
                            
                             Obx(() => Padding(
                                   padding: const EdgeInsets.only(top: 20),

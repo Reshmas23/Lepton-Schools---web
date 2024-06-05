@@ -32,12 +32,22 @@ class _GetSchoolListDropDownButtonState
           if (snapshot.hasData) {
             return DropdownButtonFormField(
               hint: schoolListValue == null
-                  ? const Text(
-                      "select school",
-                      style: TextStyle(
-                          color: Color.fromARGB(255, 0, 0, 0), fontSize: 18),
-                    )
-                  : Text(schoolListValue!["schoolName"]),
+                  ? const Row(
+  children: [
+    FittedBox(
+      fit: BoxFit.scaleDown,
+      child: Text('Select school'),
+    ),
+  ],
+)
+                  : Row(
+  children: [
+    FittedBox(
+      fit: BoxFit.scaleDown,
+      child: Text(schoolListValue!["schoolName"]),
+    ),
+  ],
+),
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
                   borderSide:
