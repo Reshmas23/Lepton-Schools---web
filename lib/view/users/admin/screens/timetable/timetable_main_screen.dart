@@ -73,6 +73,7 @@ class TimeTableMainScreen extends StatelessWidget {
               ),
             )),
       ),
+      
       ////////////////////////////////////////////////////////1
       const Padding(
         padding: EdgeInsets.only(top: 15, left: 10, right: 10),
