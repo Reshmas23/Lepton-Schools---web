@@ -8,7 +8,7 @@ class FooterSectionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(color: Color.fromARGB(255, 115, 5, 117)),
+      decoration: const BoxDecoration(color: Color.fromARGB(255, 107, 76, 64)),
       height: ResponsiveWebSite.isMobile(context)
           ? 920
           : ResponsiveWebSite.isTablet(context)

@@ -344,71 +344,77 @@ class TimeTableMainScreen extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.only(left: 10, top: 10),
           child: SingleChildScrollView(
-            child: Column(
-              children: [
-                const Row(
-                  children: [
-                    BackButton(),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    TextFontWidget(
-                      text: 'Time Table',
-                      fontsize: 17,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ],
-                ),
-                SizedBox(
-                    height: 800,
-                    child: Container(
-                      margin: const EdgeInsets.only(top: 10),
-                      child:
-                          //  Obx(() {
-                          // return
-                          Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                            textformWidget[0],
-                            textformWidget[1],
-                            textformWidget[2],
-
-                            textformWidget[3],
-                            textformWidget[4],
-                            textformWidget[5],
-                            textformWidget[6],
-                            textformWidget[7],
-                            textformWidget[8],
-
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(top: 10, bottom: 10),
-                              child: Center(
-                                  child: ProgressButtonWidget(
-                                      buttonstate:
-                                          timetableCtrl.buttonstate.value,
-                                      text: 'Submit',
-                                      function: () {
-                                        timetableCtrl
-                                            .addTimeTableDataToFirebase();
-                                      })
-                                  //  NoticeButtonContainerWidget(
-                                  //   text: 'Submit',
-                                  //   width: 300,
-                                  //   height: 50,
-                                  //   fontSize: 18,
-                                  //   onTap: () {
-                                  //     timetableCtrl.addTimeTableDataToFirebase();
-                                  //   },
-                                  //   color: adminePrimayColor,
-                                  // ),
-                                  ),
-                            )
-                            // }),
-                          ]),
-                    )),
-              ],
+            child: Form(
+              key: timetableCtrl.formKey,
+              child: Column(
+                children: [
+                  const Row(
+                    children: [
+                      BackButton(),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      TextFontWidget(
+                        text: 'Time Table',
+                        fontsize: 17,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                      height: 800,
+                      child: Container(
+                        margin: const EdgeInsets.only(top: 10),
+                        child:
+                            //  Obx(() {
+                            // return
+                            Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                              textformWidget[0],
+                              textformWidget[1],
+                              textformWidget[2],
+              
+                              textformWidget[3],
+                              textformWidget[4],
+                              textformWidget[5],
+                              textformWidget[6],
+                              textformWidget[7],
+                              textformWidget[8],
+              
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(top: 10, bottom: 10),
+                                child: Center(
+                                    child: ProgressButtonWidget(
+                                        buttonstate:
+                                            timetableCtrl.buttonstate.value,
+                                        text: 'Submit',
+                                        function: () {
+                                          if (timetableCtrl .formKey.currentState!
+                                                  .validate()) {
+                                               timetableCtrl
+                                                .addTimeTableDataToFirebase();
+                                              }
+                                        })
+                                    //  NoticeButtonContainerWidget(
+                                    //   text: 'Submit',
+                                    //   width: 300,
+                                    //   height: 50,
+                                    //   fontSize: 18,
+                                    //   onTap: () {
+                                    //     timetableCtrl.addTimeTableDataToFirebase();
+                                    //   },
+                                    //   color: adminePrimayColor,
+                                    // ),
+                                    ),
+                              )
+                              // }),
+                            ]),
+                      )),
+                ],
+              ),
             ),
           ),
         ),

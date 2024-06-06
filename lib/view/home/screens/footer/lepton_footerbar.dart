@@ -9,7 +9,7 @@ class LeptonFooterBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(color: Color.fromARGB(255, 95, 3, 96)),
+      decoration: BoxDecoration(color: const Color.fromARGB(255, 85, 58, 48)),
       height: ResponsiveWebSite.isMobile(context) ? 500 : 200,
       width: double.infinity,
       child: Column(
