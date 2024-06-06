@@ -57,7 +57,7 @@ class RegisrationPage extends StatelessWidget {
                           color: cWhite,
                           borderRadius: BorderRadius.circular(4)),
                       height: 700,
-                      width: ResponsiveWebSite.isMobile(context) ? 300 : 400,
+                      width: ResponsiveWebSite.isMobile(context) ? 300 : 500,
                       child: Form(
                         key: regirationCrtl.formKey,
                         child: Column(
