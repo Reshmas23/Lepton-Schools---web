@@ -57,7 +57,7 @@ class RegisrationPage extends StatelessWidget {
                           color: cWhite,
                           borderRadius: BorderRadius.circular(4)),
                       height: 700,
-                      width: ResponsiveWebSite.isMobile(context) ? 300 : 400,
+                      width: ResponsiveWebSite.isMobile(context) ? 300 : 500,
                       child: Form(
                         key: regirationCrtl.formKey,
                         child: Column(
@@ -149,23 +149,26 @@ class RegisrationPage extends StatelessWidget {
                               : Padding(
                                   padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
                                   child: GooglePoppinsWidgets(
-                                      text: regirationCrtl.generatedAdmissionNumber.toString(),
+                                      text:'Admission number created: ${ regirationCrtl.generatedAdmissionNumber.toString()}',
                                       fontsize: 14),
                                 )),
-                              Row(
-                            children: [
-                              GooglePoppinsWidgets(
-                                  text: 'You have no admission number',
-                                  fontsize: 14),
-                              TextButton(
-                                  onPressed: () {
-                                    regirationCrtl.generateCustomText();
-                                    regirationCrtl.showTextField.value = false;
-                                  },
-                                  child: GooglePoppinsWidgets(
-                                      text: ' Click here', fontsize: 14))
-                            ],
-                          ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                                            children: [
+                                GooglePoppinsWidgets(
+                                    text: 'You have no admission number',
+                                    fontsize: 14),
+                                TextButton(
+                                    onPressed: () {
+                                      regirationCrtl.generateCustomText();
+                                      regirationCrtl.showTextField.value = false;
+                                    },
+                                    child: GooglePoppinsWidgets(
+                                        text: ' Click here', fontsize: 14))
+                                                            ],
+                                                          ),
+                              ),
                            
                             Obx(() => Padding(
                                   padding: const EdgeInsets.only(top: 20),

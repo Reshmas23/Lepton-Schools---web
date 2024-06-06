@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
 import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
 
 var schoolListValue;
@@ -32,22 +33,8 @@ class _GetSchoolListDropDownButtonState
           if (snapshot.hasData) {
             return DropdownButtonFormField(
               hint: schoolListValue == null
-                  ? const Row(
-  children: [
-    FittedBox(
-      fit: BoxFit.scaleDown,
-      child: Text('Select school'),
-    ),
-  ],
-)
-                  : Row(
-  children: [
-    FittedBox(
-      fit: BoxFit.scaleDown,
-      child: Text(schoolListValue!["schoolName"]),
-    ),
-  ],
-),
+                  ? GooglePoppinsWidgets(text: 'Select school',fontsize: 14,overflow:TextOverflow.ellipsis ,)
+                  : GooglePoppinsWidgets(text: schoolListValue!["schoolName"],fontsize: 14,overflow:TextOverflow.ellipsis ,),
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
                   borderSide:
