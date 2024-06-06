@@ -8,8 +8,8 @@ import 'package:vidyaveechi_website/view/home/screens/create_school/Registration
 import 'package:vidyaveechi_website/view/home/screens/create_school/create_school.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
-class ExcelKaroorHOmeScreen extends StatelessWidget {
-  const ExcelKaroorHOmeScreen({super.key});
+class SchoolHOmeScreen extends StatelessWidget {
+  const SchoolHOmeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
