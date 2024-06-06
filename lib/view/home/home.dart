@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/home/excel_karoor/Notice_display_widget.dart';
-import 'package:vidyaveechi_website/view/home/excel_karoor/excelkaroor_homepage.dart';
+import 'package:vidyaveechi_website/view/home/excel_karoor/school_homepage.dart';
 import 'package:vidyaveechi_website/view/home/excel_karoor/home_appbar.dart';
 import 'package:vidyaveechi_website/view/home/excel_karoor/our_team.dart';
 import 'package:vidyaveechi_website/view/home/screens/footer/footer.dart';
@@ -23,8 +23,8 @@ class HomeScreen extends StatelessWidget {
       body: ResponsiveWebSite.isMobile(context)
           ? ListView(
               children: const [
-                ExcelKaroorHOmeScreen(),
-                ExcelKaroorNoticedisplay(),
+                SchoolHOmeScreen(),
+                SchoolNoticedisplay(),
                 OurTutionCenterContainer(),
                  Divider(
                   thickness: 01,
@@ -41,8 +41,8 @@ class HomeScreen extends StatelessWidget {
             )
           : ListView(
               children: const [
-                ExcelKaroorHOmeScreen(),
-                ExcelKaroorNoticedisplay(),
+                SchoolHOmeScreen(),
+                SchoolNoticedisplay(),
                 OurTutionCenterContainer(),
                  Divider(
                   height: 05,

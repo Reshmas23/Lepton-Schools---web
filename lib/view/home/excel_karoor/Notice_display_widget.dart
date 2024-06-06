@@ -5,8 +5,8 @@ import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
-class ExcelKaroorNoticedisplay extends StatelessWidget {
-  const ExcelKaroorNoticedisplay({super.key});
+class SchoolNoticedisplay extends StatelessWidget {
+  const SchoolNoticedisplay({super.key});
 
   @override
   Widget build(BuildContext context) {
