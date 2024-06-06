@@ -152,16 +152,15 @@ class StudentDetailsContainer extends StatelessWidget {
                           // mainAxisAlignment: MainAxisAlignment.start,
                           // crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.only(top: 05, left: 10),
+                            const Padding(
+                              padding: EdgeInsets.only(top: 05, left: 10),
                               child: CircleAvatar(
                                 radius: 80,
                                 backgroundColor: Colors.grey,
                                 child: CircleAvatar(
-                                  radius: 78,
-                                  backgroundImage:
-                                      NetworkImage(data?.profileImageUrl ?? ''),
-                                ),
+                                    radius: 78,
+                                    backgroundImage: AssetImage(
+                                        'webassets/png/student.png')),
                               ),
                             ),
                             Expanded(
