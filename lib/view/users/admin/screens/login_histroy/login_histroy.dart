@@ -172,7 +172,7 @@ class LoginHistroyContainer extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(left: 10, right: 10),
                     child: Container(
-                      width: 1150,
+                      width: double.infinity,
                       decoration: BoxDecoration(
                         color: cWhite,
                         border: Border.all(color: cWhite),

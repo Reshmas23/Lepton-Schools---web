@@ -5,7 +5,6 @@ import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/asign_subject/asign_subject.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/teachers_details/widgets/detail_tileContainer.dart';
-import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
 import 'package:vidyaveechi_website/view/widgets/blue_Container_widget/blue_Container_widget.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
@@ -101,10 +100,8 @@ class TeachersDetailsContainer extends StatelessWidget {
                                 radius: 80,
                                 backgroundColor: Colors.grey,
                                 child: CircleAvatar(
-                                  backgroundImage: NetworkImage(
-                                      UserCredentialsController
-                                              .teacherModel?.imageUrl ??
-                                          ""),
+                                  backgroundImage:
+                                      NetworkImage(data!.imageUrl ?? ''),
                                   radius: 78,
                                 ),
                                 //  CircleAvatar(
@@ -131,7 +128,7 @@ class TeachersDetailsContainer extends StatelessWidget {
                                             padding: const EdgeInsets.only(
                                                 left: 10, top: 10),
                                             child: TextFontWidget(
-                                              text: '${data!.teacherName}',
+                                              text: '${data.teacherName}',
                                               fontsize: 20,
                                               fontWeight: FontWeight.w600,
                                             ),
