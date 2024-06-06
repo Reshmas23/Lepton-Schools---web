@@ -11,6 +11,7 @@ class ClassModel {
   bool editoption;
   bool feeeditoption;
   int workingDaysCount;
+  String lastClassDay;
   ClassModel({
     required this.docid,
     required this.className,
@@ -21,6 +22,7 @@ class ClassModel {
     required this.editoption,
     required this.feeeditoption,
     required this.workingDaysCount,
+    required this.lastClassDay,
   });
 
   ClassModel copyWith({
@@ -33,6 +35,7 @@ class ClassModel {
     bool? editoption,
     bool? feeeditoption,
     int? workingDaysCount,
+    String? lastClassDay,
   }) {
     return ClassModel(
       docid: docid ?? this.docid,
@@ -44,6 +47,7 @@ class ClassModel {
       editoption: editoption ?? this.editoption,
       feeeditoption: feeeditoption ?? this.feeeditoption,
       workingDaysCount: workingDaysCount ?? this.workingDaysCount,
+      lastClassDay: lastClassDay ?? this.lastClassDay,
     );
   }
 
@@ -58,6 +62,7 @@ class ClassModel {
       'editoption': editoption,
       'feeeditoption': feeeditoption,
       'workingDaysCount': workingDaysCount,
+      'lastClassDay': lastClassDay,
     };
   }
 
@@ -72,6 +77,7 @@ class ClassModel {
       editoption: map['editoption'] as bool,
       feeeditoption: map['feeeditoption'] as bool,
       workingDaysCount: map['workingDaysCount'] as int,
+      lastClassDay: map['lastClassDay'] as String,
     );
   }
 
@@ -82,7 +88,7 @@ class ClassModel {
 
   @override
   String toString() {
-    return 'ClassModel(docid: $docid, className: $className, classId: $classId, classTeacherdocid: $classTeacherdocid, classTeacherName: $classTeacherName, classfee: $classfee, editoption: $editoption, feeeditoption: $feeeditoption, workingDaysCount: $workingDaysCount)';
+    return 'ClassModel(docid: $docid, className: $className, classId: $classId, classTeacherdocid: $classTeacherdocid, classTeacherName: $classTeacherName, classfee: $classfee, editoption: $editoption, feeeditoption: $feeeditoption, workingDaysCount: $workingDaysCount, lastClassDay: $lastClassDay)';
   }
 
   @override
@@ -98,7 +104,8 @@ class ClassModel {
       other.classfee == classfee &&
       other.editoption == editoption &&
       other.feeeditoption == feeeditoption &&
-      other.workingDaysCount == workingDaysCount;
+      other.workingDaysCount == workingDaysCount &&
+      other.lastClassDay == lastClassDay;
   }
 
   @override
@@ -111,6 +118,7 @@ class ClassModel {
       classfee.hashCode ^
       editoption.hashCode ^
       feeeditoption.hashCode ^
-      workingDaysCount.hashCode;
+      workingDaysCount.hashCode ^
+      lastClassDay.hashCode;
   }
 }
