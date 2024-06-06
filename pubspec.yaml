@@ -107,6 +107,7 @@ dependencies:
   path_provider: 
   printing:
   csv: 
+  auto_size_text: 
 
 dev_dependencies:
   flutter_test:

@@ -322,7 +322,7 @@ class PeriodWiseTimeTable extends StatelessWidget {
                                   ),
                                 );
                         } else if (snapshot.data == null) {
-                          return Center(
+                          return const Center(
                             child: TextFontWidget(
                                 text: "No result found", fontsize: 12),
                           );
