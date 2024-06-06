@@ -68,16 +68,16 @@ class ClassModel {
 
   factory ClassModel.fromMap(Map<String, dynamic> map) {
     return ClassModel(
-      docid: map['docid'] as String,
-      className: map['className'] as String,
-      classId: map['classId'] as String,
-      classTeacherdocid: map['classTeacherdocid'] != null ? map['classTeacherdocid'] as String : null,
-      classTeacherName: map['classTeacherName'] != null ? map['classTeacherName'] as String : null,
-      classfee: map['classfee'] != null ? map['classfee'] as int : null,
-      editoption: map['editoption'] as bool,
-      feeeditoption: map['feeeditoption'] as bool,
-      workingDaysCount: map['workingDaysCount'] as int,
-      lastClassDay: map['lastClassDay'] as String,
+      docid: map['docid'] ??"",
+      className: map['className'] ??"",
+      classId: map['classId'] ??"",
+      classTeacherdocid: map['classTeacherdocid'] != null ? map['classTeacherdocid'] ??"" : null,
+      classTeacherName: map['classTeacherName'] != null ? map['classTeacherName'] ??"" : null,
+      classfee: map['classfee'] != null ? map['classfee'] ??0 : null,
+      editoption: map['editoption'] ?? false,
+      feeeditoption: map['feeeditoption'] ?? false,
+      workingDaysCount: map['workingDaysCount'] ?? 0,
+      lastClassDay: map['lastClassDay'] ??"",
     );
   }
 
