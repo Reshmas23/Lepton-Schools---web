@@ -152,9 +152,7 @@ class AppBarAdminPanel extends StatelessWidget {
                                     if (data != null &&
                                         data.containsKey('collection1')) {
                                       return Text(
-                                        data['collection1']
-                                                ['adminUserName'] ??
-                                            '',
+                                        data['collection1'] ['adminUserName'] ??'',
                                         style: const TextStyle(fontSize: 12),
                                       );
                                     } else if (data != null &&

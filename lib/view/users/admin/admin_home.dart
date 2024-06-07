@@ -33,6 +33,8 @@ import 'package:vidyaveechi_website/view/users/admin/screens/teacher/view_allTea
 import 'package:vidyaveechi_website/view/users/admin/screens/timetable/timetable_main_screen.dart';
 import 'package:vidyaveechi_website/view/utils/firebase/firebase.dart';
 import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
+import 'package:vidyaveechi_website/view/web_DashBoard/Login_dashBoard/login_dashBoard.dart';
+import 'package:vidyaveechi_website/view/web_DashBoard/pages/video_management/presentation/pages/widgets/video_widgets.dart';
 import 'package:vidyaveechi_website/view/widgets/loading_widget/loading_widget.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
@@ -260,7 +262,8 @@ List<Widget> pages = [
 
   BatchHistroyListPage(),
   const TimeTableMainScreen(),
-  LoginHistroyContainer()
+  LoginHistroyContainer(),
+ // const Scaffold(body: LoginDashBoard())
 ];
 List<String> sideMenu = [
   'Attendence',

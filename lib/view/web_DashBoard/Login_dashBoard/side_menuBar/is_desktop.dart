@@ -93,8 +93,8 @@ class SideBarMenuItemsWidget extends StatelessWidget {
 
 List<String> sideMenu = [
   'Staff Management',
-  'Client Management',
-  'Video Management',
+ // 'Client Management',
+  //'Video Management',
   'Article Management',
   // 'Visitors Pass',
   // 'Students Manage',
@@ -107,8 +107,8 @@ List<String> sideMenu = [
 ];
 List<IconData> sideMenuICons = [
   Icons.people,
-  Icons.people,
-  Icons.video_settings,
+ // Icons.people,
+ // Icons.video_settings,
   Icons.art_track_rounded,
   // Icons.confirmation_number_outlined,
   // Icons.people,
