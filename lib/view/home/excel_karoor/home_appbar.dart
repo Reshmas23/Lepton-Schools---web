@@ -64,7 +64,7 @@ class ResponsiveMobileAppBar extends StatelessWidget {
 
       maxWidthValue = constrain.maxWidth;
       return Container(
-        color: const Color.fromARGB(255, 74, 51, 42),
+        color: const Color.fromARGB(255, 70, 5, 61),
         height: 100,
         child: Padding(
           padding:  EdgeInsets.symmetric(vertical: 5, horizontal: ResponsiveWebSite.isMobile(context) ?0: 20),
@@ -87,7 +87,7 @@ class ResponsiveMobileAppBar extends StatelessWidget {
                       child: Column(
                         children: [
                           Text(
-                            "S T. J O S E P H'S",
+                            "L E P T O N  S C H O O L S",
                             style: TextStyle(
                                 fontSize: ResponsiveWebSite.isDesktop(context)
                                     ? 21
@@ -99,7 +99,7 @@ class ResponsiveMobileAppBar extends StatelessWidget {
                               ? const Padding(
                                   padding: EdgeInsets.only(top: 02),
                                   child: Text(
-                                      'Learn To Live',
+                                      "E-learning is not just a phase,\n it's the future's mainstay of education",
                                       style: TextStyle(
                                         fontSize: 11,
                                         color: cWhite,
@@ -108,7 +108,7 @@ class ResponsiveMobileAppBar extends StatelessWidget {
                               : const Padding(
                                   padding: EdgeInsets.only(top: 02),
                                   child: Text(
-                                      'Learn To Live',
+                                      "E-learning is not just a phase, it's the future's mainstay of education",
                                       style: TextStyle(
                                         fontSize: 11,
                                         color: cWhite,
