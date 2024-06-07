@@ -15,12 +15,13 @@ class TherapyHomePage extends StatelessWidget {
     return SingleChildScrollView(
       child: Container(
         color: screenContainerbackgroundColor,
-        height: ResponsiveWebSite.isMobile(context) ? 840 : 820,
+        height: ResponsiveWebSite.isMobile(context) ? 840 : 840,
         width: double.infinity,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 25, top: 25),
@@ -36,7 +37,7 @@ class TherapyHomePage extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 625, top: 25),
+                  padding: const EdgeInsets.all(20),
                   child: InkWell(
                     onTap: () {
                       // therapycontroller.therapyhome.value = false;
