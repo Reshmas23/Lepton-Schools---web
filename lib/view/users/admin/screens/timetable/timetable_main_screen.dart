@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vidyaveechi_website/controller/class_controller/class_controller.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
+import 'package:vidyaveechi_website/view/constantvalidate.dart';
 import 'package:vidyaveechi_website/view/drop_down/select_class.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/timetable/period_wise_timetable.dart';
@@ -72,6 +73,7 @@ class TimeTableMainScreen extends StatelessWidget {
               ),
             )),
       ),
+      
       ////////////////////////////////////////////////////////1
       const Padding(
         padding: EdgeInsets.only(top: 15, left: 10, right: 10),
@@ -88,6 +90,7 @@ class TimeTableMainScreen extends StatelessWidget {
           width: ResponsiveWebSite.isMobile(context) ? double.infinity : 400,
           hintText: 'Period',
           title: 'Period',
+          validator: checkFieldEmpty,
           // onTap: () async {
 
           // },
@@ -101,13 +104,14 @@ class TimeTableMainScreen extends StatelessWidget {
           width: ResponsiveWebSite.isMobile(context) ? double.infinity : 400,
           hintText: 'Start time',
           title: 'Start time',
-          validator: (value) {
-            if (timetableCtrl.startTimeController.text.isEmpty) {
-              return "Please select Time";
-            } else {
-              return null;
-            }
-          },
+          validator: checkFieldEmpty,
+          // validator: (value) {
+          //   if (timetableCtrl.startTimeController.text.isEmpty) {
+          //     return "Please select Time";
+          //   } else {
+          //     return null;
+          //   }
+          // },
           onTap: () async {
             await timetableCtrl.selectTimesec(
                 context, timetableCtrl.startTimeController);
@@ -125,6 +129,7 @@ class TimeTableMainScreen extends StatelessWidget {
           width: ResponsiveWebSite.isMobile(context) ? double.infinity : 400,
           hintText: 'End time',
           title: 'End time',
+          validator: checkFieldEmpty,
           onTap: () async {
             await timetableCtrl.selectTimesec(
                 context, timetableCtrl.endTimeController);
@@ -336,6 +341,8 @@ class TimeTableMainScreen extends StatelessWidget {
 
   Future<void> timetable_Creation(
       BuildContext context, List<Widget> textformWidget) {
+         final GlobalKey<FormState> formKey = GlobalKey<FormState>();  
+
     final timetableCtrl = Get.put(TimeTableController());
     return aweSideSheet(
         context: context,
@@ -344,45 +351,44 @@ class TimeTableMainScreen extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.only(left: 10, top: 10),
           child: SingleChildScrollView(
-            child: Form(
-              key: timetableCtrl.formKey,
-              child: Column(
-                children: [
-                  const Row(
-                    children: [
-                      BackButton(),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      TextFontWidget(
-                        text: 'Time Table',
-                        fontsize: 17,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                      height: 800,
-                      child: Container(
-                        margin: const EdgeInsets.only(top: 10),
-                        child:
-                            //  Obx(() {
-                            // return
-                            Column(
+            child: Column(
+              children: [
+                const Row(
+                  children: [
+                    BackButton(),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    TextFontWidget(
+                      text: 'Time Table',
+                      fontsize: 17,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ],
+                ),
+                SizedBox(
+                    height: 800,
+                    child: Container(
+                      margin: const EdgeInsets.only(top: 10),
+                      child:
+                          //  Obx(() {
+                          // return
+                          Form(key: formKey,
+                            child: Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                               textformWidget[0],
                               textformWidget[1],
                               textformWidget[2],
-              
+                            
                               textformWidget[3],
                               textformWidget[4],
                               textformWidget[5],
                               textformWidget[6],
                               textformWidget[7],
                               textformWidget[8],
-              
+                            
                               Padding(
                                 padding:
                                     const EdgeInsets.only(top: 10, bottom: 10),
@@ -392,11 +398,10 @@ class TimeTableMainScreen extends StatelessWidget {
                                             timetableCtrl.buttonstate.value,
                                         text: 'Submit',
                                         function: () {
-                                          if (timetableCtrl .formKey.currentState!
-                                                  .validate()) {
-                                               timetableCtrl
-                                                .addTimeTableDataToFirebase();
-                                              }
+                                         if(formKey.currentState!.validate()){
+                                           timetableCtrl
+                                              .addTimeTableDataToFirebase();
+                                         }
                                         })
                                     //  NoticeButtonContainerWidget(
                                     //   text: 'Submit',
@@ -412,9 +417,9 @@ class TimeTableMainScreen extends StatelessWidget {
                               )
                               // }),
                             ]),
-                      )),
-                ],
-              ),
+                          ),
+                    )),
+              ],
             ),
           ),
         ),

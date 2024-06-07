@@ -87,13 +87,17 @@ String? checkFieldEmailIsValid(String? fieldContent) {
 }
 
 String? checkFieldPhoneNumberIsValid(String? fieldContent) {
+  // Check if the input is null
   if (fieldContent == null) {
     return 'null';
   }
-  if (fieldContent.length >= 10) {
-    return null;
+
+  // Check if the input contains only digits
+  final validDigits = RegExp(r'^\d{10}$');
+  if (validDigits.hasMatch(fieldContent)) {
+    return null; // The input is valid
   } else {
-    return 'Please enter 10 digit number';
+    return 'Please enter a valid 10 digit number';
   }
 }
 
