@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:vidyaveechi_website/info/info.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/home/excel_karoor/login_button.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
@@ -63,7 +64,7 @@ class ResponsiveMobileAppBar extends StatelessWidget {
 
       maxWidthValue = constrain.maxWidth;
       return Container(
-        color: const Color.fromARGB(255, 70, 5, 63),
+        color: const Color.fromARGB(255, 74, 51, 42),
         height: 100,
         child: Padding(
           padding:  EdgeInsets.symmetric(vertical: 5, horizontal: ResponsiveWebSite.isMobile(context) ?0: 20),
@@ -72,7 +73,7 @@ class ResponsiveMobileAppBar extends StatelessWidget {
               SizedBox(
                 width: ResponsiveWebSite.isTablet(context) ? 110 : 130,
                 child: Image.asset(
-                  'webassets/images/leptonlogo.png',
+                  institutionLogo,
                   fit: BoxFit.cover,
                 //  color: Colors.white,
                 ),
@@ -86,7 +87,7 @@ class ResponsiveMobileAppBar extends StatelessWidget {
                       child: Column(
                         children: [
                           Text(
-                            'L E P T O N S C H O O L',
+                            "S T. J O S E P H'S",
                             style: TextStyle(
                                 fontSize: ResponsiveWebSite.isDesktop(context)
                                     ? 21
@@ -98,7 +99,7 @@ class ResponsiveMobileAppBar extends StatelessWidget {
                               ? const Padding(
                                   padding: EdgeInsets.only(top: 02),
                                   child: Text(
-                                      'One of the most reputable\nbrands in experienced schooling',
+                                      'Learn To Live',
                                       style: TextStyle(
                                         fontSize: 11,
                                         color: cWhite,
@@ -107,7 +108,7 @@ class ResponsiveMobileAppBar extends StatelessWidget {
                               : const Padding(
                                   padding: EdgeInsets.only(top: 02),
                                   child: Text(
-                                      'One of the most reputable brands in experienced schooling',
+                                      'Learn To Live',
                                       style: TextStyle(
                                         fontSize: 11,
                                         color: cWhite,

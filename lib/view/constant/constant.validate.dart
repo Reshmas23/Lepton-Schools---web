@@ -87,13 +87,17 @@ String? checkFieldEmailIsValid(String? fieldContent) {
 }
 
 String? checkFieldPhoneNumberIsValid(String? fieldContent) {
+  // Check if the input is null
   if (fieldContent == null) {
     return 'null';
   }
-  if (fieldContent.length >= 10) {
-    return null;
+
+  // Check if the input contains only digits
+  final validDigits = RegExp(r'^\d{10}$');
+  if (validDigits.hasMatch(fieldContent)) {
+    return null; // The input is valid
   } else {
-    return 'Please enter 10 digit number';
+    return 'Please enter a valid 10 digit number';
   }
 }
 
@@ -139,6 +143,40 @@ String? checkFieldDateIsValid(String? fieldContent) {
   return 'Date is not valid (dd-mm-yyyy)';
 }
 
+String? checkFieldTimeIsValid(String? fieldContent) {
+  if (fieldContent == null) {
+    return 'null';
+  }
+  // Define a regular expression pattern to match a time in the "h:mm am/pm" format
+  String pattern = r'^(0?[1-9]|1[0-2]):[0-5][0-9] (am|pm)$';
+  RegExp regex = RegExp(pattern, caseSensitive: false);
+
+  if (regex.hasMatch(fieldContent)) {
+    // If the time matches the pattern, further validate it for valid time values.
+    try {
+      final parts = fieldContent.split(' ');
+      final timeParts = parts[0].split(':');
+      final hour = int.tryParse(timeParts[0]);
+      final minute = int.tryParse(timeParts[1]);
+      final period = parts[1].toLowerCase();
+
+      if (hour != null && minute != null) {
+        if (hour >= 1 && hour <= 12 && minute >= 0 && minute <= 59) {
+          if (period == 'am' || period == 'pm') {
+            return null; // Valid time
+          }
+        }
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
+    }
+  }
+
+  return 'Time is not valid (h:mm am/pm)';
+}
+
 class TeacherLoginIDSaver {
   static String id = '';
   static String teacherID = '';
@@ -168,7 +206,7 @@ showDialogWidget(
         title: TextFontWidget(text: title, fontsize: 16),
         actions: [
           TextButton(
-            child: TextFontWidget(
+            child: const TextFontWidget(
               text: 'No',
               fontsize: 16,
             ),
@@ -177,7 +215,7 @@ showDialogWidget(
             },
           ),
           TextButton(
-            child: TextFontWidget(
+            child: const TextFontWidget(
               text: 'Yes',
               fontsize: 16,
             ),
@@ -205,8 +243,6 @@ String timeConvert(DateTime date) {
   return '';
 }
 
-
-
 String timeToDateConvert(String date) {
   //String dateandtime convert to "dd-mm-yyyy hh:mm" this format
   try {
@@ -220,6 +256,3 @@ String timeToDateConvert(String date) {
   }
   return '';
 }
-
-
-

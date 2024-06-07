@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vidyaveechi_website/info/info.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/google_monstre.dart';
 import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
@@ -63,11 +64,11 @@ class SchoolNoticedisplay extends StatelessWidget {
                           : 400, // Adjust the width of each container as needed
                       child: Container(
                         color: Colors.white,
-                        child: Image.asset('webassets/images/leptonlogo.png'),
+                        child: Image.asset(institutionLogo),
                       )),
                 ),
                 GoogleMonstserratWidgets(
-                  text: "Lepton School ",
+                  text: smallLetterIN,
                   //['articleTitle'],
                   fontsize: 15,
                   fontWeight: FontWeight.w500,

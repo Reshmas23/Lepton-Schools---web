@@ -170,15 +170,15 @@ class LoginHistroyContainer extends StatelessWidget {
                 ),
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 10, right: 10),
+                    padding: const EdgeInsets.only(left: 10, right: 0),
                     child: Container(
-                      width: 1150,
+                      width: 1200,
                       decoration: BoxDecoration(
                         color: cWhite,
                         border: Border.all(color: cWhite),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.only(left: 5, right: 5),
+                        padding: const EdgeInsets.only(left: 5, right: 0),
                         child: SizedBox(
                           // width: 1100,
                           child: StreamBuilder(
@@ -193,15 +193,12 @@ class LoginHistroyContainer extends StatelessWidget {
                                     .value)
                                 .collection(
                                     Get.find<AdminLoginHistroyController>()
-                                        .loginHMonthValue
-                                        .value)
+                                        .loginHMonthValue.value)
                                 .doc(Get.find<AdminLoginHistroyController>()
-                                    .loginHDayValue
-                                    .value)
+                                    .loginHDayValue .value)
                                 .collection(
                                     Get.find<AdminLoginHistroyController>()
-                                        .loginHDayValue
-                                        .value)
+                                        .loginHDayValue .value)
                                 .orderBy('loginTime', descending: true)
                                 .snapshots(),
                             builder: (context, snaPS) {

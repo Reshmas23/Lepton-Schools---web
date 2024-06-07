@@ -12,7 +12,7 @@ class CopyRightWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color.fromARGB(255, 132, 3, 134),
+      color: const Color.fromARGB(255, 57, 38, 32),
       height: 60,
       width: double.infinity,
       child: Row(
