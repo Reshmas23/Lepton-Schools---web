@@ -38,41 +38,51 @@ class TimeTableMainScreen extends StatelessWidget {
         padding: EdgeInsets.only(top: 15, left: 10, right: 10),
         child: TextFontWidget(text: 'Select Day *', fontsize: 12.5),
       ),
-      Padding(
-        padding: const EdgeInsets.only(top: 5, left: 10, right: 10),
-        child: Obx(() => Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5),
-                border: Border.all(
-                  color: Colors.black.withOpacity(0.7),
-                ),
-              ),
-              width: 450,
-              child: DropdownButton<String>(
-                underline: Container(),
-                isExpanded: true,
-                value: timetableCtrl.dayName.value,
-                onChanged: (String? newValue) {
-                  timetableCtrl.dayName.value = newValue ?? '';
-                },
-                items: <String>[
-                  'Select Day',
-                  'Monday',
-                  'Tuesday',
-                  'Wednesday',
-                  'Thursday',
-                  'Friday',
-                  'Saturday',
-                  'Sunday',
-                ].map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
-              ),
-            )),
-      ),
+     Padding(
+  padding: const EdgeInsets.only(top: 5, left: 10, right: 10),
+  child: Obx(() => Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(5),
+          border: Border.all(
+            color: Colors.black.withOpacity(0.7),
+          ),
+        ),
+        width: 450,
+        child: DropdownButtonFormField<String>(
+          decoration: const InputDecoration(
+            border: InputBorder.none,
+          ),
+          isExpanded: true,
+          value: timetableCtrl.dayName.value,
+          onChanged: (String? newValue) {
+            timetableCtrl.dayName.value = newValue ?? '';
+          },
+          validator: (item) {
+            if (item == null || item == 'Select Day') {
+              return "Select Class";
+            } else {
+              return null;
+            }
+          },
+          items: <String>[
+            'Select Day',
+            'Monday',
+            'Tuesday',
+            'Wednesday',
+            'Thursday',
+            'Friday',
+            'Saturday',
+            'Sunday',
+          ].map<DropdownMenuItem<String>>((String value) {
+            return DropdownMenuItem<String>(
+              value: value,
+              child: Text(value),
+            );
+          }).toList(),
+        ),
+      )),
+),
+
       
       ////////////////////////////////////////////////////////1
       const Padding(

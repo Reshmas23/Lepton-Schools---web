@@ -125,7 +125,7 @@ class AllExamNotificationListView extends StatelessWidget {
               ),
               Expanded(
                 child: SizedBox(
-                  width: 1200,
+                 width: 1220,
                   child: Padding(
                     padding: const EdgeInsets.only(left: 10, right: 10),
                     child: StreamBuilder(
