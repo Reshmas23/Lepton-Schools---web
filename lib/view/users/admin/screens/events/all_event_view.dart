@@ -85,6 +85,7 @@ class AllEventsList extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 5, right: 0),
                   child: Container(
+                    width: 1210,
                     color: cWhite,
                     height: 40,
                     child: const Row(
@@ -142,7 +143,7 @@ class AllEventsList extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(left: 10, right: 0),
                 child: Container(
-                  width: 1200,
+                  width: 1220,
                   decoration: BoxDecoration(
                     color: cWhite,
                     border: Border.all(color: cWhite),
