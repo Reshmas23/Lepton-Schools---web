@@ -259,10 +259,10 @@ List<Widget> pages = [
 
 
   BatchHistroyListPage(),
-  const TimeTableMainScreen(),
-  LoginHistroyContainer(),
+  // const TimeTableMainScreen(),
+  // LoginHistroyContainer(),
  // const Scaffold(body: LoginDashBoard())
-   TimeTableMainScreen(),
+   const TimeTableMainScreen(),
   LoginHistroyContainer()
 ];
 List<String> sideMenu = [

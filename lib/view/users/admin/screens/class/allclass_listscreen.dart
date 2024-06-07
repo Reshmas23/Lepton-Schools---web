@@ -37,7 +37,7 @@ class AllClassListView extends StatelessWidget {
                     ? double.infinity
                     : 1200,
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 15, right: 15, top: 25),
+                  padding: const EdgeInsets.only(left: 15, right: 20, top: 25),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

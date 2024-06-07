@@ -141,9 +141,9 @@ class AllEventsList extends StatelessWidget {
             ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.only(left: 10, right: 0),
+                padding: const EdgeInsets.only(left: 10, right: 20),
                 child: Container(
-                  width: 1220,
+                  width: 1200,
                   decoration: BoxDecoration(
                     color: cWhite,
                     border: Border.all(color: cWhite),

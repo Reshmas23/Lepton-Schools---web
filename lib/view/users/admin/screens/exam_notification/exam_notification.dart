@@ -127,7 +127,7 @@ class AllExamNotificationListView extends StatelessWidget {
                 child: SizedBox(
                  width: 1220,
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 10, right: 0),
+                    padding: const EdgeInsets.only(left: 10, right: 10),
                     child: StreamBuilder(
                       stream: server
                           .collection('SchoolListCollection')
