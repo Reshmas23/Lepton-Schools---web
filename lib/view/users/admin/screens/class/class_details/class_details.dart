@@ -257,8 +257,8 @@ class ClassDetailsContainer extends StatelessWidget {
                                                   Row(
                                                     children: [
                                                       const Icon(Icons.person),
-                                                      const TextFontWidget(
-                                                        text: "class teacher ",
+                                                       TextFontWidget(
+                                                        text: data.classTeacherName??"Class Teacher",
                                                         fontsize: 12,
                                                         color: themeColorBlue,
                                                       ),
