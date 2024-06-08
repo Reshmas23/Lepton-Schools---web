@@ -139,7 +139,9 @@ class AllClassListView extends StatelessWidget {
                       ),
                       Expanded(
                         child: Container(
-                          width: 1200,
+                          width: ResponsiveWebSite.isDesktop(context)
+                    ? double.infinity
+                    : 1200,
                           color: cWhite,
                           child: Padding(
                             padding: const EdgeInsets.only(
