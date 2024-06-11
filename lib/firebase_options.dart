@@ -51,12 +51,11 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBK2lcslRIDWzPDxbOT9soZfpgppGhFMIQ',
-    appId: '1:1072642330251:web:c690df0bbee7f67ba28e8e',
-    messagingSenderId: '1072642330251',
-    projectId: 'excel-karoor-48ae3',
-    authDomain: 'excel-karoor-48ae3.firebaseapp.com',
-    storageBucket: 'excel-karoor-48ae3.appspot.com',
-    measurementId: 'G-0JW5WPFN43',
+    apiKey: 'AIzaSyCNm7KuQcHr2J9gUHpzBa7aJk2xt7zT8DQ',
+    appId: '1:341868646352:android:4434998ca178936c9a33d5',
+    messagingSenderId: '341868646352',
+    projectId: 'vidya-veechi-8-feb-2024',
+    databaseURL: 'https://vidya-veechi-8-feb-2024-default-rtdb.firebaseio.com',
+    storageBucket: 'vidya-veechi-8-feb-2024.appspot.com',
   );
 }
