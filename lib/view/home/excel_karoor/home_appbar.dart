@@ -86,8 +86,7 @@ class ResponsiveMobileAppBar extends StatelessWidget {
                           left: ResponsiveWebSite.isDesktop(context) ? 20 : 0),
                       child: Column(
                         children: [
-                          Text(
-                            "L E P T O N  S C H O O L S",
+                          Text(withSpace,
                             style: TextStyle(
                                 fontSize: ResponsiveWebSite.isDesktop(context)
                                     ? 21
