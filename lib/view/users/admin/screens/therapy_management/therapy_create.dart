@@ -2,16 +2,16 @@ import 'package:awesome_side_sheet/Enums/sheet_position.dart';
 import 'package:awesome_side_sheet/side_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vidyaveechi_website/controller/notice_controller/notice_controller.dart';
+import 'package:vidyaveechi_website/controller/therapy_controller/therapy_controller.dart';
 import 'package:vidyaveechi_website/view/constant/constant.validate.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/widgets/progess_button/progress_button.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
 import 'package:vidyaveechi_website/view/widgets/textformFiledContainer/textformFiledBlueContainer.dart';
 
-class CreateNotice extends StatelessWidget {
-  final NoticeController noticeController = Get.put(NoticeController());
-  CreateNotice({super.key});
+class CreateTherapy extends StatelessWidget {
+  final TherapyController therapyController = Get.put(TherapyController());
+  CreateTherapy({super.key});
 
   // bool? valuefirst = false;
   @override
@@ -107,7 +107,7 @@ class CreateNotice extends StatelessWidget {
     // ];
     return Container(
       child: Form(
-        key: noticeController.formKey,
+        key: therapyController.formKey,
         child: Column(
           children: [
             Padding(
@@ -132,7 +132,7 @@ class CreateNotice extends StatelessWidget {
                                           width: 20,
                                         ),
                                         TextFontWidget(
-                                          text: 'Notices',
+                                          text: 'Therapy',
                                           fontsize: 17,
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -150,7 +150,7 @@ class CreateNotice extends StatelessWidget {
                                         crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
                                           Form(
-                                            key: noticeController.formKey,
+                                            key: therapyController.formKey,
                                             child: Column(
                                               children: [
                                                 Padding(
@@ -159,33 +159,27 @@ class CreateNotice extends StatelessWidget {
                                                   child: TextFormFiledHeightnoColor(
                                                     width: 500,
                                                     controller:
-                                                        noticeController.noticeHeadingController,
+                                                        therapyController.therapyNameController,
                                                     validator: checkFieldEmpty,
-                                                    title: 'Heading',
+                                                    title: 'Therapy Name',
                                                     hintText:
-                                                        'Heading', /////////////////////////////////////////0
+                                                        'Therapy Name', /////////////////////////////////////////0
                                                   ),
                                                 ),
-
                                                 Padding(
                                                   padding: const EdgeInsets.only(
                                                       top: 5, left: 10, right: 10),
                                                   child: TextFormFiledHeightnoColor(
-                                                    onTap: () {
-                                                      noticeController.selectDate(
-                                                          context,
-                                                          noticeController
-                                                              .noticePublishedDateController);
-                                                    },
                                                     width: 500,
-                                                    controller: noticeController
-                                                        .noticePublishedDateController,
+                                                    controller:
+                                                        therapyController.therapyDiscriptionController,
                                                     validator: checkFieldEmpty,
-                                                    title: 'Published Date',
+                                                    title: 'Therapy Discription',
                                                     hintText:
-                                                        'Published Date', /////////////////////////////////////////0
+                                                        'Therapy Discroption', /////////////////////////////////////////0
                                                   ),
-                                                ), ////////////////////////////////////////////////////////2
+                                                ),
+                                                ////////////////////////////////////////////////////////2
                                                 Padding(
                                                   padding: const EdgeInsets.only(
                                                       top: 5, left: 10, right: 10),
@@ -193,112 +187,44 @@ class CreateNotice extends StatelessWidget {
                                                     width: 500,
                                                     validator: checkFieldEmpty,
                                                     controller:
-                                                        noticeController.noticeSubjectController,
-                                                    title: 'Subject',
-                                                    hintText: 'Subject',
+                                                        therapyController.therapiestController,
+                                                    title: 'Therapiest',
+                                                    hintText: 'Therapiest',
                                                   ),
                                                 ), ///////////////////////////////////////////////3
-                                                Padding(
-                                                  padding: const EdgeInsets.only(
-                                                      top: 5, left: 10, right: 10),
-                                                  child: TextFormFiledHeightnoColor(
-                                                    onTap: () {
-                                                      noticeController.selectDate(
-                                                          context,
-                                                          noticeController
-                                                              .noticeDateofoccationController);
-                                                    },
-                                                    width: 500,
-                                                    controller: noticeController
-                                                        .noticeDateofoccationController,
-                                                    validator: checkFieldEmpty,
-                                                    title: ' Date of occasion',
-                                                    hintText:
-                                                        ' Date of occasion', /////////////////////////////////////////0
-                                                  ),
-                                                ), ////////////////////////////////////4
-                                                Padding(
-                                                  padding: const EdgeInsets.only(
-                                                      top: 5, left: 10, right: 10),
-                                                  child: TextFormFiledHeightnoColor(
-                                                    width: 500,
-                                                    validator: checkFieldEmpty,
-                                                    controller:
-                                                        noticeController.noticevenueController,
-                                                    title: 'Venue',
-                                                    hintText: 'Venue',
-                                                  ),
-                                                ), ////////////////////////////////////5
-                                                Padding(
-                                                  padding: const EdgeInsets.only(
-                                                      top: 5, left: 10, right: 10),
-                                                  child: TextFormFiledHeightnoColor(
-                                                    width: 500,
-                                                    validator: checkFieldEmpty,
-                                                    controller:
-                                                        noticeController.noticeSignedByController,
-                                                    title: 'Signed by',
-                                                    hintText: 'Signed by',
-                                                  ),
-                                                ), ////////////////////////////////////7
-                                                Padding(
-                                                  padding: const EdgeInsets.only(
-                                                      top: 5, left: 10, right: 10),
-                                                  child: TextFormFiledHeightnoColor(
-                                                    onTap: () {
-                                                      noticeController.selectDate(
-                                                          context,
-                                                          noticeController
-                                                              .noticeDateofSubmissionController);
-                                                    },
-                                                    width: 500,
-                                                    controller: noticeController
-                                                        .noticeDateofSubmissionController,
-                                                    validator: checkFieldEmpty,
-                                                    title: ' Date of submission',
-                                                    hintText:
-                                                        ' Date of submission', /////////////////////////////////////////0
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding: const EdgeInsets.only(
-                                                      top: 5, left: 10, right: 10),
-                                                  child: TextFormFiledHeightnoColor(
-                                                    width: 500,
-                                                    validator: checkFieldEmpty,
-                                                    controller:
-                                                        noticeController.noticeGuestController,
-                                                    title: 'Cheif guest',
-                                                    hintText: 'Cheif guest',
-                                                  ),
-                                                ), ////////////////////////////////////6
+                                                ////////////////////////////////////4
+                                                ////////////////////////////////////5
+                                               ////////////////////////////////////7
+                                           
+                                                ////////////////////////////////////6
                                               ],
                                             ),
                                           ),
                                           Padding(
                                             padding: const EdgeInsets.only(top: 10, bottom: 10),
                                             child: Center(
-                                                child: Obx(() => ProgressButtonWidget(
-                                                    function: () async {
-                                                      if (noticeController.formKey.currentState!
-                                                          .validate()) {
-                                                        noticeController.createNotice();
-                                                        print("object");
-                                                      }
-                                                    },
-                                                    buttonstate: noticeController.buttonstate.value,
-                                                    text: 'Create Notice'))
+                                                child:   ProgressButtonWidget(
+                                                    // function: () async {
+                                                    //   if (therapyController.formKey.currentState!
+                                                    //       .validate()) {
+                                                        // therapyController.createTherapy(),
+                                                    //     print("object");
+                                                    //   }
+                                                    // },
+                                                    buttonstate:
+                                                        therapyController.buttonstate.value,
+                                                    text: 'Create Therapy'))
                                                 // NoticeButtonContainerWidget(
                                                 //           text: 'Submit',
                                                 //          width: 300,
                                                 //         height: 50,
                                                 //         fontSize: 18,
                                                 //         onTap: () {
-                                                //            if (noticeController
+                                                //            if (therapyController
                                                 //         .formKey
                                                 //         .currentState!
                                                 //         .validate()) {
-                                                //       noticeController
+                                                //       therapyController
                                                 //           .createNotice();
                                                 //       print("object");
                                                 //     }
@@ -306,7 +232,7 @@ class CreateNotice extends StatelessWidget {
                                                 //         color: adminePrimayColor,
                                                 //   ),
                                                 ),
-                                          )
+                                          
                                         ],
                                       ),
                                     ),
@@ -328,8 +254,8 @@ class CreateNotice extends StatelessWidget {
   }
 }
 
-createNoticeAdmin(BuildContext context) {
-  final NoticeController noticeController = Get.put(NoticeController());
+createTherapyAdmin(BuildContext context) {
+  final TherapyController therapyController = Get.put(TherapyController());
   aweSideSheet(
       context: context,
       sheetPosition: SheetPosition.right,
@@ -346,7 +272,7 @@ createNoticeAdmin(BuildContext context) {
                     width: 20,
                   ),
                   TextFontWidget(
-                    text: 'Notice',
+                    text: 'Therapy',
                     fontsize: 17,
                     fontWeight: FontWeight.bold,
                   ),
@@ -364,67 +290,40 @@ createNoticeAdmin(BuildContext context) {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Form(
-                      key: noticeController.formKey,
+                      key: therapyController.formKey,
                       child: Column(
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(top: 5, left: 10, right: 10),
                             child: TextFormFiledHeightnoColor(
                               width: 500,
-                              controller: noticeController.noticeHeadingController,
+                              controller: therapyController.therapyNameController,
                               validator: checkFieldEmpty,
-                              title: 'Heading',
-                              hintText: 'Heading', /////////////////////////////////////////0
+                              title: 'Therapy Name',
+                              hintText: 'Therapy Name', /////////////////////////////////////////0
                             ),
                           ),
 
-                          Padding(
-                            padding: const EdgeInsets.only(top: 5, left: 10, right: 10),
-                            child: TextFormFiledHeightnoColor(
-                              onTap: () {
-                                noticeController.selectDate(
-                                    context, noticeController.noticePublishedDateController);
-                              },
-                              width: 500,
-                              controller: noticeController.noticePublishedDateController,
-                              validator: checkFieldEmpty,
-                              title: 'Published Date',
-                              hintText: 'Published Date', /////////////////////////////////////////0
-                            ),
-                          ), ////////////////////////////////////////////////////////2
+                         ////////////////////////////////////////////////////////2
                           Padding(
                             padding: const EdgeInsets.only(top: 5, left: 10, right: 10),
                             child: TextFormFiledHeightnoColor(
                               width: 500,
                               validator: checkFieldEmpty,
-                              controller: noticeController.noticeSubjectController,
-                              title: 'Subject',
-                              hintText: 'Subject',
+                              controller: therapyController.therapyDiscriptionController,
+                              title: 'Therapy Discription',
+                              hintText: 'Therapy Discription',
                             ),
                           ), ///////////////////////////////////////////////3
-                          Padding(
-                            padding: const EdgeInsets.only(top: 5, left: 10, right: 10),
-                            child: TextFormFiledHeightnoColor(
-                              onTap: () {
-                                noticeController.selectDate(
-                                    context, noticeController.noticeDateofoccationController);
-                              },
-                              width: 500,
-                              controller: noticeController.noticeDateofoccationController,
-                              validator: checkFieldEmpty,
-                              title: ' Date of occasion',
-                              hintText:
-                                  ' Date of occasion', /////////////////////////////////////////0
-                            ),
-                          ), ////////////////////////////////////4
+                          ////////////////////////////////////4
                           Padding(
                             padding: const EdgeInsets.only(top: 5, left: 10, right: 10),
                             child: TextFormFiledHeightnoColor(
                               width: 500,
                               validator: checkFieldEmpty,
-                              controller: noticeController.noticevenueController,
-                              title: 'Venue',
-                              hintText: 'Venue',
+                              controller: therapyController.therapiestController,
+                              title: 'Therapist',
+                              hintText: 'Therapist',
                             ),
                           ), ////////////////////////////////////5
                           Padding(
@@ -432,58 +331,35 @@ createNoticeAdmin(BuildContext context) {
                             child: TextFormFiledHeightnoColor(
                               width: 500,
                               validator: checkFieldEmpty,
-                              controller: noticeController.noticeSignedByController,
-                              title: 'Signed by',
-                              hintText: 'Signed by',
+                              controller: therapyController.therapydurationController,
+                              title: 'Duration',
+                              hintText: 'Duration',
                             ),
                           ), ////////////////////////////////////7
-                          Padding(
-                            padding: const EdgeInsets.only(top: 5, left: 10, right: 10),
-                            child: TextFormFiledHeightnoColor(
-                              onTap: () {
-                                noticeController.selectDate(
-                                    context, noticeController.noticeDateofSubmissionController);
-                              },
-                              width: 500,
-                              controller: noticeController.noticeDateofSubmissionController,
-                              validator: checkFieldEmpty,
-                              title: ' Date of submission',
-                              hintText:
-                                  ' Date of submission', /////////////////////////////////////////0
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 5, left: 10, right: 10),
-                            child: TextFormFiledHeightnoColor(
-                              width: 500,
-                              validator: checkFieldEmpty,
-                              controller: noticeController.noticeGuestController,
-                              title: 'Cheif guest',
-                              hintText: 'Cheif guest',
-                            ),
-                          ), ////////////////////////////////////6
+                          
+                          ////////////////////////////////////6
                         ],
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 10, bottom: 10),
                       child: Center(
-                          child: Obx(() => ProgressButtonWidget(
-                              function: () async {
-                                if (noticeController.formKey.currentState!.validate()) {
-                                  noticeController.createNotice();
-                                  print("object");
-                                }
-                              },
-                              buttonstate: noticeController.buttonstate.value,
-                              text: 'Create Notice'))
+                          child:     ProgressButtonWidget(
+                              // function: () async {
+                              //   if (therapyController.formKey.currentState!.validate()) {
+                              //     therapyController.createNotice();
+                              //     print("object");
+                              //   }
+                              // },
+                              buttonstate: therapyController.buttonstate.value,
+                              text: 'Create Therapy'))
                           // NoticeButtonContainerWidget(
                           //           text: 'Submit',
                           //          width: 300,
                           //         height: 50,
                           //         fontSize: 18,
                           //         onTap: () {
-                          //            if (noticeController
+                          //            if (therapyController
                           //         .formKey
                           //         .currentState!
                           //         .validate()) {
@@ -495,7 +371,7 @@ createNoticeAdmin(BuildContext context) {
                           //         color: adminePrimayColor,
                           //   ),
                           ),
-                    )
+                    
                   ],
                 ),
               ),

@@ -8,13 +8,13 @@ import 'package:vidyaveechi_website/view/colors/colors.dart';
 class ProgressButtonWidget extends StatelessWidget {
   final ButtonState buttonstate;
   final String text;
-  final Function function;
+  final Function? function;
 
   const ProgressButtonWidget({
     Key? key,
     required this.buttonstate,
     required this.text,
-    required this.function,
+     this.function,
   }) : super(key: key);
 
   @override

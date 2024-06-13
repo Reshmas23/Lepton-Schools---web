@@ -23,7 +23,7 @@ class TherapyManagement extends StatelessWidget {
         : SingleChildScrollView(
             child: Container(
               color: screenContainerbackgroundColor,
-              height: ResponsiveWebSite.isMobile(context) ? 840 : 820,
+              height: ResponsiveWebSite.isMobile(context) ? 840 : 890,
               width: double.infinity,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,15 +44,17 @@ class TherapyManagement extends StatelessWidget {
                             onTap: () {
                               therapycontroller.therapyhome.value = true;
                             },
-                            child: const RouteSelectedTextContainer(width: 50, title: 'Home')),
+                            child: const RouteNonSelectedTextContainer(width: 50, title: 'Home')),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: InkWell(
                             onTap: () {},
-                            child: const RouteNonSelectedTextContainer(
+                            child: const RouteSelectedTextContainer(
                                 width: 100, title: 'Therapy List')),
                       ),
+                   
+                   
                     ],
                   ),
                   Padding(
