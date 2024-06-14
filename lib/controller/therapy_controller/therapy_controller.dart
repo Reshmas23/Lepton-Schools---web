@@ -14,6 +14,10 @@ class TherapyController extends GetxController {
   TextEditingController therapiestController = TextEditingController();
   TextEditingController therapydurationController = TextEditingController();
 
+  TextEditingController nameController = TextEditingController();
+  TextEditingController classController = TextEditingController();
+  TextEditingController therapyofStudentController = TextEditingController();
 
+  
 
 }
