@@ -15,6 +15,7 @@ import 'package:vidyaveechi_website/view/web_DashBoard/pages/video_management/pr
 class TherapyController extends GetxController {
   RxBool therapyhome = true.obs;
   Rx<ButtonState> buttonstate = ButtonState.idle.obs;
+  Rxn<TherapyModel> therapyModelData = Rxn<TherapyModel>();
 
   final formKey = GlobalKey<FormState>();
 
@@ -131,8 +132,7 @@ class TherapyController extends GetxController {
         .get();
 
     for (var i = 0; i < firebase.docs.length; i++) {
-      final list =
-          firebase.docs.map((e) => TherapyModel.fromMap(e.data())).toList();
+      final list = firebase.docs.map((e) => TherapyModel.fromMap(e.data())).toList();
       allTherapyList.add(list[i]);
     }
     return allTherapyList;
@@ -145,8 +145,7 @@ class TherapyController extends GetxController {
         .get();
 
     for (var i = 0; i < firebase.docs.length; i++) {
-      final list =
-          firebase.docs.map((e) => StudentModel.fromMap(e.data())).toList();
+      final list = firebase.docs.map((e) => StudentModel.fromMap(e.data())).toList();
       classwiseStudetsList.add(list[i]);
     }
     return classwiseStudetsList;
