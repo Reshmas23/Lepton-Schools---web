@@ -337,7 +337,7 @@ addTherapyStudent(BuildContext context) {
                                 function: () async {
                                   if (therapyController.formKey.currentState!.validate()) {
                                     // therapyController.createNotice();
-                                    // print("object");
+                                    print("object");
                                   }
                                 },
                                 buttonstate: therapyController.buttonstate.value,
