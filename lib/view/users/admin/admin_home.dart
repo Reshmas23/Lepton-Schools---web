@@ -30,6 +30,7 @@ import 'package:vidyaveechi_website/view/users/admin/screens/registration_users/
 import 'package:vidyaveechi_website/view/users/admin/screens/registration_users/teacher/teachers_regi_container.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/view_allStudents.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/view_allTeachers.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/therapy_management/therapy_home.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/timetable/timetable_main_screen.dart';
 import 'package:vidyaveechi_website/view/utils/firebase/firebase.dart';
 import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
@@ -37,8 +38,8 @@ import 'package:vidyaveechi_website/view/widgets/loading_widget/loading_widget.d
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
 class AdminHomeScreen extends StatefulWidget {
-  final IoTCardController ioTCardController = Get.put(IoTCardController ());
-   AdminHomeScreen({super.key});
+  final IoTCardController ioTCardController = Get.put(IoTCardController());
+  AdminHomeScreen({super.key});
 
   @override
   State<AdminHomeScreen> createState() => _AdminHomeScreenState();
@@ -114,7 +115,6 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                                       padding: const EdgeInsets.only(
                                           left: 10, top: 12),
                                       child: GestureDetector(
-                                  
                                         child: Text(
                                           "Main Menu",
                                           style: TextStyle(
@@ -223,8 +223,7 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
 }
 
 List<Widget> pages = [
-
-   AdminDashBoardSections(),
+  AdminDashBoardSections(),
 
   AllClassListContainer(),
   AllTeacherRegistrationList(),
@@ -257,13 +256,13 @@ List<Widget> pages = [
 
   const Achievements(),
 
-
   BatchHistroyListPage(),
   // const TimeTableMainScreen(),
   // LoginHistroyContainer(),
- // const Scaffold(body: LoginDashBoard())
-   const TimeTableMainScreen(),
-  LoginHistroyContainer()
+  // const Scaffold(body: LoginDashBoard())
+  const TimeTableMainScreen(),
+  LoginHistroyContainer(),
+  TherapyHomePage()
 ];
 List<String> sideMenu = [
   'Attendence',
