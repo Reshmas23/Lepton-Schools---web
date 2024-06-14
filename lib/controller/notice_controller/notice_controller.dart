@@ -31,16 +31,11 @@ class NoticeController extends GetxController {
   TextEditingController noticeHeadingController = TextEditingController();
   TextEditingController noticePublishedDateController = TextEditingController();
   TextEditingController noticeSubjectController = TextEditingController();
-  TextEditingController noticeDateofoccationController =
-      TextEditingController();
-  TextEditingController noticeDateofSubmissionController =
-      TextEditingController();
-  TextEditingController editnoticePublishedDateController =
-      TextEditingController();
-  TextEditingController editnoticeDateofoccationController =
-      TextEditingController();
-  TextEditingController editnoticeDateofSubmissionController =
-      TextEditingController();
+  TextEditingController noticeDateofoccationController = TextEditingController();
+  TextEditingController noticeDateofSubmissionController = TextEditingController();
+  TextEditingController editnoticePublishedDateController = TextEditingController();
+  TextEditingController editnoticeDateofoccationController = TextEditingController();
+  TextEditingController editnoticeDateofSubmissionController = TextEditingController();
   TextEditingController noticevenueController = TextEditingController();
   TextEditingController noticeGuestController = TextEditingController();
   TextEditingController noticeSignedByController = TextEditingController();
@@ -145,8 +140,7 @@ class NoticeController extends GetxController {
         .delete();
   }
 
-  Future<void> selectDate(
-      BuildContext context, TextEditingController controller) async {
+  Future<void> selectDate(BuildContext context, TextEditingController controller) async {
     final DateTime? pickedDate = await showDatePicker(
       context: context,
       initialDate: DateTime.now(),

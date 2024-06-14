@@ -27,8 +27,7 @@ class NoticeEditRemove extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      scrollDirection:
-          ResponsiveWebSite.isMobile(context) ? Axis.horizontal : Axis.vertical,
+      scrollDirection: ResponsiveWebSite.isMobile(context) ? Axis.horizontal : Axis.vertical,
       child: Container(
         color: screenContainerbackgroundColor,
         height: 650,
@@ -52,8 +51,7 @@ class NoticeEditRemove extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 10),
               child: Row(
                 children: [
-                  const RouteSelectedTextContainer(
-                      width: 180, title: 'All Notices'),
+                  const RouteSelectedTextContainer(width: 180, title: 'All Notices'),
                   const Spacer(),
                   GestureDetector(
                     onTap: () {
@@ -88,45 +86,30 @@ class NoticeEditRemove extends StatelessWidget {
                   height: 40,
                   child: const Row(
                     children: [
-                      Expanded(
-                          flex: 3,
-                          child: CatrgoryTableHeaderWidget(
-                              headerTitle: 'Heading')),
+                      Expanded(flex: 3, child: CatrgoryTableHeaderWidget(headerTitle: 'Heading')),
                       SizedBox(
                         width: 01,
                       ),
-                      Expanded(
-                          flex: 3,
-                          child: CatrgoryTableHeaderWidget(
-                              headerTitle: 'Subject')),
+                      Expanded(flex: 3, child: CatrgoryTableHeaderWidget(headerTitle: 'Subject')),
+                      SizedBox(
+                        width: 02,
+                      ),
+                      Expanded(flex: 2, child: CatrgoryTableHeaderWidget(headerTitle: 'Date')),
+                      SizedBox(
+                        width: 02,
+                      ),
+                      Expanded(flex: 2, child: CatrgoryTableHeaderWidget(headerTitle: 'venue')),
                       SizedBox(
                         width: 02,
                       ),
                       Expanded(
-                          flex: 2,
-                          child:
-                              CatrgoryTableHeaderWidget(headerTitle: 'Date')),
-                      SizedBox(
-                        width: 02,
-                      ),
-                      Expanded(
-                          flex: 2,
-                          child:
-                              CatrgoryTableHeaderWidget(headerTitle: 'venue')),
-                      SizedBox(
-                        width: 02,
-                      ),
-                      Expanded(
-                          flex: 2,
-                          child: CatrgoryTableHeaderWidget(
-                              headerTitle: 'Chief Guest')),
+                          flex: 2, child: CatrgoryTableHeaderWidget(headerTitle: 'Chief Guest')),
                       SizedBox(
                         width: 02,
                       ),
                       Expanded(
                         flex: 2,
-                        child:
-                            CatrgoryTableHeaderWidget(headerTitle: 'Signed by'),
+                        child: CatrgoryTableHeaderWidget(headerTitle: 'Signed by'),
                       ),
                       SizedBox(
                         width: 02,
@@ -172,15 +155,13 @@ class NoticeEditRemove extends StatelessWidget {
                         return const Center(
                             child: Text(
                           'No Notices',
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.w500),
+                          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
                         ));
                       }
                       return ListView.separated(
                         itemCount: snapshot.data!.docs.length,
                         itemBuilder: (context, index) {
-                          NoticeModel data = NoticeModel.fromMap(
-                              snapshot.data!.docs[index].data());
+                          NoticeModel data = NoticeModel.fromMap(snapshot.data!.docs[index].data());
                           return AllNoticeDataList(data: data, index: index);
                         },
                         separatorBuilder: (context, index) => const SizedBox(
@@ -267,8 +248,7 @@ class TextFormFiledBlueContainerWidgetEvent extends StatelessWidget {
                     ),
                   ),
                   // contentPadding: const EdgeInsets.all(8.0),
-                  enabledBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(width: 0.4)),
+                  enabledBorder: const OutlineInputBorder(borderSide: BorderSide(width: 0.4)),
                   hintStyle: const TextStyle(fontSize: 13),
                   hintText: hintText,
                   focusedBorder: const OutlineInputBorder(

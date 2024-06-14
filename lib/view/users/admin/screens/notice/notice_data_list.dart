@@ -23,9 +23,7 @@ class AllNoticeDataList extends StatelessWidget {
     return Container(
       height: 45,
       decoration: BoxDecoration(
-        color: index % 2 == 0
-            ? const Color.fromARGB(255, 246, 246, 246)
-            : Colors.blue[50],
+        color: index % 2 == 0 ? const Color.fromARGB(255, 246, 246, 246) : Colors.blue[50],
       ),
       child: Row(
         children: [
@@ -103,17 +101,14 @@ class AllNoticeDataList extends StatelessWidget {
               child: GestureDetector(
                 onTap: () {
                   noticeController.noticeHeadingController.text = data.heading;
-                  noticeController.editnoticePublishedDateController.text =
-                      data.publishedDate;
+                  noticeController.editnoticePublishedDateController.text = data.publishedDate;
                   noticeController.noticeSubjectController.text = data.subject;
-                  noticeController.editnoticeDateofoccationController.text =
-                      data.dateofoccation;
+                  noticeController.editnoticeDateofoccationController.text = data.dateofoccation;
                   noticeController.noticevenueController.text = data.venue;
                   noticeController.editnoticeDateofSubmissionController.text =
                       data.dateOfSubmission;
                   noticeController.noticeGuestController.text = data.chiefGuest;
-                  noticeController.noticeSignedByController.text =
-                      data.signedBy;
+                  noticeController.noticeSignedByController.text = data.signedBy;
                   editFunctionOfNotice(context, data);
                 },
                 child: DataContainerWidget(
