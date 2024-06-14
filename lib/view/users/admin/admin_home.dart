@@ -30,7 +30,6 @@ import 'package:vidyaveechi_website/view/users/admin/screens/registration_users/
 import 'package:vidyaveechi_website/view/users/admin/screens/registration_users/teacher/teachers_regi_container.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/view_allStudents.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/view_allTeachers.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/therapy_management/therapy_management.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/timetable/timetable_main_screen.dart';
 import 'package:vidyaveechi_website/view/utils/firebase/firebase.dart';
 import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
@@ -38,8 +37,8 @@ import 'package:vidyaveechi_website/view/widgets/loading_widget/loading_widget.d
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
 class AdminHomeScreen extends StatefulWidget {
-  final IoTCardController ioTCardController = Get.put(IoTCardController());
-  AdminHomeScreen({super.key});
+  final IoTCardController ioTCardController = Get.put(IoTCardController ());
+   AdminHomeScreen({super.key});
 
   @override
   State<AdminHomeScreen> createState() => _AdminHomeScreenState();
@@ -50,7 +49,8 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-        stream: UserCredentialsController.schoolId != FirebaseAuth.instance.currentUser!.uid
+        stream: UserCredentialsController.schoolId !=
+                FirebaseAuth.instance.currentUser!.uid
             ? server
                 .collection('SchoolListCollection')
                 .doc(UserCredentialsController.schoolId)
@@ -65,7 +65,8 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                     body: SafeArea(
                         child: Center(
                       child: TextFontWidget(
-                          text: "Waiting for superadmin response.....", fontsize: 20),
+                          text: "Waiting for superadmin response.....",
+                          fontsize: 20),
                     )),
                   )
                 : Scaffold(
@@ -99,15 +100,21 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                                           ),
                                           GooglePoppinsWidgets(
                                             text: institutionName,
-                                            fontsize: ResponsiveWebSite.isMobile(context) ? 18 : 20,
+                                            fontsize:
+                                                ResponsiveWebSite.isMobile(
+                                                        context)
+                                                    ? 18
+                                                    : 20,
                                             fontWeight: FontWeight.w500,
                                           )
                                         ],
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.only(left: 10, top: 12),
+                                      padding: const EdgeInsets.only(
+                                          left: 10, top: 12),
                                       child: GestureDetector(
+                                  
                                         child: Text(
                                           "Main Menu",
                                           style: TextStyle(
@@ -136,7 +143,8 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                           )),
                     ),
                   );
-          } else if (UserCredentialsController.schoolId == FirebaseAuth.instance.currentUser!.uid) {
+          } else if (UserCredentialsController.schoolId ==
+              FirebaseAuth.instance.currentUser!.uid) {
             return Scaffold(
               backgroundColor: cWhite,
               body: SafeArea(
@@ -168,14 +176,18 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                                     ),
                                     GooglePoppinsWidgets(
                                       text: institutionName,
-                                      fontsize: ResponsiveWebSite.isMobile(context) ? 18 : 20,
+                                      fontsize:
+                                          ResponsiveWebSite.isMobile(context)
+                                              ? 18
+                                              : 20,
                                       fontWeight: FontWeight.w500,
                                     )
                                   ],
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(left: 10, top: 12),
+                                padding:
+                                    const EdgeInsets.only(left: 10, top: 12),
                                 child: Text(
                                   "Main Menu",
                                   style: TextStyle(
@@ -211,29 +223,47 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
 }
 
 List<Widget> pages = [
-  AdminDashBoardSections(),
+
+   AdminDashBoardSections(),
+
   AllClassListContainer(),
   AllTeacherRegistrationList(),
   AllNonTeachStaffListContainer(),
+
   AllStudentListContainer(),
   AllTeacherListContainer(),
   AllParentsListContainer(),
+
   AllClassListView(),
+
   CreatedFeesStatus(),
+
   PeriodWiseStudentsAttendance(),
   AllTeachersAttendance(),
+
   AllExamNotificationListView(),
+
   NoticeEditRemove(),
+
   const AllEventsList(),
+
   AllMeetingsListPage(),
+
   AdminNotificationCreate(),
+
   AllAdminListPage(),
+
   GeneralInsructions(),
+
   const Achievements(),
+
+
   BatchHistroyListPage(),
-  const TimeTableMainScreen(),
-  LoginHistroyContainer(),
-  const TherapyManagement(),
+  // const TimeTableMainScreen(),
+  // LoginHistroyContainer(),
+ // const Scaffold(body: LoginDashBoard())
+   const TimeTableMainScreen(),
+  LoginHistroyContainer()
 ];
 List<String> sideMenu = [
   'Attendence',

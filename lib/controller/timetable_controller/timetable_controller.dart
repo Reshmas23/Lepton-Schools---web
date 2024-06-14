@@ -30,8 +30,6 @@ class TimeTableController extends GetxController {
   // Rx<Color> selectColor = Rx<Color>(Colors.amber);
   RxString dayNames = ''.obs;
 
-      final formKey = GlobalKey<FormState>();
-
   TextEditingController startTimeController = TextEditingController();
   TextEditingController endTimeController = TextEditingController();
   
@@ -109,6 +107,7 @@ class TimeTableController extends GetxController {
                     // periodNumber.value = 'Period 1';
                     selectclass.value = 'Select Class';
                     //selectColor.value = Colors.amber;
+                    periodController.clear();
                     startTimeController.clear();
                     endTimeController.clear();
                     buttonstate.value = ButtonState.success;

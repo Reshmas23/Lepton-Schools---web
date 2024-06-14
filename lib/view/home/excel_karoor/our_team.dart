@@ -50,7 +50,7 @@ class OurTutionCenterContainer extends StatelessWidget {
                             height: 200,
                             width: double.infinity,
                             child: Image.asset(
-                              'webassets/school_image/quotes.jpg',
+                              'webassets/excel_karror/girl_with_book.jpg',
                               fit: BoxFit.fitHeight,
                             ))
                       ],
@@ -77,7 +77,7 @@ class OurTutionCenterContainer extends StatelessWidget {
                             height: ResponsiveWebSite.isTablet(context) ? 280 : 600,
                             width: ResponsiveWebSite.isTablet(context) ? 450 : 600,
                             child: Image.asset(
-                               'webassets/school_image/quotes.jpg',
+                               'webassets/excel_karror/girl_with_book.jpg',
                               fit: BoxFit.fitHeight,
                             )),
                       ],
@@ -210,9 +210,9 @@ class OurTutionCenterContainer extends StatelessWidget {
 // ];
 
 List<String> images = [
-"webassets/school_image/schl_1.png",
-"webassets/school_image/children.jpg",
-"webassets/school_image/schl_2.jpg",
-"webassets/school_image/newspaper.jpg",
+"https://firebasestorage.googleapis.com/v0/b/vidya-veechi-8-feb-2024.appspot.com/o/leptonschools%2Fbook-student.jpg?alt=media&token=7d5e189c-4769-469a-bb18-e66a863e4d88",
+"https://firebasestorage.googleapis.com/v0/b/vidya-veechi-8-feb-2024.appspot.com/o/leptonschools%2Fkids-classroom.jpg?alt=media&token=5627e357-b0d8-42aa-8c15-85000d543d81",
+"https://firebasestorage.googleapis.com/v0/b/vidya-veechi-8-feb-2024.appspot.com/o/leptonschools%2Fnotebook.jpg?alt=media&token=ec58e518-4719-488d-9c44-a1aa8916c377",
+"https://firebasestorage.googleapis.com/v0/b/vidya-veechi-8-feb-2024.appspot.com/o/leptonschools%2Fschool-desk.jpg?alt=media&token=8d070863-7311-4267-bfef-56d5ffb27ab6",
   //'webassets/images/student4.img.jpg',
 ];
