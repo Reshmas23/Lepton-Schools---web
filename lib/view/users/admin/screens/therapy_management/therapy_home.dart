@@ -16,6 +16,7 @@ import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/rout
 
 class TherapyHomePage extends StatelessWidget {
   final TherapyController therapyController = Get.put(TherapyController());
+
   TherapyHomePage({
     Key? key,
   }) : super(key: key);
@@ -65,9 +66,7 @@ class TherapyHomePage extends StatelessWidget {
                                 ),
                               )),
                         ),
-                        const SizedBox(
-                          width: 15,
-                        ),
+                        const SizedBox(width: 15),
                         GestureDetector(
                           onTap: () {
                             // createTherapyAdmin(context);
@@ -92,43 +91,30 @@ class TherapyHomePage extends StatelessWidget {
                   Container(
                     color: cWhite,
                     child: Padding(
-                      padding: const EdgeInsets.only(
-                        left: 5,
-                        right: 5,
-                      ),
+                      padding: const EdgeInsets.only(left: 5, right: 5),
                       child: Container(
                         color: cWhite,
                         height: 40,
                         child: const Row(
                           children: [
                             Expanded(flex: 1, child: CatrgoryTableHeaderWidget(headerTitle: 'No')),
-                            SizedBox(
-                              width: 1,
-                            ),
+                            SizedBox(width: 1),
                             Expanded(
                                 flex: 1,
                                 child:
                                     CatrgoryTableHeaderWidget(headerTitle: "Types of therapies")),
-                            SizedBox(
-                              width: 1,
-                            ),
+                            SizedBox(width: 1),
                             Expanded(
                                 flex: 3,
                                 child: CatrgoryTableHeaderWidget(headerTitle: "Description")),
-                            SizedBox(
-                              width: 1,
-                            ),
+                            SizedBox(width: 1),
                             Expanded(
                                 flex: 2,
                                 child: CatrgoryTableHeaderWidget(headerTitle: "Therapist")),
-                            SizedBox(
-                              width: 1,
-                            ),
+                            SizedBox(width: 1),
                             Expanded(
                                 flex: 2, child: CatrgoryTableHeaderWidget(headerTitle: "Duration")),
-                            SizedBox(
-                              width: 1,
-                            ),
+                            SizedBox(width: 1),
                             Expanded(
                                 flex: 2,
                                 child: CatrgoryTableHeaderWidget(headerTitle: "Total students")),
@@ -146,34 +132,46 @@ class TherapyHomePage extends StatelessWidget {
                         border: Border.all(color: cWhite),
                       ),
                       child: StreamBuilder(
-                          stream: server
-                              .collection('SchoolListCollection')
-                              .doc(UserCredentialsController.schoolId)
-                              .collection(UserCredentialsController.batchId!)
-                              .doc(UserCredentialsController.batchId!)
-                              .collection('Therapy')
-                              .snapshots(),
-                          builder: (context, snapshot) {
+                        stream: server
+                            .collection('SchoolListCollection')
+                            .doc(UserCredentialsController.schoolId)
+                            .collection(UserCredentialsController.batchId!)
+                            .doc(UserCredentialsController.batchId!)
+                            .collection('Therapy')
+                            .snapshots(),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState == ConnectionState.waiting) {
+                            return const Center(child: CircularProgressIndicator());
+                          } else if (snapshot.hasError) {
+                            return const Center(child: Text('Error loading data'));
+                          } else if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
+                            return const Center(child: Text('No therapies available'));
+                          } else {
                             return ListView.separated(
                               itemCount: snapshot.data!.docs.length,
                               itemBuilder: (context, index) {
-                                TherapyModel data =
-                                    TherapyModel.fromMap(snapshot.data!.docs[index].data());
+                                var docData =
+                                    snapshot.data!.docs[index].data() as Map<String, dynamic>?;
+                                if (docData == null) {
+                                  return const Center(child: Text('Error: Null data'));
+                                }
+                                TherapyModel data = TherapyModel.fromMap(docData);
                                 return GestureDetector(
-                                    onTap: () {
-                                      therapyController.therapyModelData.value = data;
-                                      therapyController.therapyhome.value = false;
-                                    },
-                                    child: AllTherapyDataList(
-                                      index: index,
-                                      data: data,
-                                    ));
+                                  onTap: () {
+                                    therapyController.therapyModelData.value = data;
+                                    therapyController.therapyhome.value = false;
+                                  },
+                                  child: AllTherapyDataList(
+                                    index: index,
+                                    data: data,
+                                  ),
+                                );
                               },
-                              separatorBuilder: (context, index) => const SizedBox(
-                                height: 2,
-                              ),
+                              separatorBuilder: (context, index) => const SizedBox(height: 2),
                             );
-                          }),
+                          }
+                        },
+                      ),
                     ),
                   ),
                 ],
