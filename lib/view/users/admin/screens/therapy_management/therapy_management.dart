@@ -1,12 +1,14 @@
-import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vidyaveechi_website/controller/therapy_controller/therapy_controller.dart';
+import 'package:vidyaveechi_website/model/therapy_student_model/therapy_student_model.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/result/widget/data_container_marks.dart';
+import 'package:vidyaveechi_website/view/ioT_Card/code.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/widgets/category_tableHeader.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/therapy_management/std_data_list.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/therapy_management/therapy_home.dart';
-import 'package:vidyaveechi_website/view/widgets/data_list_widgets/tableheaderWidget.dart';
+import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/route_NonSelectedContainer.dart';
@@ -39,15 +41,16 @@ class TherapyManagement extends StatelessWidget {
                   Row(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.only(left: 25, top: 15),
                         child: InkWell(
                             onTap: () {
                               therapycontroller.therapyhome.value = true;
                             },
-                            child: const RouteNonSelectedTextContainer(width: 50, title: 'Home')),
+                            child: const RouteNonSelectedTextContainer(
+                                width: 50, title: 'Back')),
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.only(left: 10, top: 15),
                         child: InkWell(
                             onTap: () {},
                             child: const RouteSelectedTextContainer(
@@ -56,7 +59,8 @@ class TherapyManagement extends StatelessWidget {
                     ],
                   ),
                   Padding(
-                    padding: EdgeInsets.only(top: ResponsiveWebSite.isMobile(context) ? 20 : 50),
+                    padding: EdgeInsets.only(
+                        top: ResponsiveWebSite.isMobile(context) ? 20 : 50),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
@@ -64,6 +68,8 @@ class TherapyManagement extends StatelessWidget {
                         height: ResponsiveWebSite.isMobile(context) ? 750 : 700,
                         width: double.infinity,
                         child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const Row(
                               mainAxisAlignment: MainAxisAlignment.end,
@@ -87,9 +93,28 @@ class TherapyManagement extends StatelessWidget {
                                 // ),
                               ],
                             ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 15, top: 15),
+                              child: TextFontWidget(
+                                text: "Therapy Name : ${data!.therapyName}",
+                                fontsize: 14,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 15, top: 15, bottom: 15),
+                              child: TextFontWidget(
+                                text: "Therapy Duration : ${data.duration}",
+                                fontsize: 14,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
                             SizedBox(
                               height: 580,
-                              width: ResponsiveWebSite.isMobile(context) ? double.infinity : 1300,
+                              width: ResponsiveWebSite.isMobile(context)
+                                  ? double.infinity
+                                  : 1300,
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Column(
@@ -97,165 +122,98 @@ class TherapyManagement extends StatelessWidget {
                                     const Row(
                                       children: [
                                         Expanded(
-                                            flex: 1, child: TableHeaderWidget(headerTitle: 'No')),
+                                            flex: 1,
+                                            child: CatrgoryTableHeaderWidget(
+                                                headerTitle: 'No')),
                                         SizedBox(
                                           width: 1,
                                         ),
                                         Expanded(
                                             flex: 1,
-                                            child: ResultTableHeaderWidget(headerTitle: "ID .")),
+                                            child: CatrgoryTableHeaderWidget(
+                                                headerTitle: "ID")),
                                         SizedBox(
                                           width: 1,
                                         ),
                                         Expanded(
                                             flex: 3,
-                                            child: ResultTableHeaderWidget(
+                                            child: CatrgoryTableHeaderWidget(
                                                 headerTitle: "Student Name")),
                                         SizedBox(
                                           width: 1,
                                         ),
                                         Expanded(
                                             flex: 2,
-                                            child: ResultTableHeaderWidget(headerTitle: "Date")),
+                                            child: CatrgoryTableHeaderWidget(
+                                                headerTitle: "Class")),
                                         SizedBox(
                                           width: 1,
                                         ),
                                         Expanded(
                                             flex: 2,
-                                            child: ResultTableHeaderWidget(headerTitle: "Therapy")),
+                                            child: CatrgoryTableHeaderWidget(
+                                                headerTitle: "Day")),
                                         SizedBox(
                                           width: 1,
                                         ),
                                         Expanded(
                                             flex: 2,
-                                            child: ResultTableHeaderWidget(
+                                            child: CatrgoryTableHeaderWidget(
                                                 headerTitle: "Status/Comment")),
                                         SizedBox(
                                           width: 1,
                                         ),
                                         Expanded(
                                             flex: 2,
-                                            child:
-                                                ResultTableHeaderWidget(headerTitle: " Follow-up")),
+                                            child: CatrgoryTableHeaderWidget(
+                                                headerTitle: " Follow-up")),
                                         SizedBox(
                                           width: 1,
                                         ),
                                         Expanded(
                                             flex: 2,
-                                            child: ResultTableHeaderWidget(
-                                                headerTitle: "Therapy Duration")),
+                                            child: CatrgoryTableHeaderWidget(
+                                                headerTitle: "Edit")),
                                       ],
                                     ),
                                     SizedBox(
                                       height: 500,
-                                      child: ListView.separated(
-                                        itemBuilder: (context, index) {
-                                          return SizedBox(
-                                            child: Row(
-                                              children: [
-                                                Expanded(
-                                                  flex: 1,
-                                                  child: DataContainerMarksWidget(
-                                                      rowMainAccess: MainAxisAlignment.center,
-                                                      color: cWhite,
-                                                      index: index,
-                                                      headerTitle: "${index + 1}"),
-                                                ),
-                                                const SizedBox(
-                                                  width: 1,
-                                                ),
-                                                Expanded(
-                                                  flex: 1,
-                                                  child: DataContainerMarksWidget(
-                                                      rowMainAccess: MainAxisAlignment.center,
-                                                      color: cWhite,
-                                                      index: index,
-                                                      headerTitle: " 32"),
-                                                ),
-                                                const SizedBox(
-                                                  width: 1,
-                                                ),
-                                                Expanded(
-                                                  flex: 3,
-                                                  child: DataContainerMarksWidget(
-                                                      rowMainAccess: MainAxisAlignment.center,
-                                                      color: cWhite,
-                                                      index: index,
-                                                      headerTitle: " Student Full Name"),
-                                                ),
-                                                const SizedBox(
-                                                  width: 1,
-                                                ),
-                                                Expanded(
-                                                  flex: 2,
-                                                  child: DataContainerMarksWidget(
-                                                      rowMainAccess: MainAxisAlignment.center,
-                                                      color: cWhite,
-                                                      index: index,
-                                                      headerTitle: " 23/04/2024"),
-                                                ),
-                                                const SizedBox(
-                                                  width: 1,
-                                                ),
-                                                Expanded(
-                                                  flex: 2,
-                                                  child: Container(
-                                                    height: 30,
-                                                    decoration: BoxDecoration(
-                                                      color: index % 2 == 0
-                                                          ? const Color.fromARGB(255, 246, 246, 246)
-                                                          : Colors.blue[50],
-                                                    ),
-                                                    child: DropdownSearch(
-                                                      items: const [
-                                                        'Physio Theray',
-                                                        'Mental Therapy'
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                                const SizedBox(
-                                                  width: 1,
-                                                ),
-                                                Expanded(
-                                                  flex: 2,
-                                                  child: DataContainerMarksWidget(
-                                                      rowMainAccess: MainAxisAlignment.center,
-                                                      color: cWhite,
-                                                      index: index,
-                                                      headerTitle: " Present"),
-                                                ),
-                                                const SizedBox(
-                                                  width: 1,
-                                                ),
-                                                Expanded(
-                                                  flex: 2,
-                                                  child: DataContainerMarksWidget(
-                                                      rowMainAccess: MainAxisAlignment.center,
-                                                      color: cWhite,
-                                                      index: index,
-                                                      headerTitle: "--"),
-                                                ),
-                                                const SizedBox(
-                                                  width: 1,
-                                                ),
-                                                Expanded(
-                                                  flex: 2,
-                                                  child: DataContainerMarksWidget(
-                                                      rowMainAccess: MainAxisAlignment.center,
-                                                      color: cWhite,
-                                                      index: index,
-                                                      headerTitle: "--"),
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                        itemCount: 5,
-                                        separatorBuilder: (context, index) => const SizedBox(
-                                          height: 1,
-                                        ),
-                                      ),
+                                      child: StreamBuilder(
+                                          stream: server
+                                              .collection(
+                                                  'SchoolListCollection')
+                                              .doc(UserCredentialsController
+                                                  .schoolId)
+                                              .collection(
+                                                  UserCredentialsController
+                                                      .batchId!)
+                                              .doc(UserCredentialsController
+                                                  .batchId!)
+                                              .collection('Therapy')
+                                              .doc(data.docid)
+                                              .collection('students')
+                                              .snapshots(),
+                                          builder: (context, snapshot) {
+                                            return ListView.separated(
+                                              itemBuilder: (context, index) {
+                                                StudentTherapyModel data =
+                                                    StudentTherapyModel.fromMap(
+                                                        snapshot
+                                                            .data!.docs[index]
+                                                            .data());
+
+                                                return AllStdDataList(
+                                                    data: data, index: index);
+                                              },
+                                              itemCount:
+                                                  snapshot.data!.docs.length,
+                                              separatorBuilder:
+                                                  (context, index) =>
+                                                      const SizedBox(
+                                                height: 1,
+                                              ),
+                                            );
+                                          }),
                                     ),
                                   ],
                                 ),

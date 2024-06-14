@@ -30,6 +30,9 @@ class TherapyController extends GetxController {
   String studentName = '';
   String studentAdNo = '';
   String studentDocId = '';
+  TextEditingController therapyDayController = TextEditingController();
+  TextEditingController therapyStatusController = TextEditingController();
+  TextEditingController therapyFollowUpController = TextEditingController();
 
   final _firebase = server
       .collection('SchoolListCollection')
@@ -87,13 +90,17 @@ class TherapyController extends GetxController {
 
   Future<void> addTherapyStudent() async {
     final stdTherapyModel = StudentTherapyModel(
-        studentDocId: studentDocId,
-        studentAdNo: studentAdNo,
-        studentName: studentName,
-        therapyName: therapyName,
-        therapyId: therapyId,
-        className: Get.find<ClassController>().className.value,
-        classID: Get.find<ClassController>().classDocID.value);
+      studentDocId: studentDocId,
+      studentAdNo: studentAdNo,
+      studentName: studentName,
+      therapyName: therapyName,
+      therapyId: therapyId,
+      className: Get.find<ClassController>().className.value,
+      classID: Get.find<ClassController>().classDocID.value,
+      day: "",
+      status: "",
+      followUp: "",
+    );
 
     try {
       await server
@@ -122,6 +129,38 @@ class TherapyController extends GetxController {
     }
   }
 
+  Future<void> editTherapyStudent(
+      {required StudentTherapyModel stdTherapyModel}) async {
+    try {
+      await server
+          .collection('SchoolListCollection')
+          .doc(UserCredentialsController.schoolId)
+          .collection(UserCredentialsController.batchId!)
+          .doc(UserCredentialsController.batchId!)
+          .collection('Therapy')
+          .doc(stdTherapyModel.therapyId)
+          .collection('students')
+          .doc(stdTherapyModel.studentDocId)
+          .update({
+        'day': therapyDayController.text,
+        'status': therapyStatusController.text,
+        'followUp': therapyFollowUpController.text,
+      }).then((value) async {
+        buttonstate.value = ButtonState.success;
+        showToast(msg: "Student details updated Successfully");
+        await Future.delayed(const Duration(seconds: 2)).then((vazlue) {
+          buttonstate.value = ButtonState.idle;
+        });
+      });
+    } catch (e) {
+      buttonstate.value = ButtonState.fail;
+      await Future.delayed(const Duration(seconds: 2)).then((value) {
+        buttonstate.value = ButtonState.idle;
+      });
+      log("Error .... $e");
+    }
+  }
+
   Future<List<TherapyModel>> fetchTherapyList() async {
     final firebase = await server
         .collection('SchoolListCollection')
@@ -132,7 +171,8 @@ class TherapyController extends GetxController {
         .get();
 
     for (var i = 0; i < firebase.docs.length; i++) {
-      final list = firebase.docs.map((e) => TherapyModel.fromMap(e.data())).toList();
+      final list =
+          firebase.docs.map((e) => TherapyModel.fromMap(e.data())).toList();
       allTherapyList.add(list[i]);
     }
     return allTherapyList;
@@ -145,7 +185,8 @@ class TherapyController extends GetxController {
         .get();
 
     for (var i = 0; i < firebase.docs.length; i++) {
-      final list = firebase.docs.map((e) => StudentModel.fromMap(e.data())).toList();
+      final list =
+          firebase.docs.map((e) => StudentModel.fromMap(e.data())).toList();
       classwiseStudetsList.add(list[i]);
     }
     return classwiseStudetsList;

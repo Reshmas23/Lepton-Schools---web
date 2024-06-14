@@ -9,6 +9,9 @@ class StudentTherapyModel {
   String therapyId;
   String className;
   String classID;
+  String day;
+  String status;
+  String followUp;
 
   StudentTherapyModel({
     required this.studentDocId,
@@ -18,6 +21,9 @@ class StudentTherapyModel {
     required this.therapyId,
     required this.className,
     required this.classID,
+    required this.day,
+    required this.status,
+    required this.followUp,
   });
 
   StudentTherapyModel copyWith({
@@ -28,6 +34,9 @@ class StudentTherapyModel {
     String? therapyId,
     String? className,
     String? classID,
+    String? day,
+    String? status,
+    String? followUp,
   }) {
     return StudentTherapyModel(
       studentDocId: studentDocId ?? this.studentDocId,
@@ -37,6 +46,9 @@ class StudentTherapyModel {
       therapyId: therapyId ?? this.therapyId,
       className: className ?? this.className,
       classID: classID ?? this.classID,
+      day: day ?? this.day,
+      status: status ?? this.status,
+      followUp: followUp ?? this.followUp,
     );
   }
 
@@ -49,6 +61,9 @@ class StudentTherapyModel {
       'therapyId': therapyId,
       'className': className,
       'classID': classID,
+      'day': day,
+      'status': status,
+      'followUp': followUp,
     };
   }
 
@@ -61,6 +76,9 @@ class StudentTherapyModel {
       therapyId: map['therapyId'] as String,
       className: map['className'] as String,
       classID: map['classID'] as String,
+      day: map['day'] as String,
+      status: map['status'] as String,
+      followUp: map['followUp'] as String,
     );
   }
 
@@ -71,30 +89,37 @@ class StudentTherapyModel {
 
   @override
   String toString() {
-    return 'TherapyModel(studentDocId: $studentDocId, studentAdNo: $studentAdNo, studentName: $studentName, therapyName: $therapyName, therapyId: $therapyId, className: $className, classID: $classID)';
+    return 'StudentTherapyModel(studentDocId: $studentDocId, studentAdNo: $studentAdNo, studentName: $studentName, therapyName: $therapyName, therapyId: $therapyId, className: $className, classID: $classID, day: $day, status: $status, followUp: $followUp)';
   }
 
   @override
   bool operator ==(covariant StudentTherapyModel other) {
     if (identical(this, other)) return true;
-
-    return other.studentDocId == studentDocId &&
-        other.studentAdNo == studentAdNo &&
-        other.studentName == studentName &&
-        other.therapyName == therapyName &&
-        other.therapyId == therapyId &&
-        other.className == className &&
-        other.classID == classID;
+  
+    return 
+      other.studentDocId == studentDocId &&
+      other.studentAdNo == studentAdNo &&
+      other.studentName == studentName &&
+      other.therapyName == therapyName &&
+      other.therapyId == therapyId &&
+      other.className == className &&
+      other.classID == classID &&
+      other.day == day &&
+      other.status == status &&
+      other.followUp == followUp;
   }
 
   @override
   int get hashCode {
     return studentDocId.hashCode ^
-        studentAdNo.hashCode ^
-        studentName.hashCode ^
-        therapyName.hashCode ^
-        therapyId.hashCode ^
-        className.hashCode ^
-        classID.hashCode;
+      studentAdNo.hashCode ^
+      studentName.hashCode ^
+      therapyName.hashCode ^
+      therapyId.hashCode ^
+      className.hashCode ^
+      classID.hashCode ^
+      day.hashCode ^
+      status.hashCode ^
+      followUp.hashCode;
   }
 }
