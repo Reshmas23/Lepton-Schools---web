@@ -56,25 +56,22 @@ createTherapyAdmin(BuildContext context) {
                                   therapyController.therapyNameController,
                               validator: checkFieldEmpty,
                               title: 'Therapy Name',
-                              hintText:
-                                  'Therapy Name', /////////////////////////////////////////0
+                              hintText: 'Therapy Name',
                             ),
                           ),
-
-                          ////////////////////////////////////////////////////////2
                           Padding(
                             padding: const EdgeInsets.only(
                                 top: 5, left: 10, right: 10),
                             child: TextFormFiledHeightnoColor(
                               width: 500,
+                              maxLines: 3,
                               validator: checkFieldEmpty,
                               controller: therapyController
                                   .therapyDiscriptionController,
                               title: 'Therapy Discription',
                               hintText: 'Therapy Discription',
                             ),
-                          ), ///////////////////////////////////////////////3
-                          ////////////////////////////////////4
+                          ),
                           Padding(
                             padding: const EdgeInsets.only(
                                 top: 5, left: 10, right: 10),
@@ -86,7 +83,7 @@ createTherapyAdmin(BuildContext context) {
                               title: 'Therapist',
                               hintText: 'Therapist',
                             ),
-                          ), ////////////////////////////////////5
+                          ),
                           Padding(
                             padding: const EdgeInsets.only(
                                 top: 5, left: 10, right: 10),
@@ -98,9 +95,7 @@ createTherapyAdmin(BuildContext context) {
                               title: 'Duration',
                               hintText: 'Duration',
                             ),
-                          ), ////////////////////////////////////7
-
-                          ////////////////////////////////////6
+                          ),
                         ],
                       ),
                     ),
