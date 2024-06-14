@@ -111,7 +111,7 @@ createTherapyAdmin(BuildContext context) {
                             function: () async {
                               if (therapyController.formKey.currentState!
                                   .validate()) {
-                                // therapyController.createNotice();
+                                therapyController.createTherapy();
                               }
                             },
                             buttonstate: therapyController.buttonstate.value,
