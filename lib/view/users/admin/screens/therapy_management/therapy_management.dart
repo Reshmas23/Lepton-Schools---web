@@ -194,6 +194,21 @@ class TherapyManagement extends StatelessWidget {
                                               .collection('students')
                                               .snapshots(),
                                           builder: (context, snapshot) {
+                                            if (snapshot.connectionState ==
+                                                ConnectionState.waiting) {
+                                              return const Center(
+                                                  child:
+                                                      CircularProgressIndicator());
+                                            } else if (snapshot.hasError) {
+                                              return const Center(
+                                                  child: Text(
+                                                      'Error loading data'));
+                                            } else if (!snapshot.hasData ||
+                                                snapshot.data!.docs.isEmpty) {
+                                              return const Center(
+                                                  child: Text(
+                                                      'Students data is not available'));
+                                            }
                                             return ListView.separated(
                                               itemBuilder: (context, index) {
                                                 StudentTherapyModel data =
