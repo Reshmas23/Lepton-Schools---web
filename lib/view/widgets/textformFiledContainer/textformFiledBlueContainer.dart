@@ -344,6 +344,7 @@ class TextFormFiledHeightnoColor extends StatelessWidget {
   final String hintText;
   final Widget? widget;
   final double? width;
+  final int? maxLines;
   bool? readOnly;
   Function(String)? onChanged;
   Iterable<String>? autofillHints;
@@ -361,6 +362,7 @@ class TextFormFiledHeightnoColor extends StatelessWidget {
     this.autofillHints,
     this.onChanged,
     this.validator,
+    this.maxLines,
     this.onTap,
     super.key,
   });
@@ -389,6 +391,7 @@ class TextFormFiledHeightnoColor extends StatelessWidget {
             child: Center(
               child: TextFormField(
                 readOnly: readOnly ?? false,
+                maxLines: maxLines,
                 onChanged: onChanged,
                 autofillHints: autofillHints,
                 onTap: onTap,

@@ -1,11 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
-
-// NoticeModel noticeModelFromJson(String str) =>
-//     NoticeModel.fromJson(json.decode(str));
-
-// String noticeModelToJson(NoticeModel data) =>
-//     json.encode(data.toJson());
 
 class TherapyModel {
   String docid;
@@ -13,7 +6,6 @@ class TherapyModel {
   String therapyDes;
   String therapistNAme;
   String duration;
-  String totalStudents;
 
   TherapyModel({
     required this.docid,
@@ -21,7 +13,6 @@ class TherapyModel {
     required this.therapyDes,
     required this.therapistNAme,
     required this.duration,
-    required this.totalStudents,
   });
 
   TherapyModel copyWith({
@@ -38,7 +29,6 @@ class TherapyModel {
       therapyDes: therapyDes ?? this.therapyDes,
       therapistNAme: therapistNAme ?? this.therapistNAme,
       duration: duration ?? this.duration,
-      totalStudents: totalStudents ?? this.totalStudents,
     );
   }
 
@@ -49,7 +39,6 @@ class TherapyModel {
       'therapyDes': therapyDes,
       'therapistNAme': therapistNAme,
       'duration': duration,
-      'totalStudents': totalStudents,
     };
   }
 
@@ -60,7 +49,6 @@ class TherapyModel {
       therapyDes: map['therapyDes'] as String,
       therapistNAme: map['therapistNAme'] as String,
       duration: map['duration'] as String,
-      totalStudents: map['totalStudents'] as String,
     );
   }
 
@@ -71,7 +59,7 @@ class TherapyModel {
 
   @override
   String toString() {
-    return 'NoticeModel(docid: $docid, therapyName: $therapyName, therapyDes: $therapyDes, therapistNAme: $therapistNAme, duration: $duration, totalStudents: $totalStudents)';
+    return 'NoticeModel(docid: $docid, therapyName: $therapyName, therapyDes: $therapyDes, therapistNAme: $therapistNAme, duration: $duration )';
   }
 
   @override
@@ -82,8 +70,7 @@ class TherapyModel {
         other.therapyName == therapyName &&
         other.therapyDes == therapyDes &&
         other.therapistNAme == therapistNAme &&
-        other.duration == duration &&
-        other.totalStudents == totalStudents;
+        other.duration == duration;
   }
 
   @override
@@ -92,7 +79,6 @@ class TherapyModel {
         therapyName.hashCode ^
         therapyDes.hashCode ^
         therapistNAme.hashCode ^
-        duration.hashCode ^
-        totalStudents.hashCode;
+        duration.hashCode;
   }
 }

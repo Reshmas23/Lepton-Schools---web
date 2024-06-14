@@ -4,6 +4,7 @@ import 'package:vidyaveechi_website/controller/therapy_controller/therapy_contro
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/widgets/category_tableHeader.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/therapy_management/therapy_add_students.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/therapy_management/therapy_create.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/therapy_management/therapy_data_list.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/therapy_management/therapy_management.dart';
@@ -71,7 +72,7 @@ class TherapyHomePage extends StatelessWidget {
                         ),
                         GestureDetector(
                           onTap: () {
-                            // createTherapyAdmin(context);
+                            addTherapyStd(context);
                           },
                           child: ButtonContainerWidget(
                               curving: 30,
