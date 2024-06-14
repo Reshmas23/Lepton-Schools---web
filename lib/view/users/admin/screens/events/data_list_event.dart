@@ -43,7 +43,7 @@ class AllEventsDataList extends StatelessWidget {
                 color: cWhite,
                 index: index,
                 headerTitle: data.eventName),
-          ), //.............................Event Name
+          ),//.............................Event Name
           const SizedBox(
             width: 02,
           ),
