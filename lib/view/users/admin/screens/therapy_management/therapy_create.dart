@@ -353,23 +353,7 @@ createTherapyAdmin(BuildContext context) {
                               // },
                               buttonstate: therapyController.buttonstate.value,
                               text: 'Create Therapy'))
-                          // NoticeButtonContainerWidget(
-                          //           text: 'Submit',
-                          //          width: 300,
-                          //         height: 50,
-                          //         fontSize: 18,
-                          //         onTap: () {
-                          //            if (therapyController
-                          //         .formKey
-                          //         .currentState!
-                          //         .validate()) {
-                          //       noticeController
-                          //           .createNotice();
-                          //       print("object");
-                          //     }
-                          //         },
-                          //         color: adminePrimayColor,
-                          //   ),
+                          
                           ),
                     
                   ],
