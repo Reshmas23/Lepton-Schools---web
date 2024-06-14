@@ -193,7 +193,7 @@ class NotificationController extends GetxController {
             .doc(UserCredentialsController.schoolId)
             .collection('AllUsersDeviceID')
             .doc(selectedUSerUIDList[i].uid)
-            .set({'message': true}, SetOptions(merge: true)).then(
+            .set({'message': true,'docid':selectedUSerUIDList[i].uid}, SetOptions(merge: true)).then(
                 (value) async {
           await server
               .collection('SchoolListCollection')

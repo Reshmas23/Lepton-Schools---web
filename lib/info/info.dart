@@ -1,7 +1,8 @@
-const String logoImage = "webassets/school_image/st.joshep_logo.png";
-const String institutionLogo ="webassets/school_image/st.joshep_logo.png";
-const String name = "ST.JOSHEP'S";
-const String institutionName ="ST.JOSHEP'S";
-const String smallLetterIN ="St. Joseph's";
-const String separate = 'St.  ';
-const String separatetwo = "Joseph's";
+const String logoImage = "webassets/images/leptonlogo.png";
+const String institutionLogo ="webassets/images/leptonlogo.png";
+const String name = "LEPTON SCHOOLS";
+const String institutionName ="LEPTON SCHOOLS";
+const String smallLetterIN ="Lepton Schools";
+const String separate = 'Lepton ';
+const String separatetwo = "Schools";
+const String withSpace ="L E P T O N  S C H O O L S";

@@ -78,12 +78,12 @@ class AllExamNotificationListView extends StatelessWidget {
                   ],
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(left: 10, right: 10),
+               Padding(
+                padding: const EdgeInsets.only(left: 10, right: 10),
                 child: SizedBox(
                   // color: cWhite,
-                  width: 1200,
-                  child: Row(
+                  width: ResponsiveWebSite.isDesktop(context) ? double.infinity: 1200,
+                  child: const Row(
                     children: [
                       Expanded(
                           flex: 1,
@@ -125,7 +125,7 @@ class AllExamNotificationListView extends StatelessWidget {
               ),
               Expanded(
                 child: SizedBox(
-                  width: 1200,
+                 width:  ResponsiveWebSite.isDesktop(context) ? double.infinity:1200,
                   child: Padding(
                     padding: const EdgeInsets.only(left: 10, right: 10),
                     child: StreamBuilder(

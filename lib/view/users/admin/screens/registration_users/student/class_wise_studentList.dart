@@ -191,7 +191,7 @@ class AllClassStudentListContainer extends StatelessWidget {
                               .doc(Get.find<ClassController>()
                                   .ontapClassDocID
                                   .value)
-                              .collection('Students')
+                              .collection('Students').orderBy('studentName')
                               .snapshots(),
                           builder: (context, snaPS) {
                             if (snaPS.hasData) {

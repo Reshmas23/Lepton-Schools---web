@@ -18,7 +18,7 @@ class SchoolHOmeScreen extends StatelessWidget {
       width: double.infinity,
       decoration: const BoxDecoration(
         image: DecorationImage(
-            image: AssetImage('webassets/school_image/home_page_image.jpg'), fit: BoxFit.cover),
+            image: AssetImage('webassets/school_image/schl.jpg'), fit: BoxFit.cover),
       ),
       child: Column(
         children: [
@@ -36,7 +36,7 @@ class SchoolHOmeScreen extends StatelessWidget {
                             child: Column(
                               children: [
                                 const Text(
-                                  "St. Joseph's School",
+                                  "Lepton Schools",
                                   style: TextStyle(
                                       fontSize: 21,
                                       color: excelkaroorThemeColor,
@@ -45,7 +45,7 @@ class SchoolHOmeScreen extends StatelessWidget {
                                 const Padding(
                                   padding: EdgeInsets.only(top: 02),
                                   child: Text(
-                                      'Learn To Live',
+                                      "E-learning is not just a phase, it's the future's mainstay of education",
                                       style: TextStyle(
                                         fontSize: 10,
                                         color: cBlack,
@@ -98,7 +98,7 @@ class SchoolHOmeScreen extends StatelessWidget {
                             child: Column(
                               children: [
                                 Text(
-                                  "St. Joseph's School",
+                                  "Lepton Schools",
                                   style: TextStyle(
                                       fontSize: ResponsiveWebSite.isTablet(context) ? 36 : 50,
                                       color: Colors.black,
@@ -107,7 +107,7 @@ class SchoolHOmeScreen extends StatelessWidget {
                                 const Padding(
                                   padding: EdgeInsets.only(top: 02),
                                   child: Text(
-                                      'Learn To Live',
+                                      "E-learning is not just a phase, it's the future's mainstay of education",
                                       style: TextStyle(
                                           fontSize: 13,
                                           color: Color.fromARGB(255, 71, 3, 70),

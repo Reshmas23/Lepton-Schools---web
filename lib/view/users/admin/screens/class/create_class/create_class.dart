@@ -133,10 +133,16 @@ createClassFunction(BuildContext context) {
                                                 Padding(
                                                   padding:
                                                       const EdgeInsets.all(8.0),
-                                                  child: TextFontWidget(
-                                                    text: data.className,
-                                                    fontsize: 13,
-                                                    fontWeight: FontWeight.w600,
+                                                  child: SizedBox(
+                                                    width: 150,
+                                                    child: SingleChildScrollView(
+                                                      scrollDirection: Axis.horizontal,
+                                                      child: TextFontWidget(
+                                                        text: data.className,
+                                                        fontsize: 13,
+                                                        fontWeight: FontWeight.w600,
+                                                      ),
+                                                    ),
                                                   ),
                                                 ),
                                                 Padding(

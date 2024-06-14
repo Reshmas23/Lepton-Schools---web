@@ -116,26 +116,47 @@ class RegisrationPage extends StatelessWidget {
             const SizedBox(
               height: 05,
             ),
-            SizedBox(
-              height: 40,
-              child: DropdownSearch(
-                validator: (item) {
-                  if (item == null) {
-                    return "Required field";
-                  } else {
-                    return null;
-                  }
-                },
-                items: const ['Male', 'Female'],
-                onChanged: (value) {
-                  regirationCrtl.gender.value = value ?? '';
-                },
-              ),
-            ),
-          ],
-        ),
-      ),
-      ),
+             FormField<String>(
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return "Required field";
+                                      }
+                                      return null;
+                                    },
+                                    builder: (FormFieldState<String> state) {
+                                      return Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          SizedBox(
+                                            height: 40,
+                                            child: DropdownSearch<String>(
+                                              items: const ['Male', 'Female'],
+                                              onChanged: (value) {
+                                                state.didChange(value);
+                                                regirationCrtl.gender.value = value ?? '';
+                                              },
+                                              selectedItem: regirationCrtl.gender.value,
+                                            ),
+                                          ),
+                                          if (state.hasError)
+                                            Padding(
+                                              padding: const EdgeInsets.only(top: 5),
+                                              child: Text(
+                                                state.errorText!,
+                                                style: TextStyle(
+                                                  color: Colors.red,
+                                                  fontSize: 12,
+                                                ),
+                                              ),
+                                            ),
+                                        ],
+                                      );
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
                           Obx(() => regirationCrtl.showTextField.value
                               ? Padding(
                                   padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
@@ -149,23 +170,27 @@ class RegisrationPage extends StatelessWidget {
                               : Padding(
                                   padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
                                   child: GooglePoppinsWidgets(
-                                      text:'Admission number created: ${ regirationCrtl.generatedAdmissionNumber.toString()}',
+                                      text:'Ad.no created: ${ regirationCrtl.generatedAdmissionNumber.toString()}',
                                       fontsize: 14),
                                 )),
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Row(
                                                             children: [
-                                GooglePoppinsWidgets(
-                                    text: 'You have no admission number',
-                                    fontsize: 14),
-                                TextButton(
-                                    onPressed: () {
-                                      regirationCrtl.generateCustomText();
-                                      regirationCrtl.showTextField.value = false;
-                                    },
-                                    child: GooglePoppinsWidgets(
-                                        text: ' Click here', fontsize: 14))
+                                Expanded(
+                                  child: GooglePoppinsWidgets(
+                                      text: 'You have no admission number',
+                                      fontsize: 14),
+                                ),
+                                Expanded(
+                                  child: TextButton(
+                                      onPressed: () {
+                                        regirationCrtl.generateCustomText();
+                                        regirationCrtl.showTextField.value = false;
+                                      },
+                                      child: GooglePoppinsWidgets(
+                                          text: ' Click here', fontsize: 14)),
+                                )
                                                             ],
                                                           ),
                               ),

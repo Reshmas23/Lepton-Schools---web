@@ -170,15 +170,15 @@ class LoginHistroyContainer extends StatelessWidget {
                 ),
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 10, right: 0),
+                    padding: const EdgeInsets.only(left: 10, right: 10),
                     child: Container(
-                      width: 1200,
+                      width:  ResponsiveWebSite.isDesktop(context) ? double.infinity:1200,
                       decoration: BoxDecoration(
                         color: cWhite,
                         border: Border.all(color: cWhite),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.only(left: 5, right: 0),
+                        padding: const EdgeInsets.only(left: 5, right: 5),
                         child: SizedBox(
                           // width: 1100,
                           child: StreamBuilder(

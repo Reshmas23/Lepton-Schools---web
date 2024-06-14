@@ -301,8 +301,8 @@ class AllStudentListContainer extends StatelessWidget {
                                                   'SchoolListCollection')
                                               .doc(UserCredentialsController
                                                   .schoolId)
-                                              .collection('AllStudents')
-                                              .orderBy('admissionNumber')
+                                              .collection('AllStudents').orderBy('studentName')
+                                             // .orderBy('admissionNumber')
                                               .snapshots(),
                                       builder: (context, snaPS) {
                                         //      if (!snaPS.hasData || snaPS.data!.docs.isEmpty) {
