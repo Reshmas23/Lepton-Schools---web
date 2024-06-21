@@ -7,6 +7,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:vidyaveechi_website/controller/class_controller/class_controller.dart';
 import 'package:vidyaveechi_website/model/class_model/class_model.dart';
 
+import '../../../controller/teacher_exam_graph_controller/teacher_exam_graph_controller.dart';
+
+
 class SelectClassDropDownLogin extends StatelessWidget {
   SelectClassDropDownLogin({Key? key}) : super(key: key);
 
@@ -32,6 +35,9 @@ class SelectClassDropDownLogin extends StatelessWidget {
           if (value != null) {
             classCtrl.className.value = value.className;
             classCtrl.classDocID.value = value.docid;
+           //
+           //
+              Get.find<TeacherExamStatusController>().fetchClasswiseExamData(); 
             log("message ${classCtrl.classDocID.value}");
           }
         },
