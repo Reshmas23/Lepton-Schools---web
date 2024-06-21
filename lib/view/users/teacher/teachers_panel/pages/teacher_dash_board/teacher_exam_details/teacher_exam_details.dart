@@ -8,26 +8,27 @@ class TeacherExamDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+   
     return Container(
       height: 300,
-
-      decoration: BoxDecoration(boxShadow: const [
-        BoxShadow(
-          color: Color.fromARGB(10, 0, 0, 0),
-          offset: Offset(
-            0.5,
-            0.5,
+      decoration: BoxDecoration(
+        boxShadow: const [
+          BoxShadow(
+            color: Color.fromARGB(10, 0, 0, 0),
+            offset: Offset(0.5, 0.5),
+            blurRadius: 1.0,
+            spreadRadius: 1.0,
           ),
-          blurRadius: 1.0,
-          spreadRadius: 1.0,
-        ), //BoxShadow
-        BoxShadow(
-          color: Colors.white,
-          offset: Offset(0.0, 0.0),
-          blurRadius: 0.0,
-          spreadRadius: 0.0,
-        ), //BoxShadow
-      ], color: Colors.white, borderRadius: BorderRadius.circular(10)),
+          BoxShadow(
+            color: Colors.white,
+            offset: Offset(0.0, 0.0),
+            blurRadius: 0.0,
+            spreadRadius: 0.0,
+          ),
+        ],
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -46,8 +47,9 @@ class TeacherExamDetails extends StatelessWidget {
                     height: 35,
                     width: 35,
                     decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 235, 242, 245),
-                        borderRadius: BorderRadius.circular(10)),
+                      color: const Color.fromARGB(255, 235, 242, 245),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                     child: IconButton(
                       color: Colors.blue,
                       iconSize: 20,
@@ -64,11 +66,11 @@ class TeacherExamDetails extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20),
             child: Container(
-                height: 200,
-                width:
-                    ResponsiveWebSite.isTablet(context) ? double.infinity : 500,
-                color: Colors.white,
-                child: const TeacherClassExamDetailsGraph()),
+              height: 200,
+              width: ResponsiveWebSite.isTablet(context) ? double.infinity : 500,
+              color: Colors.white,
+              child: const TeacherClassExamDetailsGraph(),
+            ),
           ),
         ],
       ),

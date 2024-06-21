@@ -1,79 +1,50 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
+import 'package:vidyaveechi_website/controller/teacher_exam_graph_controller/teacher_exam_graph_controller.dart';
 
-class TeacherClassExamDetailsGraph extends StatelessWidget {
+class TeacherClassExamDetailsGraph extends StatefulWidget {
   const TeacherClassExamDetailsGraph({super.key});
 
   @override
+  _TeacherClassExamDetailsGraphState createState() => _TeacherClassExamDetailsGraphState();
+}
+
+class _TeacherClassExamDetailsGraphState extends State<TeacherClassExamDetailsGraph> {
+  final TeacherExamStatusController examStatusController = Get.put(TeacherExamStatusController());
+
+  @override
   Widget build(BuildContext context) {
-    final List<ChartData> chartData = <ChartData>[
-      ChartData(
-        'First Exam',
-        100,
-        70,
-      ),
-      ChartData(
-        'Second Exam',
-        100,
-        84,
-      ),
-      ChartData(
-        'Third Exam',
-        100,
-        72,
-      ),
-      ChartData(
-        'Fourth Exam',
-        100,
-        58,
-      ),
-      ChartData(
-        'Fifth Exam',
-        100,
-        65,
-      ),
-    ];
-    return SfCartesianChart(
-        primaryXAxis: CategoryAxis(),
-        primaryYAxis: NumericAxis(minimum: 0, maximum: 100, interval: 10),
+    return Obx(() {
+      if (examStatusController.chartData.isEmpty) {
+        return const Center(child: CircularProgressIndicator());
+      }
+
+      final chartData = examStatusController.chartData;
+      return SfCartesianChart(
+        primaryXAxis: const CategoryAxis(),
+        primaryYAxis: const NumericAxis(minimum: 0, maximum: 100, interval: 10),
         series: <CartesianSeries>[
           ColumnSeries<ChartData, String>(
             dataLabelSettings: const DataLabelSettings(
-
-                // Renders the data label
-                isVisible: true),
+              isVisible: true,
+            ),
             dataSource: chartData,
             xValueMapper: (ChartData data, _) => data.x,
             yValueMapper: (ChartData data, _) => data.y,
-            // pointColorMapper: (data, index) => data.color,
             color: Colors.blue,
           ),
           ColumnSeries<ChartData, String>(
             dataLabelSettings: const DataLabelSettings(
-
-                // Renders the data label
-                isVisible: true),
+              isVisible: true,
+            ),
             dataSource: chartData,
             xValueMapper: (ChartData data, _) => data.x,
             yValueMapper: (ChartData data, _) => data.y1,
-
-            // pointColorMapper: (data, index) => data.color,
             color: Colors.greenAccent,
           ),
-        
-        ]);
+        ],
+      );
+    });
   }
-}
-
-class ChartData {
-  ChartData(
-    this.x,
-    this.y,
-    this.y1,
-  );
-  final String x;
-  final double? y;
-  final double? y1;
-
-  // final Color color;
 }

@@ -36,6 +36,8 @@ import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_creden
 import 'package:vidyaveechi_website/view/widgets/loading_widget/loading_widget.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
+import 'screens/automatic timetable/automatic_timetable.dart';
+
 class AdminHomeScreen extends StatefulWidget {
   final IoTCardController ioTCardController = Get.put(IoTCardController ());
    AdminHomeScreen({super.key});
@@ -245,7 +247,7 @@ List<Widget> pages = [
 
   NoticeEditRemove(),
 
-  const AllEventsList(),
+   const AllEventsList(),
 
   AllMeetingsListPage(),
 
@@ -263,7 +265,9 @@ List<Widget> pages = [
   // LoginHistroyContainer(),
  // const Scaffold(body: LoginDashBoard())
    const TimeTableMainScreen(),
-  LoginHistroyContainer()
+  LoginHistroyContainer(),
+  TimeTableNew()
+    
 ];
 List<String> sideMenu = [
   'Attendence',
@@ -278,4 +282,5 @@ List<String> sideMenu = [
   'Notice Board',
   'Settings',
   'Rules',
+  
 ];
