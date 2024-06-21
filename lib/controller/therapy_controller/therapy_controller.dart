@@ -13,6 +13,8 @@ import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_creden
 import 'package:vidyaveechi_website/view/web_DashBoard/pages/video_management/presentation/pages/widgets/video_widgets.dart';
 
 class TherapyController extends GetxController {
+  RxBool sendNotificationToUsers = false.obs;
+
   RxBool therapyhome = true.obs;
   Rx<ButtonState> buttonstate = ButtonState.idle.obs;
   Rxn<TherapyModel> therapyModelData = Rxn<TherapyModel>();
@@ -191,4 +193,6 @@ class TherapyController extends GetxController {
     }
     return classwiseStudetsList;
   }
+
+
 }
