@@ -60,9 +60,11 @@ class TeachersController extends GetxController {
 
   Future<List<TeacherModel>> fetchTeacher() async {
     final firebase = await server
-        .collection('SchoolListCollection')
-        .doc(UserCredentialsController.schoolId)
-        .collection('Teachers')
+      .collection('SchoolListCollection')
+      .doc(UserCredentialsController.schoolId)
+      .collection(UserCredentialsController.batchId!)
+      .doc(UserCredentialsController.batchId!)
+      .collection('classes')
         .get();
 
     allTeacherList =

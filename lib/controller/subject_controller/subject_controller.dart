@@ -14,13 +14,31 @@ import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_creden
 
 class SubjectController extends GetxController {
   List<SubjectModel> classwiseSubjectList = [];
+   List<SubjectModel> teacherwiseSubjectList = [];
+   //List<SubjectModel> teacherList = [];
+     RxList<Map<String, dynamic>> teacherList = <Map<String, dynamic>>[].obs;
+
   TextEditingController subNameController = TextEditingController();
   TextEditingController subNameEditController = TextEditingController();
   TextEditingController subFeeController = TextEditingController();
+   
+    TextEditingController selectedSub = TextEditingController();
   RxString subjectName = ''.obs;
+  RxString teacherId=''.obs;
+  RxString teacherName=''.obs;
+  RxString periodperday =''.obs;
+ 
   RxString subjectID = ''.obs;
   Rx<ButtonState> buttonstate = ButtonState.idle.obs;
+  var selectedDays = <String>[].obs;
   Rx<Color> subjectColor = Colors.amber.obs;
+  RxList<SubjectModel> selectedSubjects = <SubjectModel>[].obs;
+   RxList<SubjectDayCount> subjectDayCounts = <SubjectDayCount>[].obs; // Define the subjectDayCounts
+  final List<String> daysOfWeek = ['1', '2', '3', '4', '5', '6', '7'];
+ //  RxList teacherList = [].obs;
+
+  var periodsPerWeek = <int>[].obs;
+
   final _firebase = server
       .collection('SchoolListCollection')
       .doc(UserCredentialsController.schoolId)
@@ -134,6 +152,119 @@ class SubjectController extends GetxController {
     return classwiseSubjectList;
   }
 
+    Future<List<SubjectModel>> fetchClassWisTimeTableeSubject() async {
+    final firebase = await _firebase
+        .doc(Get.find<ClassController>().classDocID.value)
+        .collection('subjects')
+        .get();
+
+    for (var doc in firebase.docs) {
+      teacherwiseSubjectList.add(SubjectModel.fromMap(doc.data()));
+    }
+    return teacherwiseSubjectList;
+  }
+/////////////////////////////////////////////////////////////////////////////////////
+Future<List<Map<String, dynamic>>> fetchClassWiseTimeTableTeacherSubject() async {
+  teacherList.clear();
+
+  try {
+    final firebase = await _firebase
+        .doc(Get.find<ClassController>().classDocID.value)
+        .collection('teachers')
+        .get();
+
+    for (var doc in firebase.docs) {
+      var teacherData = doc.data();
+      var teacherId = teacherData['teacherId'];
+
+      var subjectsSnapshot = await _firebase
+          .doc(Get.find<ClassController>().classDocID.value)
+          .collection('teachers')
+          .doc(teacherId)
+          .collection('teacherSubject')
+          .get();
+
+      var specificSubjects = subjectsSnapshot.docs
+          .map((subjectDoc) => SubjectModel.fromMap(subjectDoc.data()))
+          .toList();
+
+      // Store subjects as List<SubjectModel>
+      teacherData['subjectName'] = specificSubjects;
+
+      teacherList.add(teacherData);
+    }
+
+    log('Teacher List: $teacherList');
+  } catch (e) {
+    log('Error fetching teachers: $e');
+  }
+
+  return teacherList;
+}
+
+
+
+
+
+
+
+
+  
+
+////////////////////////////////////////////////////////////////////////////////////
+///
+///
+///
+/////////////////////////////////////////////////////////////////////////////////////\
+///////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////
+  Future<List<SubjectModel>> fetchClassWiseTimeTableSubject() async {
+    List<SubjectModel> subjects = [];
+
+    try {
+      final classDocID = Get.find<ClassController>().classDocID.value;
+
+    
+      final teacherDocs = await _firebase
+          .doc(classDocID)
+          .collection('teachers')
+          .get();
+
+     
+      for (var teacherDoc in teacherDocs.docs) {
+        var teacherId = teacherDoc.id;
+
+      
+        final subjectDocs = await _firebase
+            .doc(classDocID)
+            .collection('teachers')
+            .doc(teacherId)
+            .collection('teacherSubject')
+            .get();
+
+        
+        for (var subjectDoc in subjectDocs.docs) {
+          var subjectData = subjectDoc.data();
+         
+          var subjectModel = SubjectModel.fromMap(subjectData);
+         
+          subjects.add(subjectModel);
+        }
+      }
+
+     
+      log('Subjects: $subjects');
+    } catch (e) {
+     
+      log('Error $e');
+    }
+
+   
+    return subjects;
+  }
+
+///////////////////////////////////////////////////////////
+  //  return firebase.docs.
   Future<void> enableorDisableUpdate(
     String docid,
     bool status,
@@ -263,4 +394,70 @@ class SubjectController extends GetxController {
     // }
     return firebase.docs;
   }
+  void initializeSubjectDayCounts() {
+    subjectDayCounts.clear();
+    for (var subject in selectedSubjects) {
+      for (var day in daysOfWeek) {
+        subjectDayCounts.add(SubjectDayCount(
+          subjectId: subject.docid,
+          day: day,
+          count: 0.obs,
+        ));
+      }
+    }
+  }
+
+
+
+  Future<Map<String, List<SubjectModel>>> fetchClassWiseTimeTableTeacher(String teacherName) async {
+  Map<String, List<SubjectModel>> teacherSubjects = {};
+
+  try {
+    // Assuming you fetch teacher subjects based on teacherName
+    var teacherData = await _firebase
+        .doc(Get.find<ClassController>().classDocID.value)
+        .collection('teachers')
+        .where('teacherName', isEqualTo: teacherName)
+        .get();
+
+    if (teacherData.docs.isNotEmpty) {
+      var teacherId = teacherData.docs.first['teacherId'];
+
+      var subjectsSnapshot = await _firebase
+          .doc(Get.find<ClassController>().classDocID.value)
+          .collection('teachers')
+          .doc(teacherId)
+          .collection('teacherSubject')
+          .get();
+
+      var specificSubjects = subjectsSnapshot.docs
+          .map((subjectDoc) => SubjectModel.fromMap(subjectDoc.data()))
+          .toList();
+
+      // Store subjects as List<SubjectModel>
+      teacherSubjects[teacherName] = specificSubjects;
+    }
+
+    print('Teacher Subjects: $teacherSubjects');
+  } catch (e) {
+    print('Error fetching teacher subjects: $e');
+  }
+
+  return teacherSubjects;
+}
+
+
+
+
+}
+class SubjectDayCount {
+  final String subjectId;
+  final String day;
+  RxInt count;
+
+  SubjectDayCount({
+    required this.subjectId,
+    required this.day,
+    required this.count,
+  });
 }
