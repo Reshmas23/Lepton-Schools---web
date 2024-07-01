@@ -24,7 +24,7 @@ class DataContainerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 45,
+      height: height??45,
       width: width,
       decoration: BoxDecoration(
         color: color == null

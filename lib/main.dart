@@ -1,6 +1,5 @@
 import 'package:adaptive_ui_layout/flutter_responsive_layout.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vidyaveechi_website/controller/user_login_Controller/user_login_controller.dart';
 import 'package:vidyaveechi_website/firebase_options.dart';

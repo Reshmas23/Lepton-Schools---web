@@ -144,7 +144,7 @@ class StudentDashBoardScreen extends StatelessWidget {
 }
 
 List<Widget> studentDashBordWidgets = [
-   StudentsDetailsPart(),
+   const StudentsDetailsPart(),
   const MyStudyProgressStdContainerWidget(),
   const SubjectWiseProgressBarStd(),
   const StdNoticeBoardContainer(),
