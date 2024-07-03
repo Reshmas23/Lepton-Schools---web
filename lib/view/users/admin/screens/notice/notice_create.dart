@@ -283,7 +283,7 @@ class CreateNotice extends StatelessWidget {
                                                       if (noticeController.formKey.currentState!
                                                           .validate()) {
                                                         noticeController.createNotice();
-                                                        print("object");
+                                                        //print("object");
                                                       }
                                                     },
                                                     buttonstate: noticeController.buttonstate.value,
@@ -300,7 +300,7 @@ class CreateNotice extends StatelessWidget {
                                                 //         .validate()) {
                                                 //       noticeController
                                                 //           .createNotice();
-                                                //       print("object");
+                                                //       //print("object");
                                                 //     }
                                                 //         },
                                                 //         color: adminePrimayColor,
@@ -472,7 +472,7 @@ createNoticeAdmin(BuildContext context) {
                               function: () async {
                                 if (noticeController.formKey.currentState!.validate()) {
                                   noticeController.createNotice();
-                                  print("object");
+                                  //print("object");
                                 }
                               },
                               buttonstate: noticeController.buttonstate.value,
@@ -489,7 +489,7 @@ createNoticeAdmin(BuildContext context) {
                           //         .validate()) {
                           //       noticeController
                           //           .createNotice();
-                          //       print("object");
+                          //       //print("object");
                           //     }
                           //         },
                           //         color: adminePrimayColor,

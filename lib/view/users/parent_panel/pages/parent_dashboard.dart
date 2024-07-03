@@ -47,6 +47,13 @@ class ParentDashBoardContainer extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
                       child: parentDashBoardWidgets[0], /////parent profile
                     ),
+                     Padding(
+                      padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
+                      child: Container(
+                          height: 150,
+                          color: cWhite,
+                          child: parentDashBoardWidgets[1]), ////// points
+                    ),
                     Padding(
                       padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
                       child: parentDashBoardWidgets[4], //////student attendance
@@ -60,13 +67,7 @@ class ParentDashBoardContainer extends StatelessWidget {
                       child: Container(
                           color: cWhite, child: parentDashBoardWidgets[3]), /////subjectwise graph
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
-                      child: Container(
-                          height: 400,
-                          color: cWhite,
-                          child: parentDashBoardWidgets[1]), ////// table calender
-                    ),
+                   
                     Padding(
                       padding: const EdgeInsets.only(top: 10, left: 10, right: 10,bottom: 10),
                       child: Container(

@@ -37,9 +37,9 @@ class CardController extends GetxController {
         .doc(docId)
         .delete();
 
-    print(
-      docId,
-    );
+    //print(
+    //   docId,
+    // )
   }
   
 

@@ -75,7 +75,7 @@ deleteFunctionOfAchievement(BuildContext context, AchievementModel data) {
             fontsize: ResponsiveWebSite.isMobile(context) ? 12 : 15)
       ],
       actiononTapfuction: () {
-        print(data.uid);
+        //print(data.uid);
         achievementsController.deleteAchievements(data.uid, context);
         Navigator.pop(context);
       },

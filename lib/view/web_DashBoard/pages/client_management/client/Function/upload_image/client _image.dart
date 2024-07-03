@@ -59,7 +59,7 @@ uploadImageForClient(BuildContext context, String docid) {
                                   clientManagementController.imagePath.value =
                                       await imagePicker.pickImageGallery();
                                 } catch (e) {
-                                  print(e);
+                                  //print(e);
                                 }
                                 // final input =
                                 //     querySelector('#imageInput') as InputElement;
@@ -85,7 +85,7 @@ uploadImageForClient(BuildContext context, String docid) {
 
                                     log("Image pathhhh ---->>> ${clientManagementController.imagePath.value}");
                                   } catch (e) {
-                                    print(e);
+                                    //print(e);
                                   }
                                 },
                                 child: BlueContainerWidget(

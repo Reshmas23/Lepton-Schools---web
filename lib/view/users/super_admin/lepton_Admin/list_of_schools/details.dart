@@ -258,7 +258,7 @@ class _DetailsSchoolsScreenState extends State<DetailsSchoolsScreen> {
                                     padding: const EdgeInsets.all(8.0),
                                     child: GestureDetector(
                                       onTap: () {
-                                        print("object");
+                                        //print("object");
                                         if (index == 1) {
                                           getTempDilogBox(context,
                                               widget.schoolSnap['docid']);

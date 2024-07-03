@@ -245,7 +245,7 @@ class VidhyaVeechiHomePageResponsive extends StatelessWidget {
                             Expanded(
                               child: GestureDetector(
                                 onTap: () {
-                                  print("object");
+                                  //print("object");
                                   Navigator.push(context, MaterialPageRoute(
                                     builder: (context) {
                                       return RegisrationPage();

@@ -41,7 +41,7 @@ class UserAuthController extends GetxController {
 
     if (auth.currentUser == null) {
       if (kDebugMode) {
-        print("Google Auth null");
+        //print("Google Auth null");
       }
       Get.offAll(() => const MainScreen());
     } else {
@@ -69,7 +69,7 @@ class UserAuthController extends GetxController {
         await checkTeacher(auth);
       } else {
         if (kDebugMode) {
-          print("shared pref Auth null");
+          //print("shared pref Auth null");
         }
         Get.offAll(() => const MainScreen());
       }

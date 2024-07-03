@@ -451,7 +451,7 @@ class ExcelFileController extends GetxController {
         // excel.encode().then((bytes) {
         //   // Save the Excel file with a name
         //   File('student_credential_report.xlsx').writeAsBytes(bytes);
-        //   print('Excel report generated successfully.');
+        //   //print('Excel report generated successfully.');
         // });
         final List<int>? byts = excel.encode();
         final blob = html.Blob([byts]);
@@ -552,7 +552,7 @@ class ExcelFileController extends GetxController {
         // excel.encode().then((bytes) {
         //   // Save the Excel file with a name
         //   File('student_credential_report.xlsx').writeAsBytes(bytes);
-        //   print('Excel report generated successfully.');
+        //   //print('Excel report generated successfully.');
         // });
         final List<int>? byts = excel.encode();
         final blob = html.Blob([byts]);
@@ -634,7 +634,7 @@ class ExcelFileController extends GetxController {
         // excel.encode().then((bytes) {
         //   // Save the Excel file with a name
         //   File('student_credential_report.xlsx').writeAsBytes(bytes);
-        //   print('Excel report generated successfully.');
+        //   //print('Excel report generated successfully.');
         // });
         final List<int>? byts = excel.encode();
         final blob = html.Blob([byts]);

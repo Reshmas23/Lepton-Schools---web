@@ -117,7 +117,7 @@ class ParentController extends GetxController {
       final data = await _fbServer.collection('AllParents').get();
       parentProfileList =
           data.docs.map((e) => ParentModel.fromMap(e.data())).toList();
-      print(parentProfileList[0]);
+      //print(parentProfileList[0]);
     } catch (e) {
       showToast(msg: "User Data Error");
     }

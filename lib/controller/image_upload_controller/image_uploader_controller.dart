@@ -19,7 +19,7 @@ class ImageController extends GetxController {
       XFile? pickimage =
           await ImagePicker().pickImage(source: ImageSource.gallery);
       if (pickimage != null) {
-        print(pickimage.readAsBytes());
+        //print(pickimage.readAsBytes());
         selectedImage.value = pickimage.path;
         image.value = await pickimage.readAsBytes();
         updateProfilePicture();
@@ -53,7 +53,7 @@ class ImageController extends GetxController {
   }
 
   Future updateProfilePicture() async {
-    // print('<<<<<<<<<<<<<<<<<<<<<<<<<<<<<${image.value}');
+    // //print('<<<<<<<<<<<<<<<<<<<<<<<<<<<<<${image.value}');
     String uploadedImage = await uploapImageToFirebase(image.value!);
     log('Image converted');
 
@@ -90,7 +90,7 @@ class ImageController extends GetxController {
       }
     } else {
       // Handle the case where the user is not found in either collection
-      print('User not found in any collection');
+      //print('User not found in any collection');
     }
   }
 }
@@ -153,7 +153,7 @@ class AdminProfileController extends GetxController {
       }
     } else {
       // Handle the case where the user is not found in either collection
-      print('User not found in any collection');
+      //print('User not found in any collection');
     }
   }
 

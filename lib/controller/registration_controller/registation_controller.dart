@@ -318,9 +318,9 @@ class RegistrationController extends GetxController {
         .collection('RegTemp_Students')
         .get();
 
-    print(UserCredentialsController.schoolId);
-    print(UserCredentialsController.batchId!);
-    print(Get.find<ClassController>().ontapClassDocID.value);
+    //print(UserCredentialsController.schoolId);
+    //print(UserCredentialsController.batchId!);
+    //print(Get.find<ClassController>().ontapClassDocID.value);
 
     final studentDetails = querySnapshot.docs
         .map((doc) => StudentModel.fromMap(doc.data()))

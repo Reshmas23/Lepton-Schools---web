@@ -279,7 +279,7 @@ class ClassDetailsContainer extends StatelessWidget {
                                                               .ontapLeaveApplication
                                                               .value = true;
                                                               Get.find<ClassController>().classDocID.value=data.docid;
-                                                          // print(
+                                                          // //print(
                                                           //     'onleave tap=======>${classController.ontapLeaveApplication.value}');
                                                         },
                                                         child:

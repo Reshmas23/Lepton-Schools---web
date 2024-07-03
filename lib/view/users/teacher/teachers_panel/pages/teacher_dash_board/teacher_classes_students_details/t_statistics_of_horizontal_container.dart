@@ -24,7 +24,7 @@ class TStatisticsOfHorizontalContainer extends StatelessWidget {
                 .snapshots(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                print(snapshot.data?.docs.length);
+                //print(snapshot.data?.docs.length);
               } else {
                 return TeacherClassesStudentsDetails(
                   categorytext: 'Total Classes',

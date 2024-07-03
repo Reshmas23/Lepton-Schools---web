@@ -147,107 +147,129 @@ import 'package:vidyaveechi_website/view/widgets/data_list_widgets/data_containe
 
 
 
-
-
 class SubmissionTable extends StatelessWidget {
-  const SubmissionTable({super.key});
+  const SubmissionTable({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 10, right: 10, top: 0),
+          padding: const EdgeInsets.only(left: 0, right: 0, top: 0),
           child: Container(
-            color: cWhite,
+            color: Colors.white,
             height: 50,
             child: const Row(
               children: [
                 Expanded(
-                    flex: 1,
-                    child: CatrgoryTableHeaderColorWidget(
-                      color: cgreen,
-                      height: 50,
-                      textcolor: cWhite,
-                      headerTitle: 'NO.',
-                    )),
-                SizedBox(
-                  width: 02,
+                  flex: 1,
+                  child: CatrgoryTableHeaderColorWidget(
+                    color: Colors.green,
+                    height: 50,
+                    textcolor: Colors.white,
+                    headerTitle: 'NO.',
+                  ),
                 ),
+                SizedBox(width: 2),
                 Expanded(
-                    flex: 2,
-                    child: CatrgoryTableHeaderColorWidget(
-                        color: cgreen,
-                        height: 50,
-                        textcolor: cWhite,
-                        headerTitle: 'HOMEWORKS')),
-                SizedBox(
-                  width: 02,
+                  flex: 2,
+                  child: CatrgoryTableHeaderColorWidget(
+                    color: Colors.green,
+                    height: 50,
+                    textcolor: Colors.white,
+                    headerTitle: 'HOMEWORKS',
+                  ),
                 ),
+                SizedBox(width: 2),
                 Expanded(
-                    flex: 2,
-                    child: CatrgoryTableHeaderColorWidget(
-                        color: cgreen,
-                        height: 50,
-                        textcolor: cWhite,
-                        headerTitle: 'SUBJECTS')),
-                SizedBox(
-                  width: 02,
+                  flex: 2,
+                  child: CatrgoryTableHeaderColorWidget(
+                    color: Colors.green,
+                    height: 50,
+                    textcolor: Colors.white,
+                    headerTitle: 'SUBMITTED DATE',
+                  ),
                 ),
+                SizedBox(width: 2),
                 Expanded(
-                    flex: 2,
-                    child: CatrgoryTableHeaderColorWidget(
-                        color: cgreen,
-                        height: 50,
-                        textcolor: cWhite,
-                        headerTitle: 'STATUS')),
-                SizedBox(
-                  width: 02,
+                  flex: 2,
+                  child: CatrgoryTableHeaderColorWidget(
+                    color: Colors.green,
+                    height: 50,
+                    textcolor: Colors.white,
+                    headerTitle: 'STATUS',
+                  ),
                 ),
+                SizedBox(width: 2),
               ],
             ),
           ),
         ),
         Expanded(
-            child: SizedBox(
-                child: StreamBuilder(
-                  stream: server
-                  .collection('SchoolListCollection')
-        .doc(UserCredentialsController.schoolId)
-       .collection(UserCredentialsController.batchId ?? "")
-        .doc(UserCredentialsController.batchId)
-        .collection('classes')
-        .doc(UserCredentialsController.classId)
-        .collection("HomeWorks")
-        .doc()
-        .collection("Submit")
-        .snapshots(),
-                  builder: (context, snapshot) {
-                    if (snapshot.hasData) {
-                       return ListView.separated(
-                        itemBuilder: (context, index) {
-                              final homeworkSubmission = snapshot.data?.docs[index].data();
-                          return Padding(
-                            padding: const EdgeInsets.only(left: 10, right: 10),
-                            child: HWSubmissionDataList(
-                              homeworkSubmission:homeworkSubmission,
-                              index: index,
-                            ),
-                          );
-                        },
-                        separatorBuilder: (context, index) {
-                          return const SizedBox(
-                            height: 02,
-                          );
-                        },
-                        itemCount: snapshot.data!.docs.length
+          child: StreamBuilder(
+            stream: server
+                .collection('SchoolListCollection')
+                .doc(UserCredentialsController.schoolId!)
+                .collection(UserCredentialsController.batchId!)
+                .doc(UserCredentialsController.batchId!)
+                .collection('classes')
+                .doc(UserCredentialsController.classId!)
+                .collection("HomeWorks")
+                .snapshots(),
+            builder: (context, homeworkSnapshot) {
+              if (homeworkSnapshot.connectionState == ConnectionState.waiting) {
+                return const Center(child: CircularProgressIndicator());
+              }
+
+              if (!homeworkSnapshot.hasData || homeworkSnapshot.data == null) {
+                return const Center(child: Text("No Homeworks"));
+              }
+
+              final homeworkDocs = homeworkSnapshot.data!.docs;
+
+              return ListView.builder(
+                itemCount: homeworkDocs.length,
+                itemBuilder: (context, index) {
+                  // ignore: unused_local_variable
+                  final homeworkData = homeworkDocs[index].data();
+                  return StreamBuilder(
+                    stream: server
+                        .collection('SchoolListCollection')
+                        .doc(UserCredentialsController.schoolId!)
+                        .collection(UserCredentialsController.batchId!)
+                        .doc(UserCredentialsController.batchId!)
+                        .collection('classes')
+                        .doc(UserCredentialsController.classId!)
+                        .collection("HomeWorks")
+                        .doc(homeworkDocs[index].id)
+                        .collection("Submit")
+                        .snapshots(),
+                    builder: (context, submissionSnapshot) {
+                      if (submissionSnapshot.connectionState == ConnectionState.waiting) {
+                        return const Center(child: CircularProgressIndicator());
+                      }
+
+                      if (!submissionSnapshot.hasData || submissionSnapshot.data == null || submissionSnapshot.data!.docs.isEmpty) {
+                        return const Padding(
+                          padding: EdgeInsets.all(15.0),
+                          child: Center(child: TextFontWidget(text: "Not Submitted", fontsize: 12)),
                         );
-                    }else{
-                      return const TextFontWidget(text: "No Homworks", fontsize: 12);
-                    }
-                   
-                  }
-                )))
+                      }
+
+                      final submissionDocs = submissionSnapshot.data!.docs;
+                      final submissionData = submissionDocs[0].data(); 
+
+                      return HWSubmissionDataList(
+                        homeworkSubmission: submissionData,
+                        index: index,
+                      );
+                    },
+                  );
+                },
+              );
+            },
+          ),
+        ),
       ],
     );
   }
@@ -259,6 +281,7 @@ class HWSubmissionDataList extends StatelessWidget {
     required this.index,
     super.key, this.homeworkSubmission,
   });
+  // ignore: prefer_typing_uninitialized_variables
   final homeworkSubmission;
 
   @override
@@ -288,8 +311,7 @@ class HWSubmissionDataList extends StatelessWidget {
                 rowMainAccess: MainAxisAlignment.center,
                 color: cWhite,
                 index: index,
-                headerTitle: "OK"
-                //homeworkSubmission['tasks']
+                headerTitle: homeworkSubmission['homeWorkName']
                 ),
           ),
           const SizedBox(
@@ -298,59 +320,26 @@ class HWSubmissionDataList extends StatelessWidget {
            Expanded(
             flex: 2,
             child: 
-      //       StreamBuilder(
-      //         stream: server
-      //             .collection('SchoolListCollection')
-      //   .doc(UserCredentialsController.schoolId)
-      //  .collection(UserCredentialsController.batchId ?? "")
-      //   .doc(UserCredentialsController.batchId)
-      //   .collection('classes')
-      //   .doc(UserCredentialsController.classId)
-      //   .collection("subjects")
-      //   .doc(homeworkSubmission['subjectid'])
-      //   .snapshots(),
-      //         builder: (context, submissionSnap) {
-      //           return
                  DataContainerWidget(
                     height: 50,
                     rowMainAccess: MainAxisAlignment.center,
                     color: cWhite,
                     index: index,
-                    headerTitle: 'Work',
-                 //   submissionSnap.data?.data()?['subjectName']??""
+                    headerTitle: homeworkSubmission['submittedDate'],
                     ),
-            //   }
-            // ),
           ), // ................................... Fees Required
           const SizedBox(
             width: 02,
           ),
           Expanded(
             flex: 2,
-            child:
-      //        StreamBuilder(
-      //         stream: server
-      //             .collection('SchoolListCollection')
-      //   .doc(UserCredentialsController.schoolId)
-      //  .collection(UserCredentialsController.batchId ?? "")
-      //   .doc(UserCredentialsController.batchId)
-      //   .collection('classes')
-      //   .doc(UserCredentialsController.classId)
-      //   .collection("HomeWorks")
-      //   .doc(homeworkSubmission['docid'])
-      //   .collection("Submit")
-      //   .snapshots(),
-      //         builder: (context, stautusSnap) {
-      //           return 
-                DataContainerWidget(
+            child: DataContainerWidget(
                     height: 50,
                     rowMainAccess: MainAxisAlignment.center,
                     color: cWhite,
                     index: index,
-                    headerTitle: "pending"),
-                    //stautusSnap.data?.docs[index].data()['Status']==true?'Completed':'Pending');
-            //   }
-            // ),
+                    headerTitle: homeworkSubmission['Status']==true?'Completed':'Pending'),
+                   
           ), //....................................... Fess Collectes
           const SizedBox(
             width: 02,

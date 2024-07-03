@@ -700,12 +700,12 @@ class UserLoginController extends GetxController {
       });
       logined.value = false;
     } catch (e) {
-      print(e);
+      //print(e);
     }
   }
 
   Future<void> logoutSaveData() async {
-    print('logout Key${UserCredentialsController.userloginKey}');
+    //print('logout Key${UserCredentialsController.userloginKey}');
     final date = DateTime.now();
     DateTime parseDate = DateTime.parse(date.toString());
     final month = DateFormat('MMMM-yyyy');

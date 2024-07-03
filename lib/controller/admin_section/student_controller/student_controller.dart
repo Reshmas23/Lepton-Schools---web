@@ -275,7 +275,7 @@ class StudentController extends GetxController {
   //         .doc('AdNo')
   //         .set({'AdNumber': stAdNumber.value});
   //   } else {
-  //     print('.....................');
+  //     //print('.....................');
   //     stAdNumber.value = result.data()?['AdNumber'] ?? 0;
   //   }
 
@@ -401,7 +401,7 @@ class StudentController extends GetxController {
       final data = await _fbServer.collection('AllStudents').get();
       studentProfileList =
           data.docs.map((e) => StudentModel.fromMap(e.data())).toList();
-      print(studentProfileList[0]);
+      //print(studentProfileList[0]);
     } catch (e) {
       showToast(msg: "User Data Error");
     }
@@ -409,7 +409,7 @@ class StudentController extends GetxController {
 
   @override
   void onReady() async {
-    print("On Ready");
+    //print("On Ready");
     // await getAdmissionNumber();
     await fetchAllStudents();
 

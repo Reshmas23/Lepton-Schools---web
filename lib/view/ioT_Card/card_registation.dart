@@ -157,8 +157,8 @@ class ClassWiseStudentListContainer extends StatelessWidget {
                               builder: (context, ssnapshot) {
                                 final int studentLength = ssnapshot.data?.docs.length ?? 0;
                                 final list = ioTCardController.classStudentList.length;
-                                print("studentLength $studentLength");
-                                print("list $list");
+                                //print("studentLength $studentLength");
+                                //print("list $list");
                                 return ssnapshot.hasData
                                     ? RouteSelectedTextContainer(
                                         title:

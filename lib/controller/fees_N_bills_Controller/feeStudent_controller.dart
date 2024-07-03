@@ -98,10 +98,10 @@ class StudentFeeController extends GetxController {
   }
 
   getStudentFeeDetails(String studentId) async {
-    print('fee start');
-    print(studentId);
-    print(Get.find<FeesAndBillsController>().feeMonthData.value);
-    print(Get.find<FeesAndBillsController>().feeDateData.value);
+    //print('fee start');
+    //print(studentId);
+    //print(Get.find<FeesAndBillsController>().feeMonthData.value);
+    //print(Get.find<FeesAndBillsController>().feeDateData.value);
     final studentFeeData = await server
         .collection('SchoolListCollection')
         .doc(UserCredentialsController.schoolId)
@@ -119,6 +119,6 @@ class StudentFeeController extends GetxController {
     paidStudentFee.value = studentFeeData.data()!['paid'];
     unpaidStudentFee.value = totalStudentFee.value - paidStudentFee.value;
 
-    print(totalStudentFee.value);
+    //print(totalStudentFee.value);
   }
 }

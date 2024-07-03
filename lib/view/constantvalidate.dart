@@ -61,7 +61,7 @@ String stringTimeToDateConvert(String date) {
     return "${dateFormat.day}-${dateFormat.month}-${dateFormat.year}";
   } catch (e) {
     if (kDebugMode) {
-      print(e);
+      //print(e);
     }
   }
   return '';
@@ -75,7 +75,7 @@ String stringTimeConvert(DateTime date) {
     return formattedTime;
   } catch (e) {
     if (kDebugMode) {
-      print(e);
+      //print(e);
     }
   }
   return '';
@@ -154,7 +154,7 @@ String? checkFieldDateIsValid(String? fieldContent) {
       }
     } catch (e) {
       if (kDebugMode) {
-        print(e);
+        //print(e);
       }
     }
   }
@@ -191,7 +191,7 @@ showDialogWidget(
         title: TextFontWidget(text: title, fontsize: 16),
         actions: [
           TextButton(
-            child:  TextFontWidget(
+            child:  const TextFontWidget(
               text: 'No',
               fontsize: 16,
             ),
@@ -200,7 +200,7 @@ showDialogWidget(
             },
           ),
           TextButton(
-            child: TextFontWidget(
+            child: const TextFontWidget(
               text: 'Yes',
               fontsize: 16,
             ),

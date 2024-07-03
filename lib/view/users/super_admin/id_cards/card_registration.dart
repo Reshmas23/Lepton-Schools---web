@@ -62,7 +62,7 @@
 //                 builder: (context, snapshot) {
 //                   if (snapshot.hasData) {
 //                     final data = snapshot.data?.snapshot.value as Map?;
-//                     print(data);
+//                     //print(data);
 //                     if (data == null) {
 //                       return const Text('No data');
 //                     }
@@ -173,7 +173,7 @@
 //                     );
 //                   }
 //                   if (snapshot.hasError) {
-//                     print(snapshot.error.toString());
+//                     //print(snapshot.error.toString());
 //                     return Text(snapshot.error.toString());
 //                   }
           
@@ -193,7 +193,7 @@
 //       String cardId, String deviceId, String time,String input) async {
 //     final CardController cardController = Get.put(CardController());
 //     final String adnumber = cardController.admissionController.text;
-//     print(adnumber);
+//     //print(adnumber);
 
 //     await server
 //         .collection('SchoolListCollection')
@@ -203,7 +203,7 @@
 //         .then((value) async {
 //       for (var i = 0; i < value.docs.length; i++) {
 //         if (adnumber == value.docs[i].data()['admissionNumber']) {
-//           print(true);
+//           //print(true);
 //           server
 //               .collection('SchoolListCollection')
 //               .doc(UserCredentialsController.schoolId)
@@ -230,9 +230,9 @@
 //                 whiteshadeColor: cardNotifierSetup().whiteshadeColor,
 //                 containerColor: cardNotifierSetup().containerColor).then((value) => 
 //                showToast(msg: 'Card Registered'));
-//                 print("${   value.docs[i].data()['parentId']     }");
+//                 //print("${   value.docs[i].data()['parentId']     }");
 //         } else {
-//           print(false);
+//           //print(false);
 //         }
 //       }
 //     });
@@ -244,7 +244,7 @@
 // //   String cardId, String deviceId, String time, String input) async {
 // //   final CardController cardController = Get.put(CardController());
 // //   final String adnumber = '000${cardController.onTapValue.value}';
-// //   print(adnumber);
+// //   //print(adnumber);
 
 // //   await server
 // //       .collection('SchoolListCollection')
@@ -256,7 +256,7 @@
 // //       if (adnumber == value.docs[i].data()['admissionNumber']) {
 // //         await saveDataToAllStudentsCollection(value.docs[i].data(), cardId, deviceId, time, input);
 // //       } else {
-// //         print(false);
+// //         //print(false);
 // //       }
 // //     }
 // //   });
@@ -276,7 +276,7 @@
 //   }, SetOptions(merge: true)).then((value) {
 //     // Your additional operations here
 //     showToast(msg: 'Card Registered');
-//    // print("${studentData['parentId']}");
+//    // //print("${studentData['parentId']}");
 //   });
 // }
 

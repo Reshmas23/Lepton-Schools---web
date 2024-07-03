@@ -129,7 +129,7 @@ class SchoolHOmeScreen extends StatelessWidget {
                                             backgroundColor: const Color.fromARGB(255, 228, 225, 225),
                                           ),
                                           onPressed: () {
-                                            print("object");
+                                            //print("object");
                                             Navigator.push(context, MaterialPageRoute(
                                               builder: (context) {
                                                 return RegisrationPage();

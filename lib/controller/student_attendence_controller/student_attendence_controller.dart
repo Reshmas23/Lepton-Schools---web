@@ -19,10 +19,10 @@ class StudentAttendenceController extends GetxController {
     required String formatted,
     required String subjectID,
   }) async {
-    print('Updated');
-    print('monthwise : $monthwise');
-    print('formatted : $formatted');
-    print('subjectID : $subjectID');
+    //print('Updated');
+    //print('monthwise : $monthwise');
+    //print('formatted : $formatted');
+    //print('subjectID : $subjectID');
     int count = 0;
     try {
       await server
@@ -49,9 +49,9 @@ class StudentAttendenceController extends GetxController {
         totalStudent.value = value.docs.length;
         presentStudent = count;
         absentStudent = value.docs.length - count;
-        print('present : $count');
-        print('Total : ${value.docs.length}');
-        print('absent : $absentStudent');
+        //print('present : $count');
+        //print('Total : ${value.docs.length}');
+        //print('absent : $absentStudent');
       });
     } catch (e) {
       showToast(msg: 'Error occured : $e');

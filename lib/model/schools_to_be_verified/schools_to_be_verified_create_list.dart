@@ -228,9 +228,9 @@ class AddRequestedSchoolsToFirebase {
           builder: (BuildContext context) {
             return AlertDialog(
               title: const Text('Message'),
-              content: SingleChildScrollView(
+              content: const SingleChildScrollView(
                 child: ListBody(
-                  children: const <Widget>[
+                  children: <Widget>[
                     Text(
                         "Thank you for applying for an account. Your account is currently pending approval \n"
                         " by the site administrator. In the meantime, a welcome message with further\n"
@@ -257,9 +257,10 @@ class AddRequestedSchoolsToFirebase {
           },
         );
       });
+    // ignore: unused_catch_clause
     } on FirebaseException catch (e) {
       if (kDebugMode) {
-        print('Error ${e.message.toString()}');
+        //print('Error ${e.message.toString()}');
       }
     }
   }

@@ -243,7 +243,7 @@ class SubjectController extends GetxController {
   }
 
   Future<List<DocumentSnapshot>> fetchExamWiseSubject(examName) async {
-    print(examName);
+    //print(examName);
     final firebase = await server
         .collection('SchoolListCollection')
         .doc(UserCredentialsController.schoolId)
