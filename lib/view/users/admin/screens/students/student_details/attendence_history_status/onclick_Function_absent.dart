@@ -36,7 +36,7 @@ onClickFunctionOfAbsent(BuildContext context) {
                     text: 'Absent Days',
                     fontsize: 17,
                     fontWeight: FontWeight.bold,
-                  ),
+                  ), 
                 ],
               ),
               Container(
