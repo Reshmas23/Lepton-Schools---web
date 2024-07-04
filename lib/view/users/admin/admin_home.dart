@@ -168,7 +168,10 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                                 child: Row(
                                   children: [
                                     SizedBox(
-                                      height: 60,
+                                      height: ResponsiveWebSite.isMobile(
+                                                        context)
+                                                    ? 40
+                                                    : 60,
                                       child: Image.asset(
                                         logoImage,
                                         fit: BoxFit.fill,
@@ -178,7 +181,7 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                                       text: institutionName,
                                       fontsize:
                                           ResponsiveWebSite.isMobile(context)
-                                              ? 18
+                                              ? 13   
                                               : 20,
                                       fontWeight: FontWeight.w500,
                                     )
