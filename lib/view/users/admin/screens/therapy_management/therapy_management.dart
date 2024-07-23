@@ -8,6 +8,7 @@ import 'package:vidyaveechi_website/view/ioT_Card/code.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/widgets/category_tableHeader.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/therapy_management/std_data_list.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/therapy_management/therapy_home.dart';
+import 'package:vidyaveechi_website/view/users/super_admin/widgets/buttonContainer.dart';
 import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
@@ -56,6 +57,43 @@ class TherapyManagement extends StatelessWidget {
                             child: const RouteSelectedTextContainer(
                                 width: 100, title: 'Students List')),
                       ),
+                      
+                                const Spacer(),
+                                GestureDetector(
+                                  onTap: () async {
+                                    therapycontroller
+                                        .sendNotificationToUsers
+                                        .value = true;
+                                    // await therapycontroller
+                                    //     .sendMessageForUnPaidStudentandParents();
+                                  },
+                                  child: Obx(() => Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 10),
+                                        child: therapycontroller
+                                                    .sendNotificationToUsers
+                                                    .value ==
+                                                true
+                                            ? const SizedBox(
+                                                child: CircularProgressIndicator
+                                                    .adaptive(),
+                                              )
+                                            : ButtonContainerWidget(
+                                                curving: 0,
+                                                colorindex: 6,
+                                                height: 35,
+                                                width: 220,
+                                                child: const Center(
+                                                  child: TextFontWidgetRouter(
+                                                    text:
+                                                        'Send Message For All Students/Parents',
+                                                    fontsize: 12,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: cWhite,
+                                                  ),
+                                                )),
+                                      )),
+                                ),
                     ],
                   ),
                   Padding(
@@ -74,23 +112,6 @@ class TherapyManagement extends StatelessWidget {
                             const Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                // Padding(
-                                //   padding: const EdgeInsets.all(8.0),
-                                //   child: Container(
-                                //     width: 250,
-                                //     height: ResponsiveWebSite.isMobile(context) ? 80 : 100,
-                                //     color: cWhite,
-                                //     child: Padding(
-                                //       padding: const EdgeInsets.only(top: 10, bottom: 10),
-                                //       child: TextFormFiledBlueContainerWidget(
-                                //         // controller: studentController.stNameController,
-                                //         hintText: "Enter Therapy Type",
-                                //         title: 'Therapy Type ',
-                                //         validator: checkFieldEmpty,
-                                //       ),
-                                //     ),
-                                //   ),
-                                // ),
                               ],
                             ),
                             Padding(
