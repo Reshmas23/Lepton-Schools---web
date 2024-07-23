@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:vidyaveechi_website/view/web_DashBoard/pages/video_management/presentation/pages/widgets/video_widgets.dart';
 
 import '../../../../fonts/text_widget.dart';
 import '../../../../widgets/responsive/responsive.dart';
@@ -14,18 +14,17 @@ class TeacherDashBoardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> teacherDashboardWidget = [
-       SingleChildScrollView(
+      const SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Padding(
           padding: EdgeInsets.only(bottom: 10),
           child: TStatisticsOfHorizontalContainer(),
         ),
       ), // Teachersection Horizontal Container list
-
-      const Expanded(flex: 2, child: TeacherClassAttendence()),
-      const Expanded(flex: 2, child: TeacherExamDetails()),
-
+      const TeacherExamDetails(),
       const TeachingActivity(),
+
+      const TeacherClassAttendence(),
     ];
     ////////////////////////////////////
     return Container(
@@ -33,57 +32,60 @@ class TeacherDashBoardScreen extends StatelessWidget {
 
       color: const Color.fromARGB(138, 245, 247, 249),
 
-      child: ResponsiveWebSite.isMobile(
-              context) //.,..................MOBILE VIEW
-          ? Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 30, top: 20, bottom: 10),
-                  child: TextFontWidget(
-                    text: "Welcome Teacher ",
-                    fontsize: 22,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                teacherDashboardWidget[
-                    0], //...Teacher Statistics Horizontal Container
-                teacherDashboardWidget[1], //....Teacher Class Attendence
-                teacherDashboardWidget[2], //....Teacher Exam Details
-                Padding(
-                  padding: const EdgeInsets.only(top: 10),
-                  child: teacherDashboardWidget[3], //....Teaching Activity
-                ),
-              ],
-            )
-          : Column(
-              //............................................ TAB AND WEB VIEW
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 30, top: 20, bottom: 10),
-                  child: TextFontWidget(
-                    text: "Welcome Teacher ",
-                    fontsize: 22,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                teacherDashboardWidget[0],
-                Row(
+      child:
+          ResponsiveWebSite.isMobile(context) //.,..................MOBILE VIEW
+              ? Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    teacherDashboardWidget[1],
-                    const SizedBox(
-                      height: 10,
+                    const Padding(
+                      padding: EdgeInsets.only(left: 30, top: 20, bottom: 10),
+                      child: TextFontWidget(
+                        text: "Welcome Teacher ",
+                        fontsize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                    teacherDashboardWidget[2],
+                    teacherDashboardWidget[
+                        0], //...Teacher Statistics Horizontal Container
+                    teacherDashboardWidget[1], //....Teacher Class Attendence
+                    teacherDashboardWidget[2], //....Teacher Exam Details
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10),
+                      child: teacherDashboardWidget[3], //....Teaching Activity
+                    ),
+                  ],
+                )
+              : Column(
+                  //............................................ TAB AND WEB VIEW
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.only(left: 30, top: 20, bottom: 10),
+                      child: TextFontWidget(
+                        text: "Welcome Teacher ",
+                        fontsize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                   teacherDashboardWidget[0],
+                    Row(
+                      children: [
+                        Expanded(flex: 2,child: teacherDashboardWidget[1]),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Expanded(flex: 1,child: teacherDashboardWidget[2]),
+                      ],
+                    ),
+                  
+                        Row(
+                          children: [
+                            Expanded(child: teacherDashboardWidget[3]),
+                          ],
+                        ),
+                  
                   ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: teacherDashboardWidget[3],
-                ),
-              ],
-            ),
       // child: SingleChildScrollView(
       //     child: ResponsiveWebSite.isDesktop(context)
       //         ? Column(
@@ -233,7 +235,7 @@ class TeacherDashBoardScreen extends StatelessWidget {
       //                             ),
       //                             SizedBox(
       //                                 width: double.infinity,
-      //                                 child: TeacherExamDetails()),
+      //                                 child: ()),
       //                           ],
       //                         ),
       //                       ),
