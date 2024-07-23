@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sidebar_drawer/sidebar_drawer.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/app_bar/message_notication/notification_show.dart';
 import 'package:vidyaveechi_website/view/users/teacher/teachers_panel/pages/teacher_profile/teacher_profile.dart';
+import 'package:vidyaveechi_website/view/users/teacher/teachers_panel/teachers_appbar/set_class_access.dart';
+import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
 // ignore: must_be_immutable
@@ -22,6 +25,11 @@ class AppBarTeacherPanel extends StatelessWidget {
   final textButtonFocusNode1 = FocusNode();
 
   final textButtonFocusNode2 = FocusNode();
+
+  Future<String?> getClassName() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString(SharedPreferencesHelper.classNameKey) ?? 'No access';
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,71 +57,80 @@ class AppBarTeacherPanel extends StatelessWidget {
                   ],
                 ),
                 const Spacer(),
-                ////
-                ///....
-                ///
-                // ResponsiveWebSite.isMobile(context)
-                //     ? const SizedBox(
-                //         height: 0,
-                //       )
-                //     : Padding(
-                //         padding: const EdgeInsets.only(top: 5),
-                //         child: Row(
-                //           mainAxisAlignment: MainAxisAlignment.center,
-                //           children: [
-                //             Padding(
-                //               padding: const EdgeInsets.only(
-                //                 bottom: 5,
-                //               ),
-                //               child: Container(
-                //                 height: 45,
-                //                 width: 280,
-                //                 decoration: BoxDecoration(
-                //                   color: Colors.grey.withOpacity(0.2),
-                //                   borderRadius: BorderRadius.circular(10),
-                //                 ),
-                //                 child: Row(
-                //                   children: [
-                //                     // const TextFontWidget(text: '🗓️', fontsize: 12),
-                //                     const Padding(
-                //                       padding: EdgeInsets.all(8.0),
-                //                       child:
-                //                           Icon(Icons.calendar_month_outlined),
-                //                     ),
-                //                     TextFontWidget(
-                //                         text:
-                //                             '${UserCredentialsController.batchId}',
-                //                         fontsize: 12),
-                //                     const Spacer(),
-                //                     Padding(
-                //                       padding: const EdgeInsets.only(right: 10),
-                //                       child: GestureDetector(
-                //                         onTap: () =>
-                //                             academicYearSettingFunction(
-                //                                 context),
-                //                         child: Container(
-                //                           height: 34,
-                //                           width: 34,
-                //                           decoration: BoxDecoration(
-                //                               color: cWhite,
-                //                               borderRadius:
-                //                                   BorderRadius.circular(20)),
-                //                           child: const Center(
-                //                             child: Icon(
-                //                               Icons.settings_outlined,
-                //                               color: cBlack,
-                //                             ),
-                //                           ),
-                //                         ),
-                //                       ),
-                //                     )
-                //                   ],
-                //                 ),
-                //               ),
-                //             ),
-                //           ],
-                //         ),
-                //       ),
+             
+                ResponsiveWebSite.isMobile(context)
+                    ? const SizedBox(
+                        height: 0,
+                      )
+                    : Padding(
+                        padding: const EdgeInsets.only(top: 5),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                bottom: 5,
+                              ),
+                              child: Container(
+                                height: 45,
+                                width: 280,
+                                decoration: BoxDecoration(
+                                  color: Colors.grey.withOpacity(0.2),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Row(
+                                  children: [
+                                    // const TextFontWidget(text: '🗓️', fontsize: 12),
+                                    const Padding(
+                                      padding: EdgeInsets.all(8.0),
+                                      child:
+                                          Icon(Icons.class_outlined),
+                                    ),
+                                    FutureBuilder<String?>(
+                                      future: getClassName(),
+                                      builder: (context, snapshot) {
+                                        if (snapshot.connectionState ==
+                                            ConnectionState.waiting) {
+                                          return const CircularProgressIndicator();
+                                        } else if (snapshot.hasError) {
+                                          return const Text('Error');
+                                        } else {
+                                          return TextFontWidget(
+                                              text: snapshot.data ?? 'No access',
+                                              fontsize: 12);
+                                        }
+                                      },
+                                    ),
+                                    const Spacer(),
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 10),
+                                      child: GestureDetector(
+                                        onTap: () =>
+                                            teacherClassSettingFunction(
+                                                context),
+                                        child: Container(
+                                          height: 34,
+                                          width: 34,
+                                          decoration: BoxDecoration(
+                                              color: cWhite,
+                                              borderRadius:
+                                                  BorderRadius.circular(20)),
+                                          child: const Center(
+                                            child: Icon(
+                                              Icons.settings_outlined,
+                                              color: cBlack,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                 const SizedBox(
                   width: 10,
                 ),
@@ -454,7 +471,7 @@ class AppBarTeacherPanel extends StatelessWidget {
                         child: Image.asset('webassets/png/avathar.png'),
                       ),
                     ),
-                    TextFontWidget(
+                    const TextFontWidget(
                       text: 'Stevne Zone',
                       fontsize: 12,
                       color: cBlack,
@@ -468,9 +485,9 @@ class AppBarTeacherPanel extends StatelessWidget {
                 width: 200,
                 decoration: BoxDecoration(
                     border: Border.all(color: cBlack.withOpacity(0.4))),
-                child: Row(
+                child: const Row(
                   children: [
-                    const Padding(
+                    Padding(
                       padding: EdgeInsets.only(left: 10, right: 10),
                       child: Icon(
                         Icons.account_circle_outlined,
@@ -492,9 +509,9 @@ class AppBarTeacherPanel extends StatelessWidget {
                 width: 200,
                 decoration: BoxDecoration(
                     border: Border.all(color: cBlack.withOpacity(0.4))),
-                child: Row(
+                child: const Row(
                   children: [
-                    const Padding(
+                    Padding(
                       padding: EdgeInsets.only(left: 10, right: 10),
                       child: Icon(
                         Icons.power_settings_new,

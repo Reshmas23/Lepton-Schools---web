@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vidyaveechi_website/controller/class_controller/class_controller.dart';
 import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
 
@@ -23,15 +22,15 @@ class _TStatisticsOfHorizontalContainerState
   @override
   void initState() {
     super.initState();
-    loadClassName();
+    // loadClassName();
   }
 
-  Future<void> loadClassName() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    setState(() {
-      teacherClassName = prefs.getString(SharedPreferencesHelper.classNameKey) ?? 'No access';
-    });
-  }
+  // Future<void> loadClassName() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   setState(() {
+  //     teacherClassName = prefs.getString(SharedPreferencesHelper.classNameKey) ?? 'No access';
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -61,17 +60,37 @@ class _TStatisticsOfHorizontalContainerState
         const SizedBox(
           width: 10,
         ),
-        TeacherClassesStudentsDetails(
-          categorytext: 'Selected Class',
-          totalcount: teacherClassName ?? 'No access',
-          imagepath: "webassets/png/graduating-student.png",
-        ),
+        // TeacherClassesStudentsDetails(
+        //   categorytext: 'Selected Class',
+        //   totalcount: teacherClassName ?? 'No access',
+        //   imagepath: "webassets/png/graduating-student.png",
+        // ),
+          // SizedBox(
+          // height: 150,
+          // width: 300,
+          // child: Column(
+          //   children: [
+          //      SelectClassDropDownClassTeacher(),
+          //     const SizedBox(height: 10),
+          //     Text(
+          //       teacherClassName ?? 'No access',
+          //       style: const TextStyle(
+          //         fontSize: 16,
+          //         fontWeight: FontWeight.bold,
+          //       ),
+          //     ),
+          //   ],
+          // ),
+       // ),
+          // SizedBox(height: 50,width: 300,
+          //   child: SelectClassDropDownLogin()),
+
         const SizedBox(
           width: 10,
         ),
         const TeacherClassesStudentsDetails(
-          categorytext: 'Total Students',
-          totalcount: "60",
+          categorytext: 'Selected class',
+          totalcount: "",
           imagepath: "webassets/png/graduating-student.png",
         ),
       ],
