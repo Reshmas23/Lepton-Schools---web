@@ -383,68 +383,77 @@ class UserLoginController extends GetxController {
 
   //////////////////////////////////
 
-  askUserDetailsTeacherBottomSheet(BuildContext context) {
-    return customShowDilogBox(
-        context: context,
-        title: "Slelct the options",
-        children: [
-          SizedBox(
-            height: 150,
-            width: 400,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const TextFontWidget(text: 'Select Batch year *', fontsize: 12),
-                SizedBox(
-                  height: 45,
-                  child: SelectBatchYearDropDownLogin(),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                const TextFontWidget(text: 'Select Class *', fontsize: 12),
-                SizedBox(
-                  height: 45,
-                  child: SelectClassDropDownLogin(),
-                ),
-              ],
-            ),
-          )
-        ],
-        actiononTapfuction: () async {
-          await teachereLoginController(context);
-        },
-        doyouwantActionButton: true);
-  }
+askUserDetailsTeacherBottomSheet(BuildContext context) {
+  return customShowDilogBox(
+      context: context,
+      title: "Select the options",
+      children: [
+        SizedBox(
+          height: 150,
+          width: 400,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const TextFontWidget(text: 'Select Batch year *', fontsize: 12),
+              SizedBox(
+                height: 45,
+                child: SelectBatchYearDropDownLogin(),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              const TextFontWidget(text: 'Select Class *', fontsize: 12),
+              SizedBox(
+                height: 45,
+                child: SelectClassDropDownLogin(),
+              ),
+            ],
+          ),
+        )
+      ],
+      actiononTapfuction: () async {
+        await teachereLoginController(context);
+      },
+      doyouwantActionButton: true);
+}
 
-  Future<void> teachereLoginController(BuildContext context) async {
-    //....... ........................................parent  Login Function
 
-    try {
-      await FirebaseAuth.instance
-          .signInWithEmailAndPassword(
-        email: userEmailIDController.text.trim(),
-        password: userPasswordController.text.trim(),
-      )
-          .then((value) async {
-        final user = await server
+Future<void> teachereLoginController(BuildContext context) async {
+  try {
+    await FirebaseAuth.instance
+        .signInWithEmailAndPassword(
+      email: userEmailIDController.text.trim(),
+      password: userPasswordController.text.trim(),
+    )
+        .then((value) async {
+      final user = await server
+          .collection('SchoolListCollection')
+          .doc(schoolListValue['docid'])
+          .collection('Teachers')
+          .doc(value.user?.uid)
+          .get();
+
+      if (user.data() != null) {
+        UserCredentialsController.teacherModel =
+            TeacherModel.fromMap(user.data()!);
+      }
+
+      if (UserCredentialsController.teacherModel?.userRole == "teacher") {
+        // Check if the teacher has access to the selected class
+        final selectedClassDocID = classCtrl.classDocID.value;
+        final classAccessDoc = await FirebaseFirestore.instance
             .collection('SchoolListCollection')
             .doc(schoolListValue['docid'])
-            .collection('Teachers')
+            .collection(batchCtrl.batchyearValue.value)
+            .doc(batchCtrl.batchyearValue.value)
+            .collection('classes')
+            .doc(selectedClassDocID)
+            .collection('teachers')
             .doc(value.user?.uid)
             .get();
 
-        if (user.data() != null) {
-          UserCredentialsController.teacherModel =
-              TeacherModel.fromMap(user.data()!);
-        }
-
-        if (UserCredentialsController.teacherModel?.userRole == "teacher") {
-          //       Scaffold(
-          //   body: SafeArea(child: Center(
-          //     child: TextFontWidget(text: "under Maintenance.........", fontsize: 20),
-          //   )),
-          // );
+        if (classAccessDoc.exists) {
+          // Proceed with login and set shared preferences
           await SharedPreferencesHelper.setString(
               SharedPreferencesHelper.userRoleKey, 'teacher');
           await SharedPreferencesHelper.setString(
@@ -455,7 +464,9 @@ class UserLoginController extends GetxController {
               SharedPreferencesHelper.batchIdKey,
               batchCtrl.batchyearValue.value);
           await SharedPreferencesHelper.setString(
-              SharedPreferencesHelper.classIdKey, classCtrl.classDocID.value);
+              SharedPreferencesHelper.classIdKey, selectedClassDocID);
+          await SharedPreferencesHelper.setString(
+              SharedPreferencesHelper.classNameKey, classCtrl.className.value);  // Save class name
           if (context.mounted) {
             logined.value = true;
             Navigator.pushAndRemoveUntil(context,
@@ -465,21 +476,27 @@ class UserLoginController extends GetxController {
           }
           isLoading.value = false;
         } else {
-          showToast(msg: "You are not a teacher");
+          // Show message if the teacher does not have access to the selected class
+          showToast(msg: "No access to this class");
           isLoading.value = false;
         }
-      }).catchError((error) {
-        if (error is FirebaseAuthException) {
-          isLoading.value = false;
-          handleFirebaseError(error);
-        }
-      });
-    } catch (e) {
-      isLoading.value = false;
-      // showToast(msg: e.toString());
-      showToast(msg: "Sign in failed");
-    }
+      } else {
+        showToast(msg: "You are not a teacher");
+        isLoading.value = false;
+      }
+    }).catchError((error) {
+      if (error is FirebaseAuthException) {
+        isLoading.value = false;
+        handleFirebaseError(error);
+      }
+    });
+  } catch (e) {
+    isLoading.value = false;
+    showToast(msg: "Sign in failed");
   }
+}
+
+
 
   TextEditingController applynewBatchYearContoller = TextEditingController();
   TextEditingController selectedToDaterContoller = TextEditingController();

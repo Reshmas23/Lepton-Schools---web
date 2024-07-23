@@ -6,6 +6,7 @@ import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_creden
 class Allteacherscontroller extends GetxController {
   RxList teacherList = [].obs;
   RxString className = ''.obs; 
+    RxString teac = ''.obs; 
   Stream<QuerySnapshot> getTeacherSubjectsStream({required String teacherDocId}) {
     // Reference to the specific class collection
     final classCollectionRef = server 
@@ -38,4 +39,6 @@ class Allteacherscontroller extends GetxController {
       }
     });
   }
+
+  
 }
