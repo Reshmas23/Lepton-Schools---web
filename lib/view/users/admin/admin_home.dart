@@ -269,12 +269,9 @@ List<Widget> pages = [
  // const Scaffold(body: LoginDashBoard())
    const TimeTableMainScreen(),
   LoginHistroyContainer(),
-  TimeTableNew()
+  TimeTableNew(),
 
-  // const Scaffold(body: LoginDashBoard())
-  const TimeTableMainScreen(),
-  LoginHistroyContainer(),
-  TherapyHomePage()
+ // TherapyHomePage()
 ];
 List<String> sideMenu = [
   'Attendence',
