@@ -16,11 +16,11 @@ const String _description = "Any schools from Kerala can register on\n"
     "with student login,  parent login, teacher login";
 
 final Uri _faceBookUrl =
-    Uri.parse('https://www.facebook.com/groups/325622007563684/');
+    Uri.parse('https://www.facebook.com/profile.php?id=100091062978371');
 //final Uri _twitterUrl = Uri.parse('https://twitter.com/LeptonDujo');
-final Uri _instaUrl = Uri.parse('https://www.instagram.com/excelkaroorxl/');
+final Uri _instaUrl = Uri.parse('https://www.instagram.com/leptondujo/');
 final Uri _utubeUrl =
-    Uri.parse('https://www.youtube.com/channel/UCSDJa-gA4DYwXzaLxiAbaFw');
+    Uri.parse('https://www.youtube.com/@LEPTONDUJO/featured');
 //final Uri _leptonUrl = Uri.parse('http://www.leptoncommunications.com');
 
 Future<void> _launchFacebookUrl() async {
