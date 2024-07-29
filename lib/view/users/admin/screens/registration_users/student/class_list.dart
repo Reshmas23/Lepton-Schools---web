@@ -114,6 +114,13 @@ class AllClassListContainer extends StatelessWidget {
                                       SizedBox(
                                         width: 02,
                                       ),
+                                      Expanded(
+                                          flex: 2,
+                                          child: CatrgoryTableHeaderWidget(
+                                              headerTitle: 'Delete')),
+                                      SizedBox(
+                                        width: 02,
+                                      ),
                                     ],
                                   ),
                                 ),

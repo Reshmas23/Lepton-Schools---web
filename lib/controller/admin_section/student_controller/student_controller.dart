@@ -487,22 +487,6 @@ class StudentController extends GetxController {
       log("Student deletion error:$e");
     }
   }
-    Future<void> deleteParent(StudentModel studentModel) async {
-    try {
-      await server
-          .collection('SchoolListCollection')
-          .doc(UserCredentialsController.schoolId)
-          .collection('AllParents')
-          .doc(studentModel.docid)
-          .delete()
-          .then((value) { 
-               showToast(msg: 'Student Deleted From All Students');
-            log("Student deleted");
-          });
-    } catch (e) {
-      showToast(msg: 'Not Deleted');
-      log("Student deletion error:$e");
-    }
-  }
+  
  
 }

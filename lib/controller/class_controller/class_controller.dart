@@ -532,4 +532,22 @@ class ClassController extends GetxController {
       log('Student deletion error:$e');
     }
   }
+   Future<void> deleteClassFromThisbatchYear(String classId) async {
+    log("classId -----------$classId");
+    try {
+      server
+           .collection("SchoolListCollection")
+          .doc(UserCredentialsController.schoolId)
+          .collection(UserCredentialsController.batchId!)
+          .doc(UserCredentialsController.batchId!)
+          .collection("classes")
+          .doc(classId)
+          .delete()
+          .then((value) {
+        showToast(msg: "Class deleted Successfully");
+      });
+    } catch (e) {
+      log("Class delete$e");
+    }
+  }
 }
