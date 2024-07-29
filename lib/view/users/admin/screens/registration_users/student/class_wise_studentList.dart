@@ -164,6 +164,13 @@ class AllClassStudentListContainer extends StatelessWidget {
                               SizedBox(
                                 width: 02,
                               ),
+                               Expanded(
+                                  flex: 2,
+                                  child: CatrgoryTableHeaderWidget(
+                                      headerTitle: 'Delete')),
+                              SizedBox(
+                                width: 02,
+                              ),
                             ],
                           ),
                         ),
@@ -217,6 +224,7 @@ class AllClassStudentListContainer extends StatelessWidget {
                                                 .value = true;
                                           },
                                           child: AllClassStudentDataList(
+                                            clsdoicd:Get.find<ClassController>().ontapClassDocID.value,
                                             index: index,
                                             data: data,
                                           ),

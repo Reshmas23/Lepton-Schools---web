@@ -494,4 +494,42 @@ class ClassController extends GetxController {
       log("dddd ${firstSubjectId.value}");
     });
   }
+   Future<void> deleteStudentFromClass(StudentModel studentModel,String clsdocid)async{
+    try{  
+      if (studentModel.docid == null) {
+      throw Exception('Student docid is null');
+    }
+      await server
+      .collection("SchoolListCollection")
+          .doc(UserCredentialsController.schoolId)
+          .collection(UserCredentialsController.batchId!)
+          .doc(UserCredentialsController.batchId!)
+          .collection("classes")
+          .doc(clsdocid)
+          .collection("Students")
+          .doc(studentModel.docid!)
+          .delete()
+          .then((value) {
+               showToast(msg: 'Student Deleted From Class');
+          //   log("Student deleted from Class: '${classModelData.value!.docid}'");
+    });
+       await server
+      .collection("SchoolListCollection")
+          .doc(UserCredentialsController.schoolId)
+          .collection(UserCredentialsController.batchId!)
+          .doc(UserCredentialsController.batchId!)
+          .collection("classes")
+          .doc(clsdocid)
+          .collection("Parents")
+          .doc(studentModel.parentId)
+          .delete()
+          .then((value) {
+               showToast(msg: 'Parent Deleted ');
+          //   log("Student deleted from Class: '${classModelData.value!.docid}'");
+    });
+    }catch(e){
+         showToast(msg: 'Not Deleted');
+      log('Student deletion error:$e');
+    }
+  }
 }

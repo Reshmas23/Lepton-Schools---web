@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:vidyaveechi_website/controller/admin_section/student_controller/student_controller.dart';
 import 'package:vidyaveechi_website/model/student_model/student_model.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/utils/firebase/firebase.dart';
 import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
+import 'package:vidyaveechi_website/view/widgets/custom_delete_showdialog/custom_delete_showdialog.dart';
 import 'package:vidyaveechi_website/view/widgets/data_list_widgets/data_container.dart';
 
 class SearchStudentDataList extends StatelessWidget {
   final StudentModel data;
   final int index;
-  const SearchStudentDataList({
+   SearchStudentDataList({
     required this.data,
     required this.index,
     super.key,
   });
-
+final StudentController studentController = Get.put(StudentController());
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -137,6 +140,31 @@ class SearchStudentDataList extends StatelessWidget {
               ],
             ),
           ), //....................................... Student Phone Number
+            Expanded(
+            flex: 2,
+            child: Center(
+              child: GestureDetector(
+                onTap: () {
+                  customDeleteShowDialog(
+                    context: context,
+                    onTap: () {
+                      studentController
+                          .deleteStudents(data)
+                          .then((value) => Navigator.pop(context));
+                    },
+                  );
+                },
+                child: DataContainerWidget(
+                    rowMainAccess: MainAxisAlignment.center,
+                    color: cWhite,
+                    index: index,
+                    headerTitle: ' Remove 🗑️'),
+              ),
+            ),
+          ), //........................................... delete
+          const SizedBox(
+            width: 01,
+          ),
         ],
       ),
     );

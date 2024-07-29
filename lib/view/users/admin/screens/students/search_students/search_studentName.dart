@@ -104,6 +104,11 @@ class AllStudentSearchByName extends SearchDelegate {
                               flex: 3,
                               child: CatrgoryTableHeaderWidget(
                                   headerTitle: 'Ph.NO')),
+
+                           SizedBox(width: 02,),
+                           Expanded(
+                            flex: 2,
+                            child: CatrgoryTableHeaderWidget(headerTitle: "Delete"))       
                         ],
                       ),
                       SearchStudentDataList(data: data, index: index)
