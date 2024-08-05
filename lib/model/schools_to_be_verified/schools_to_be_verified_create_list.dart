@@ -5,7 +5,7 @@ import 'dart:html' as html;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:vidyaveechi_website/view/home/screens/new_home_01_06.dart';
+import 'package:vidyaveechi_website/view/home/main_screen.dart';
 
 import '../tarif_purchase_model/tarif_purchase_model.dart';
 
@@ -244,7 +244,9 @@ class AddRequestedSchoolsToFirebase {
                   child: const Text('OK'),
                   onPressed: ()async {
                     Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      return HomePageImages();
+                      return 
+                   //   HomePageImages
+                      const MainScreen();
                     },));
                     await Future.delayed(const Duration(milliseconds: 500));
                     html.window.location.reload();
