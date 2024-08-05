@@ -261,18 +261,15 @@ List<Widget> pages = [
   BatchHistroyListPage(),
   // const TimeTableMainScreen(),
   // LoginHistroyContainer(),
-<<<<<<<<< Temporary merge branch 1
  // const Scaffold(body: LoginDashBoard())
    const TimeTableMainScreen(),
   LoginHistroyContainer(),
-  TimeTableNew()
+  TimeTableNew(),
     
-=========
   // const Scaffold(body: LoginDashBoard())
-  const TimeTableMainScreen(),
+   const TimeTableMainScreen(),
   LoginHistroyContainer(),
   TherapyHomePage()
->>>>>>>>> Temporary merge branch 2
 ];
 List<String> sideMenu = [
   'Attendence',

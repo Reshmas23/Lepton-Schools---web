@@ -10,7 +10,6 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:uuid/uuid.dart';
 import 'package:vidyaveechi_website/controller/add_Newschool/add_new_schhol.dart';
@@ -18,11 +17,9 @@ import 'package:vidyaveechi_website/controller/payment_tarif/checking_tarif_cont
 import 'package:vidyaveechi_website/model/tarif_purchase_model/tarif_purchase_model.dart';
 import 'package:vidyaveechi_website/view/constant/constant.validate.dart';
 import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
-import 'package:vidyaveechi_website/view/home/screens/footer/widgets/Iconbackbutton.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive.dart';
 
 import '../../../colors/colors.dart';
-import '../../../fonts/fonts.dart';
 
 class SchoolProfile extends StatefulWidget {
   const SchoolProfile({super.key});
@@ -390,68 +387,68 @@ class _SchoolProfileState extends State<SchoolProfile> {
                   Container(
                     color: adminePrimayColor,
                     height: size.height,
-                    width: 730.w,
-                    child: Column(
-                      children: [
-                        Container(
-                          margin: EdgeInsets.only(
-                            top: 35.h,
-                          ),
-                          child: Row(
-                            // mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              IconButtonBackWidget(
-                                color: cWhite,
-                              ),
-                              SizedBox(
-                                width: 150.w,
-                              ),
-                              Text(
-                                'Hi ! VIDYAVEECHI ',
-                                style: ralewayStyle.copyWith(
-                                  fontSize: 30.0.w,
-                                  color: AppColors.whiteColor,
-                                  fontWeight: FontWeight.w800,
-                                ),
-                              ),
-                              Text(
-                                '    Welcomes you',
-                                style: ralewayStyle.copyWith(
-                                  fontSize: 23.0.w,
-                                  color: AppColors.whiteColor,
-                                  fontWeight: FontWeight.w800,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          height: 20.h,
-                        ),
-                        Center(
-                          child: Container(
-                            margin: EdgeInsets.only(bottom: 25.h),
-                            child: Text(
-                              'Create new school',
-                              style: ralewayStyle.copyWith(
-                                fontSize: 18.0.w,
-                                color: AppColors.whiteColor,
-                                fontWeight: FontWeight.w800,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Flexible(
-                            child: SizedBox(
-                                height: 890.h,
-                                width: 800.w,
-                                child: Center(
-                                  child: LottieBuilder.asset(
-                                      'webassets/lottie_files/22462-campus-library-school-building-maison-mocca-animation.json'),
-                                )))
-                      ],
-                    ),
+                    // width: 730.w,
+                    // child: Column(
+                    //   children: [
+                    //     Container(
+                    //       margin: EdgeInsets.only(
+                    //         top: 35.h,
+                    //       ),
+                    //       child: Row(
+                    //         // mainAxisAlignment: MainAxisAlignment.center,
+                    //         crossAxisAlignment: CrossAxisAlignment.center,
+                    //         children: [
+                    //           IconButtonBackWidget(
+                    //             color: cWhite,
+                    //           ),
+                    //           SizedBox(
+                    //             width: 150.w,
+                    //           ),
+                    //           Text(
+                    //             'Hi ! VIDYAVEECHI ',
+                    //             style: ralewayStyle.copyWith(
+                    //               fontSize: 30.0.w,
+                    //               color: AppColors.whiteColor,
+                    //               fontWeight: FontWeight.w800,
+                    //             ),
+                    //           ),
+                    //           Text(
+                    //             '    Welcomes you',
+                    //             style: ralewayStyle.copyWith(
+                    //               fontSize: 23.0.w,
+                    //               color: AppColors.whiteColor,
+                    //               fontWeight: FontWeight.w800,
+                    //             ),
+                    //           ),
+                    //         ],
+                    //       ),
+                    //     ),
+                    //     SizedBox(
+                    //       height: 20.h,
+                    //     ),
+                    //     Center(
+                    //       child: Container(
+                    //         margin: EdgeInsets.only(bottom: 25.h),
+                    //         child: Text(
+                    //           'Create new school',
+                    //           style: ralewayStyle.copyWith(
+                    //             fontSize: 18.0.w,
+                    //             color: AppColors.whiteColor,
+                    //             fontWeight: FontWeight.w800,
+                    //           ),
+                    //         ),
+                    //       ),
+                    //     ),
+                    //     Flexible(
+                    //         child: SizedBox(
+                    //             height: 890.h,/////////////////////////////////////////////////////////////////
+                    //             width: 800.w,
+                    //             child: Center(
+                    //               child: LottieBuilder.asset(
+                    //                   'webassets/lottie_files/22462-campus-library-school-building-maison-mocca-animation.json'),
+                    //             )))
+                    //   ],
+                    // ),
                   ),
                   SizedBox(
                     width: 800.w,
