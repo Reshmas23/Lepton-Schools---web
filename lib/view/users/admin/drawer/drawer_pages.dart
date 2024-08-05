@@ -605,25 +605,49 @@ class DrawerSelectedPagesSection extends StatelessWidget {
         //     ),
         //   ),
         // ),
-         const SizedBox(
+      
+                const SizedBox(
           height: 10,
         ),
-         ListTile(
-          leading: SizedBox(
-              height: 20,
-              width: 20,
-              child: Image.asset('webassets/png/therapy.png')),
-          tileColor: selectedIndex == 22
+         Container(
+          color: selectedIndex == 22
               ? themeColorBlue.withOpacity(0.1)
               : Colors.transparent,
-          onTap: () {
-            index = 22;
-            onTap.call(index);
-          },
-          title: DashboardTextFontWidget(
-            title: 'Therapy Management',
+          child: ListTile(
+            leading: SizedBox(
+                height: 20,
+                width: 20,
+                child: Image.asset('webassets/png/logout.png')),
+            onTap: () {
+              index = 22;
+              onTap.call(index);
+            },
+            title: Row(
+              children: [
+                DashboardTextFontWidget(
+                  title: 'TimeTable',
+                ),
+              ],
+            ),
           ),
-        ),
+        ),  
+
+        //  ListTile(
+        //   leading: SizedBox(
+        //       height: 20,
+        //       width: 20,
+        //       child: Image.asset('webassets/png/therapy.png')),
+        //   tileColor: selectedIndex == 22
+        //       ? themeColorBlue.withOpacity(0.1)
+        //       : Colors.transparent,
+        //   onTap: () {
+        //     index = 22;
+        //     onTap.call(index);
+        //   },
+        //   title: DashboardTextFontWidget(
+        //     title: 'Therapy Management',
+        //   ),
+        // ),
       ],
     );
   }

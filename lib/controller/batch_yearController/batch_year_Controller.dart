@@ -85,9 +85,9 @@ class BatchYearController extends GetxController {
         .doc(batchId)
         .delete();
 
-    print(
-      batchId,
-    );
+    //print(
+    //   batchId,
+    // )
   }
 
   Future<void> selectDate(

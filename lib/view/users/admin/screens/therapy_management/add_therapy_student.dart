@@ -207,7 +207,7 @@
 //                                                       //   if (therapyController.formKey.currentState!
 //                                                       //       .validate()) {
 //                                                       // therapyController.createTherapy(),
-//                                                       //     print("object");
+//                                                       //     //print("object");
 //                                                       //   }
 //                                                       // },
 //                                                       buttonstate:
@@ -225,7 +225,7 @@
 //                                               //         .validate()) {
 //                                               //       therapyController
 //                                               //           .createNotice();
-//                                               //       print("object");
+//                                               //       //print("object");
 //                                               //     }
 //                                               //         },
 //                                               //         color: adminePrimayColor,
@@ -337,7 +337,7 @@
 //                                 function: () async {
 //                                   if (therapyController.formKey.currentState!.validate()) {
 //                                     // therapyController.createNotice();
-//                                     print("object");
+//                                     //print("object");
 //                                   }
 //                                 },
 //                                 buttonstate: therapyController.buttonstate.value,

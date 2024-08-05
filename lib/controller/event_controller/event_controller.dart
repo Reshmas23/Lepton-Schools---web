@@ -59,8 +59,8 @@ class EventController extends GetxController {
         eventvenueController.clear();
         eventsignedByController.clear();
         buttonstate.value = ButtonState.success;
-        print(UserCredentialsController.batchId!);
-        print(eventDetails.id);
+        //print(UserCredentialsController.batchId!);
+        //print(eventDetails.id);
 
         showToast(msg: "Event Created Successfully");
         await Future.delayed(const Duration(seconds: 2)).then((vazlue) {

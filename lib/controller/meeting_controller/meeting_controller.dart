@@ -67,7 +67,7 @@ class MeetingController extends GetxController {
         venueController.clear();
         buttonstate.value = ButtonState.success;
 
-        print(meetingDetails.meetingId);
+        //print(meetingDetails.meetingId);
         showToast(msg: "Meeting Created Successfully");
         await Future.delayed(const Duration(seconds: 2)).then((vazlue) {
           buttonstate.value = ButtonState.idle;
@@ -103,7 +103,7 @@ class MeetingController extends GetxController {
         })
         .then((value) => Navigator.pop(context))
         .then((value) => showToast(msg: 'Meeting Updated!'));
-    print("object");
+    //print("object");
   }
 
   Future<void> deleteMeeting(String meetingId, BuildContext context) async {

@@ -55,7 +55,7 @@ uploadImageForStaff(BuildContext context, String docid) {
                                   staffManagementController.imagePath.value =
                                       await imagePicker.pickImageGallery();
                                 } catch (e) {
-                                  print(e);
+                                  //print(e);
                                 }
                                 // final input =
                                 //     querySelector('#imageInput') as InputElement;
@@ -81,7 +81,7 @@ uploadImageForStaff(BuildContext context, String docid) {
 
                                     log("Image pathhhh ---->>> ${staffManagementController.imagePath.value}");
                                   } catch (e) {
-                                    print(e);
+                                    //print(e);
                                   }
                                 },
                                 child: BlueContainerWidget(

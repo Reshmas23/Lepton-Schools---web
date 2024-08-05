@@ -237,7 +237,7 @@ class PeriodWiseTimeTable extends StatelessWidget {
                                                   timeTableController
                                                       .enableUpdate(data.docid,
                                                           data.dayName!);
-                                                  print(data.dayName!);
+                                                  //print(data.dayName!);
                                                 });
                                           },
                                           child: DataContainerMarksWidget(
@@ -284,7 +284,7 @@ class PeriodWiseTimeTable extends StatelessWidget {
                             ),
                           );
                         } else if (snapshot.data == null) {
-                          return  Center(
+                          return  const Center(
                             child: TextFontWidget(
                                 text: "No result found", fontsize: 12),
                           );

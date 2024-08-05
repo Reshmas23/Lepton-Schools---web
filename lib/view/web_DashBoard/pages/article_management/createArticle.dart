@@ -47,11 +47,11 @@ createArticle(BuildContext context) {
     //   if (result != null) {
     //     File file = File(result.files.single.bytes.toString());
     //     // Handle the selected document file (e.g., save it, process it, etc.)
-    //     print('Selected document: ${file.path}');
+    //     //print('Selected document: ${file.path}');
     //     return file.path;
     //   }
     // } catch (e) {
-    //   print('Error picking document: $e');
+    //   //print('Error picking document: $e');
     //   return 'Error picking document: $e';
     // }
 
@@ -85,7 +85,7 @@ createArticle(BuildContext context) {
       log(downloadUrl);
       finalDownloadUrl = downloadUrl;
     } catch (e) {
-      print('Error uploading document: $e');
+      //print('Error uploading document: $e');
     }
   }
 

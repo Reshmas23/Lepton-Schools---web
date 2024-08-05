@@ -642,6 +642,8 @@ import 'package:flutter/material.dart';
 // }
 
 class MyForm extends StatefulWidget {
+  const MyForm({super.key});
+
   @override
   _MyFormState createState() => _MyFormState();
 }
@@ -660,7 +662,7 @@ class _MyFormState extends State<MyForm> {
           children: [
             TextFormField(
               controller: _textController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Enter text',
                 contentPadding: EdgeInsets.only(top: 20.0), // Adjust top padding
               ),
@@ -671,16 +673,16 @@ class _MyFormState extends State<MyForm> {
                 return null;
               },
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
                   // Form is valid, handle submission
                   // For example, you can print the entered text
-                  print('Entered text: ${_textController.text}');
+                  //print('Entered text: ${_textController.text}');
                 }
               },
-              child: Text('Submit'),
+              child: const Text('Submit'),
             ),
           ],
         ),

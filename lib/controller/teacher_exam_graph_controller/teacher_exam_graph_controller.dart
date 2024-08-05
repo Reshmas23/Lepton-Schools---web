@@ -10,13 +10,17 @@ class TeacherExamStatusController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    fetchClasswiseExamData();
+    fetchClasswiseExamData();    
   }
 
   Future<void> fetchClasswiseExamData() async {
     try {
       final selectedClassDocID = Get.find<ClassController>().classDocID.value;
-      if (selectedClassDocID.isNotEmpty) {
+
+      // Retrieve classId from SharedPreferences
+      final classId = SharedPreferencesHelper.getString(SharedPreferencesHelper.classIdKey);
+      
+      if (selectedClassDocID.isNotEmpty && classId != null && classId.isNotEmpty) {
         final examSnapshot = await FirebaseFirestore.instance
             .collection('SchoolListCollection')
             .doc(UserCredentialsController.schoolId)
@@ -26,7 +30,7 @@ class TeacherExamStatusController extends GetxController {
             .get();
 
         final List<ChartData> data =
-            await _getChartData(examSnapshot, selectedClassDocID);
+            await _getChartData(examSnapshot, classId); // Use classId here
         chartData.value = data;
       }
     } catch (e) {
@@ -86,21 +90,9 @@ class TeacherExamStatusController extends GetxController {
             .doc(subjectElement.id)
             .collection('MarkList')
             .get();
-
-        for (var studentMark in studentMarkListCollection.docs) {
-          final markData = studentMark.data();
-          final obtainedMark = markData['obtainedMark'] ?? '0';
-          final passMark = markData['passMark'] ?? '0';
-
-          final obtainedMarkNum =
-              double.tryParse(obtainedMark.toString()) ?? 0;
-          final passMarkNum = double.tryParse(passMark.toString()) ?? 0;
-
-          if (obtainedMarkNum > passMarkNum) {
-            total++;
-          }
-        }
+        total += studentMarkListCollection.size;
       }
+
       return total;
     } catch (e) {
       print('Error fetching students written exam count: $e');
@@ -138,7 +130,6 @@ class TeacherExamStatusController extends GetxController {
             .doc(subjectElement.id)
             .collection('MarkList')
             .get();
-
         for (var studentMark in studentMarkListCollection.docs) {
           final markData = studentMark.data();
           final obtainedMark = markData['obtainedMark'] ?? '0';

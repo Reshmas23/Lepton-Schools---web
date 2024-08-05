@@ -1,22 +1,27 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:vidyaveechi_website/controller/class_controller/class_controller.dart';
 import 'package:vidyaveechi_website/model/class_model/class_model.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/utils/firebase/firebase.dart';
 import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
+import 'package:vidyaveechi_website/view/widgets/custom_delete_showdialog/custom_delete_showdialog.dart';
 import 'package:vidyaveechi_website/view/widgets/data_list_widgets/data_container.dart';
 
 class AllClassDataList extends StatelessWidget {
   final AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> classStatus;
   final int index;
   final ClassModel data;
-  const AllClassDataList({
+   AllClassDataList({
     required this.classStatus,
     required this.index,
     required this.data,
     super.key,
   });
-
+final ClassController classController = Get.put(ClassController());
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -123,6 +128,32 @@ class AllClassDataList extends StatelessWidget {
                   }
                 }),
           ), //
+          const SizedBox(
+            width: 01,
+          ),
+            Expanded(
+            flex: 2,
+            child: Center(
+              child: GestureDetector(
+                onTap: () {
+                  customDeleteShowDialog(
+                    context: context,
+                    onTap: () {
+                      log('haijd jbdsh${data.docid}');
+                      classController
+                          .deleteClassFromThisbatchYear(data.docid)
+                          .then((value) => Navigator.pop(context));
+                    },
+                  );
+                },
+                child: DataContainerWidget(
+                    rowMainAccess: MainAxisAlignment.center,
+                    color: cWhite,
+                    index: index,
+                    headerTitle: ' Remove 🗑️'),
+              ),
+            ),
+          ), //........................................... delete
           const SizedBox(
             width: 01,
           ),

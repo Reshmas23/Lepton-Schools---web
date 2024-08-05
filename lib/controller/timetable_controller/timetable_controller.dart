@@ -119,13 +119,13 @@ class TimeTableController extends GetxController {
                   }));
 
       // Log the details
-      print(UserCredentialsController.schoolId);
-      print(UserCredentialsController.batchId!);
-      print(classController.classDocID.value);
-      print(dayName.value);
-      print(classController.classDocID.value);
-      // print(periodNumber.value);
-      print(timetableData);
+      //print(UserCredentialsController.schoolId);
+      //print(UserCredentialsController.batchId!);
+      //print(classController.classDocID.value);
+      //print(dayName.value);
+      //print(classController.classDocID.value);
+      // //print(periodNumber.value);
+      //print(timetableData);
     } catch (e, stackTrace) {
       
       log('Error adding timetable: $e', stackTrace: stackTrace);
@@ -161,10 +161,10 @@ class TimeTableController extends GetxController {
         'endTime': endTimeviewController.text,
         });
 
-    print(
-      docid,
+    //print(
+    //   docid,
 
-    );
+    // )
   }
 
  Future<void> enableDelete(
@@ -185,10 +185,10 @@ class TimeTableController extends GetxController {
         .doc(docid)
         .delete();
 
-    print(
-      docid,
+    //print(
+    //   docid,
 
-    );
+    // )
   }
   
 

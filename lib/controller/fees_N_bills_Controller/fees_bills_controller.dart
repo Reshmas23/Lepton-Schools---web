@@ -28,7 +28,7 @@ class FeesAndBillsController extends GetxController {
   RxInt studentClassWiseCount = 0.obs;
   List<StudentModel> studentData = [];
   Future<int> fetchInitalClassFee(String classDocID) async {
-    print("fetchInitalClassFee ....$classDocID");
+    //print("fetchInitalClassFee ....$classDocID");
     await server
         .collection('SchoolListCollection')
         .doc(UserCredentialsController.schoolId)
@@ -306,7 +306,7 @@ class FeesAndBillsController extends GetxController {
             value.docs.map((e) => StudentModel.fromMap(e.data())).toList();
         studentData.addAll(list);
       for (var i = 0; i < value.docs.length; i++) {
-        print('Student names ${value.docs[i].data()['studentemail']}');
+        //print('Student names ${value.docs[i].data()['studentemail']}');
 
         // final StudentModel list = StudentModel(
         //     admissionNumber: value.docs[i].data()['admissionNumber'],

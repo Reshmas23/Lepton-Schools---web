@@ -112,8 +112,8 @@ class ArticleView extends StatelessWidget {
               // initialScrollOffset: const Offset(0, 500),
               controller: _pdfViewerController,
               onDocumentLoadFailed: (PdfDocumentLoadFailedDetails details) {
-                print('PDF load failed: ${details.error}');
-                print('Description: ${details.description}');
+                //print('PDF load failed: ${details.error}');
+                //print('Description: ${details.description}');
               },
               // pageSpacing: 2,
               // initialZoomLevel: 1.5,

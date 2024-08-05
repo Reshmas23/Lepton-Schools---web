@@ -104,7 +104,7 @@ class StudentDetailsContainer extends StatelessWidget {
                                           ),
                                           const RouteSelectedTextContainer(
                                               width: 140,
-                                              title: 'Student Deatils'),
+                                              title: 'Student Details'),
                                         ],
                                       ),
                                     )
@@ -135,7 +135,7 @@ class StudentDetailsContainer extends StatelessWidget {
                                           ),
                                           const RouteSelectedTextContainer(
                                               width: 140,
-                                              title: 'Student Deatils'),
+                                              title: 'Student Details'),
                                         ],
                                       ),
                                     )

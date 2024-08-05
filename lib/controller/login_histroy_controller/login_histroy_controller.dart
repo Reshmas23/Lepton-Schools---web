@@ -33,7 +33,7 @@ class AdminLoginHistroyController extends GetxController {
     for (var i = 0; i < firebase.docs.length; i++) {
       final list = firebase.docs[i].data()['docid'] ;
       allLoginMonthList.add(list);
-      print(list);
+      //print(list);
     }
     return allLoginMonthList;
   }

@@ -46,7 +46,7 @@ Future<void> swipeCard() async {
 }
 
 Future<void> streamCard() async {
-  print("calling");
+  //print("calling");
   await server
       .collection('Attendance')
       .doc('MsRK8bvGM7hvpoXAvtbVo3KsB6H2')
@@ -143,7 +143,7 @@ String timeConvert(DateTime date) {
   } catch (e) {
     // Handle any potential errors
     if (kDebugMode) {
-      print('Error converting time: $e');
+      //print('Error converting time: $e');
     }
   }
   return '';

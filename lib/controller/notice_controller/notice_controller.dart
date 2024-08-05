@@ -74,7 +74,7 @@ class NoticeController extends GetxController {
         noticeDateofSubmissionController.clear();
         noticeSignedByController.clear();
         buttonstate.value = ButtonState.success;
-        print(UserCredentialsController.batchId!);
+        //print(UserCredentialsController.batchId!);
 
         showToast(msg: "Notice Created Successfully");
         await Future.delayed(const Duration(seconds: 2)).then((vazlue) {

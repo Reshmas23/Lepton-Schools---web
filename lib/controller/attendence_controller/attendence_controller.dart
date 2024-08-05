@@ -218,7 +218,7 @@ class AttendenceController extends GetxController {
           .get();
 
       studentAttenanceList.value = studentData.docs.map((e) {
-        print(e['present']);
+        //print(e['present']);
         return StudentAttendanceModel(
             date: '', present: e['present'], studentName: e['studentName'], uid: e['uid']);
       }).toList();
@@ -324,7 +324,7 @@ class AttendenceController extends GetxController {
           .get();
 
       allStudentAttenanceList.value = studentData.docs.map((e) {
-        print(e['present']);
+        //print(e['present']);
         return StudentAttendanceModel(
             date: e['Date'], present: e['present'], studentName: e['studentName'], uid: e['uid']);
       }).toList();

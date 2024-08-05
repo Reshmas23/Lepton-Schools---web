@@ -44,7 +44,7 @@ class ClassDataListWidget extends StatelessWidget {
 // Convert milliseconds to days
     int daysAgo = (differenceInMilliseconds / (1000 * 60 * 60 * 24)).round();
     log("date$daysAgo");
-    print( "     ${data.classTeacherName??''}");
+    //print( "     ${data.classTeacherName??''}");
     return SizedBox(
       height: 45,
       child: Row(

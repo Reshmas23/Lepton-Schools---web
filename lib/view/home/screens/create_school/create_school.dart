@@ -53,7 +53,7 @@ class _SchoolProfileState extends State<SchoolProfile> {
     if (isChecked) {
       // Checkbox is checked, perform necessary actions
       // e.g., save data, navigate to a new screen, etc.
-      print('Checkbox is checked!');
+      //print('Checkbox is checked!');
     }
   }
 

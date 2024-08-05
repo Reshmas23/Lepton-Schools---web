@@ -48,7 +48,7 @@ adminProfileshowlist(BuildContext context) {
                       child: IconButton(
                           onPressed: () async {
                             if (kDebugMode) {
-                              print("logoutUser");
+                              //print("logoutUser");
                             }
                             await Get.find<UserLoginController>()
                                 .logoutSaveData()
@@ -117,7 +117,7 @@ adminProfileshowlist(BuildContext context) {
                       child: IconButton(
                           onPressed: () async {
                             if (kDebugMode) {
-                              print("logoutUser");
+                              //print("logoutUser");
                             }
                             await Get.find<UserLoginController>()
                                 .logoutSaveData()

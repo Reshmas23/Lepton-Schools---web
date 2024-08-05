@@ -221,7 +221,7 @@ class ExamNotificationController extends GetxController {
       required String endTime}) async {
     final createDate = DateTime.now().toString();
     final uuid = const Uuid().v1();
-    print(startTime);
+    //print(startTime);
     // final hours = calculateDuration(startTime, endTime).inHours.toString();
     final hours =
         formatDuration(calculateDuration(startTime, endTime)).toString();

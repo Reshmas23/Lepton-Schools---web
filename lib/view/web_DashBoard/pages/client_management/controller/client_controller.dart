@@ -251,13 +251,14 @@ pickFileFunction({required String format}) async {
     .child("$uid.$format");
     ref.putData(result.files.first.bytes!)
     .whenComplete(() async {
+      // ignore: unused_local_variable
       final String downloadUrl = await ref.getDownloadURL();
       // ignore: avoid_print
-      print("Download url From FireBase $downloadUrl");
+      //print("Download url From FireBase $downloadUrl");
     });
 
     // ignore: avoid_print
-    print("message ${result.files.first.bytes}");
+    //print("message ${result.files.first.bytes}");
   } else {
     // User canceled the picker
   }

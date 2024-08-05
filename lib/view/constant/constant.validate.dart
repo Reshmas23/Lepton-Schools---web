@@ -38,7 +38,7 @@ String stringTimeToDateConvert(String date) {
     return "${dateFormat.day}-${dateFormat.month}-${dateFormat.year}";
   } catch (e) {
     if (kDebugMode) {
-      print(e);
+      //print(e);
     }
   }
   return '';
@@ -52,7 +52,7 @@ String stringTimeConvert(DateTime date) {
     return formattedTime;
   } catch (e) {
     if (kDebugMode) {
-      print(e);
+      //print(e);
     }
   }
   return '';
@@ -135,7 +135,7 @@ String? checkFieldDateIsValid(String? fieldContent) {
       }
     } catch (e) {
       if (kDebugMode) {
-        print(e);
+        //print(e);
       }
     }
   }
@@ -169,7 +169,7 @@ String? checkFieldTimeIsValid(String? fieldContent) {
       }
     } catch (e) {
       if (kDebugMode) {
-        print(e);
+        //print(e);
       }
     }
   }
@@ -237,7 +237,7 @@ String timeConvert(DateTime date) {
   } catch (e) {
     // Handle any potential errors
     if (kDebugMode) {
-      print('Error converting time: $e');
+      //print('Error converting time: $e');
     }
   }
   return '';
@@ -251,7 +251,7 @@ String timeToDateConvert(String date) {
     return formatter.format(dateFormat);
   } catch (e) {
     if (kDebugMode) {
-      print(e);
+      //print(e);
     }
   }
   return '';

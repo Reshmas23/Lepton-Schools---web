@@ -19,8 +19,8 @@ class TeacherImageController extends GetxController {
       XFile? pickimage =
           await ImagePicker().pickImage(source: ImageSource.gallery);
       if (pickimage != null) {
-        print("<>>>>>>>>>>>>>>>>>>>>>>>.gasudgisa");
-        print(pickimage.readAsBytes());
+        //print("<>>>>>>>>>>>>>>>>>>>>>>>.gasudgisa");
+        //print(pickimage.readAsBytes());
         image.value = await pickimage.readAsBytes();
         updateProfilePicture();
         // return await pickimage.readAsBytes();
@@ -53,7 +53,7 @@ class TeacherImageController extends GetxController {
   }
 
   Future updateProfilePicture() async {
-    // print('<<<<<<<<<<<<<<<<<<<<<<<<<<<<<${image.value}');
+    // //print('<<<<<<<<<<<<<<<<<<<<<<<<<<<<<${image.value}');
     String uploadedImage = await uploapImageToFirebase(image.value!);
     log('Image converted');
 
@@ -79,7 +79,7 @@ class TeacherImageController extends GetxController {
       }
     } else {
       // Handle the case where the user is not found in either collection
-      print('User not found in any collection');
+      //print('User not found in any collection');
     }
   }
 }
@@ -122,7 +122,7 @@ class TeacherProfileController extends GetxController {
       }
     } else {
       // Handle the case where the user is not found in either collection
-      print('User not found in  collection');
+      //print('User not found in  collection');
     }
   }
 }

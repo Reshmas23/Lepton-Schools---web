@@ -61,9 +61,10 @@ class _GenerateExcelState extends State<GenerateExcel> {
     final List<StudentModel> users = await excelcontroller.fetchStudentData();
 
     // Debug: Print fetched users
-    print('Fetched users: ${users.length}');
+    //print('Fetched users: ${users.length}');
+    // ignore: unused_local_variable
     for (var user in users) {
-      print('User: ${user.studentName}, Class: ${user.classId}');
+      //print('User: ${user.studentName}, Class: ${user.classId}');
     }
 
     // Group users by class
@@ -77,7 +78,7 @@ class _GenerateExcelState extends State<GenerateExcel> {
 
     // Debug: Print grouped users by class
     usersByClass.forEach((nameofClass, users) {
-      print('Class: $nameofClass, Students: ${users.length}');
+      //print('Class: $nameofClass, Students: ${users.length}');
     });
 
     // Create Excel files for each class
@@ -86,7 +87,7 @@ class _GenerateExcelState extends State<GenerateExcel> {
       final classUsers = entry.value;
 
       // Debug: Print class details before creating Excel
-      print('Creating Excel for Class: $nameofClass with ${classUsers.length} students');
+      //print('Creating Excel for Class: $nameofClass with ${classUsers.length} students');
 
       // Creating a workbook.
       final Workbook workbook = Workbook();
@@ -123,6 +124,6 @@ class _GenerateExcelState extends State<GenerateExcel> {
     }
 
     // Debug: Completed
-    print('Excel generation completed.');
+    //print('Excel generation completed.');
   }
 }

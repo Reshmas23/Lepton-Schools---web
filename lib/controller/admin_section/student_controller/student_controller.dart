@@ -115,6 +115,7 @@ class StudentController extends GetxController {
         .update({'editoption': status});
   }
 
+
   Future<void> manualCreateaNewStudent(BuildContext context) async {
     buttonstate.value = ButtonState.loading;
     final studentEmail =
@@ -275,7 +276,7 @@ class StudentController extends GetxController {
   //         .doc('AdNo')
   //         .set({'AdNumber': stAdNumber.value});
   //   } else {
-  //     print('.....................');
+  //     //print('.....................');
   //     stAdNumber.value = result.data()?['AdNumber'] ?? 0;
   //   }
 
@@ -401,7 +402,7 @@ class StudentController extends GetxController {
       final data = await _fbServer.collection('AllStudents').get();
       studentProfileList =
           data.docs.map((e) => StudentModel.fromMap(e.data())).toList();
-      print(studentProfileList[0]);
+      //print(studentProfileList[0]);
     } catch (e) {
       showToast(msg: "User Data Error");
     }
@@ -409,7 +410,7 @@ class StudentController extends GetxController {
 
   @override
   void onReady() async {
-    print("On Ready");
+    //print("On Ready");
     // await getAdmissionNumber();
     await fetchAllStudents();
 
@@ -457,4 +458,35 @@ class StudentController extends GetxController {
       }
     }
   }
+
+    Future<void> deleteStudents(StudentModel studentModel) async {
+    //  final stdd =studentModel.docid;
+    try {
+      await server
+          .collection('SchoolListCollection')
+          .doc(UserCredentialsController.schoolId)
+          .collection('AllStudents')
+          .doc(studentModel.docid)
+          .delete()
+          .then((value) { 
+               showToast(msg: 'Student Deleted From All Students');
+            log("Student deleted");
+          });
+            await server
+        .collection('SchoolListCollection')
+        .doc(UserCredentialsController.schoolId)
+        .collection('AllParents')
+        .doc(studentModel.parentId)
+        .delete()
+        .then((value) {
+      showToast(msg: 'Parent Deleted');
+      log("Parent deleted");
+    });
+    } catch (e) {
+      showToast(msg: 'Not Deleted');
+      log("Student deletion error:$e");
+    }
+  }
+  
+ 
 }

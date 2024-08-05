@@ -7,7 +7,7 @@ import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_creden
 class CardController extends GetxController {
   final notificationCntrl = Get.put(NotificationController());
   Future<void> streamCard() async {
-    print("calling");
+    //print("calling");
     await server
         .collection('Attendance')
         .doc(UserCredentialsController.schoolId)

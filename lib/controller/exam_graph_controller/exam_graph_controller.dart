@@ -64,8 +64,8 @@ class ExamStatusController extends GetxController {
           final passMarkNum = double.tryParse(passMark.toString()) ?? 0;
 
           // Debug statements
-          print('obtainedMark: $obtainedMarkNum, passMark: $passMarkNum');
-          print('obtainedMark type: ${obtainedMarkNum.runtimeType}, passMark type: ${passMarkNum.runtimeType}');
+          //print('obtainedMark: $obtainedMarkNum, passMark: $passMarkNum');
+          //print('obtainedMark type: ${obtainedMarkNum.runtimeType}, passMark type: ${passMarkNum.runtimeType}');
 
           if (obtainedMarkNum > passMarkNum) {
             total++;
@@ -75,7 +75,7 @@ class ExamStatusController extends GetxController {
     }
     return total;
   } catch (e) {
-    print('Error fetching students written exam count: $e');
+    //print('Error fetching students written exam count: $e');
     return 0;
   }
 }
@@ -92,12 +92,12 @@ class ExamStatusController extends GetxController {
           .collection('ExamNotification')
           .get();
 
-      print('Exam notifications fetched: ${examSnapshot.size} exams');
+      //print('Exam notifications fetched: ${examSnapshot.size} exams');
 
       final List<ChartData> data = await _getChartData(examSnapshot, totalStudents.value);
       chartData.value = data;
     } catch (e) {
-      print('Error fetching chart data: $e');
+      //print('Error fetching chart data: $e');
     }
   }
 
@@ -107,7 +107,7 @@ class ExamStatusController extends GetxController {
       final data = doc.data() as Map<String, dynamic>;
       final examName = data['examName'] ?? '';
 
-      print('Fetching data for exam: $examName');
+      //print('Fetching data for exam: $examName');
 
       final studentsWrittenExamCount = await getStudentsWrittenExamCount(examName);
 
@@ -147,7 +147,7 @@ class ExamStatusController extends GetxController {
 
       return total;
     } catch (e) {
-      print('Error fetching total students count: $e');
+      //print('Error fetching total students count: $e');
       return 0;
     }
   }

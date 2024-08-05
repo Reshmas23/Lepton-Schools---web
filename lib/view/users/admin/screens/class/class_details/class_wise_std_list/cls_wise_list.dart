@@ -110,7 +110,7 @@ class ClassWiseStudentList extends StatelessWidget {
                                       .collection("Students").orderBy('studentName')
                                       .snapshots(),
                                   builder: (context, clsStdsnaps) {
-                                    //   print(classController.classModelData.value!.docid);
+                                    //   //print(classController.classModelData.value!.docid);
                                     if (clsStdsnaps.hasData) {
                                       return ListView.separated(
                                         itemBuilder: (context, index) {
@@ -186,7 +186,7 @@ class ClassWiseStudentList extends StatelessWidget {
                                                         ''?'dd':data?['parentId'])
                                                         .snapshots(),
                                                         builder: (context, snapshot) {
-                                                        //  print('-------------${data?['parentId']??"dd"}');
+                                                        //  //print('-------------${data?['parentId']??"dd"}');
                                                           if (snapshot.hasData) {
                                                            if (snapshot.data! .data()==null) {
                                                           

@@ -141,10 +141,10 @@ class AllAdminListPage extends StatelessWidget {
                                       itemBuilder: (context, index) {
                                         final data = AdminDetailsModel.fromMap(
                                             snapshot.data!.docs[index].data());
-                                        // print(data.username);
-                                        // print(data.email);
-                                        // print(data.phoneNumber);
-                                        // print(data.active);
+                                        // //print(data.username);
+                                        // //print(data.email);
+                                        // //print(data.phoneNumber);
+                                        // //print(data.active);
                                         return AdminDataList(
                                           index: index,
                                           data: data,

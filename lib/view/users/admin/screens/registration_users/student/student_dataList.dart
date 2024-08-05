@@ -1,21 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vidyaveechi_website/controller/admin_section/teacher_controller/teacher_controller.dart';
+import 'package:vidyaveechi_website/controller/class_controller/class_controller.dart';
 import 'package:vidyaveechi_website/model/student_model/student_model.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/list_of_teacher/edit_teacherDetails.dart';
+import 'package:vidyaveechi_website/view/widgets/custom_delete_showdialog/custom_delete_showdialog.dart';
 import 'package:vidyaveechi_website/view/widgets/data_list_widgets/data_container.dart';
 
 class AllClassStudentDataList extends StatelessWidget {
   final int index;
   final StudentModel data;
-  const AllClassStudentDataList({
+  final String clsdoicd;
+   AllClassStudentDataList({
+    required this.clsdoicd,
     required this.index,
     required this.data,
     super.key,
   });
-
+final ClassController classController = Get.put(ClassController());
   @override
   Widget build(BuildContext context) {
     return Obx(() => Container(
@@ -244,6 +248,34 @@ class AllClassStudentDataList extends StatelessWidget {
                   ],
                 ),
               ), //............................. Status [Active or DeActivate]
+                Expanded(
+            flex: 2,
+            child: Center(
+              child: GestureDetector(
+                onTap: () {
+                  customDeleteShowDialog(
+                    context: context,
+                    onTap: () {
+                      classController
+                          .deleteStudentFromClass(data,clsdoicd)
+                          .then((value) {
+                            Get.back();
+                            // Navigator.pop(context);
+                          });
+                    },
+                  );
+                },
+                child: DataContainerWidget(
+                    rowMainAccess: MainAxisAlignment.center,
+                    color: cWhite,
+                    index: index,
+                    headerTitle: ' Remove 🗑️'),
+              ),
+            ),
+          ), //........................................... delete
+          const SizedBox(
+            width: 01,
+          ),
             ],
           ),
         ));
